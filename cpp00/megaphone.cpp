@@ -6,8 +6,15 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 15:06:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/04/14 15:08:49 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/04/14 15:21:22 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 
+int main(void)
+{
+	std::cout << "Hello World !" << std::endl;
+
+	return (0);
+}
