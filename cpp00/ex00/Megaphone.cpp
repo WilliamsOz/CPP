@@ -3,22 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   Megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 15:06:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/04/15 09:42:50 by oozsertt         ###   ########.fr       */
+/*   Updated: 2022/05/16 14:39:31 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int main(void)
+int main(int ac, char **av)
 {
-	int	str;
+	int	i = 1;
+	int	j = 0;
 
-	std::cin >> str;
-	if (str == 42)
-		std::cout << "Hello World !" << std::endl;
-
+	if (ac > 1)
+	{
+		while (av[i])
+		{
+			while (av[i][j])
+			{
+				av[i][j] = toupper(av[i][j]);
+				j++;
+			}
+			std::cout << av[i];
+			j = 0;
+			i++;
+		}
+	}
+	else
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	std::cout << std::endl;
 	return (0);
 }

@@ -3,24 +3,31 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oozsertt <oozsertt@student.42.fr>          +#+  +:+       +#+         #
+#    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:29:45 by oozsertt          #+#    #+#              #
-#    Updated: 2022/04/15 09:37:51 by oozsertt         ###   ########.fr        #
+#    Updated: 2022/05/16 14:36:53 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
-SRCS = Megaphone.cpp
+SRCS = megaphone.cpp
+
+OBJ = Megaphone.o
 
 $(NAME) : all
 
 all :
-	c++ -Wall -Wextra -Werror -std=c++98 $(SRCS) -o $(NAME)
+	mkdir -p obj
+	c++ -Wall -Wextra -Werror -std=c++98 $(SRCS) -c
+	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
+	mv $(OBJ) ./obj
 
 clean :
+	rm -rf obj
 
-fclean :
+fclean : clean
+	rm -rf $(NAME)
 
 re : fclean all
