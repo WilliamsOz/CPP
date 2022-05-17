@@ -1,0 +1,36 @@
+Conception d'un repertoire
+Phonebook :
+
+Represente le repertoire
+
+Contient un tableau de contact
+
+Contient 8 contact au maximum, si un autre contact est enregistrer
+le contact le plus ancien est remplacer par celui ci
+
+Au lancement le repertoire est vide et l'utilisateur peut entrer 3 commandes :
+*_ADD : enregistrer un nouveau contact
+Si l’utilisateur entre cette commande, le programme lui demande de remplir
+une par une les informations du nouveau contact. Une fois tous les champs
+complétés, le nouveau contact est ajouté au répertoire.
+
+*_SEARCH : affiche le contact demandé
+Affiche les contacts enregistrés sous la forme d’une liste de 4 colonnes :
+index, first name, last name et nickname.
+Chaque colonne doit faire 10 caractères de long. Elles doivent être séparées
+par un pipe (’|’). Leur texte est aligné à droite. Si le texte dépasse la largeur
+de la colonne, il faut le tronquer et remplacer le dernier caractère affiché par
+un point (’.’).
+Ensuite, le programme demande à l’utilisateur d’entrer l’index du contact à af-
+ficher. Si l’index ou son format sont incorrects, gérez cela de manière pertinente.
+Sinon, affichez les informations du contact, une par ligne.
+
+*_EXIT : Le programme quitte et les contacts sont perdus à jamais !
+
+Toute autre entrée est ignorée.
+
+Une fois la commande correctement exécutée, le programme attend à nouveau une
+entrée. Il prend fin lorsque l’utilisateur entre EXIT.
+
+Contact :
+Represente un contact dans le repertoire
