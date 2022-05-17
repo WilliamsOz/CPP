@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/16 16:53:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/17 10:58:05 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/05/16 16:52:49 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/05/17 10:58:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_HPP
-# define PHONEBOOK_CLASS_HPP
+#include <iostream>
+#include "PhoneBook.class.hpp"
+#include "Contact.class.hpp"
 
-class Phonebook
+Phonebook::Phonebook( void )
 {
-	public :
+	std::cout << "Constructor called" << std::endl;
+	return ;
+}
 
-	int attribut_membre;
-	Phonebook( void );
-	~Phonebook( void );
+Phonebook::~Phonebook( void )
+{
+	std::cout << "Destructor called" << std::endl;
+	return ;
+}
 
-	void	fonction_membre( void );
-
-	private :
-
-};
-
-#endif
+void	Phonebook( void )
+{
+	std::cout << "Salut bg ta appeler la fct membre" << std::endl;
+	return ;
+}

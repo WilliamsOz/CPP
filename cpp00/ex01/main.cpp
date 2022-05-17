@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 14:45:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/16 17:00:47 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/17 11:02:10 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 
 int main(void)
 {
-	Phonebook xd;
+	Phonebook pb;
 
-	xd.lol = 42;
-	std::cout << xd.lol << std::endl;
-
+	pb.membre_attribut = 42;
 	return (0);
 }
