@@ -6,15 +6,15 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:29:45 by oozsertt          #+#    #+#              #
-#    Updated: 2022/05/17 10:51:31 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/05/19 14:46:07 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 
-SRCS = main.cpp PhoneBook.class.cpp Contact.class.cpp
+SRCS = main.cpp PhoneBook.cpp Contact.cpp Display.cpp
 
-OBJ = main.o PhoneBook.class.o Contact.class.o
+OBJ = main.o PhoneBook.o Contact.o Display.o
 
 $(NAME) : all
 

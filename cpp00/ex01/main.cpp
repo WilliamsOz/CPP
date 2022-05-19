@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 14:45:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/17 12:32:33 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/19 14:51:25 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,29 @@
 int main(void)
 {
 	std::string	input;
-	Phonebook	p_b("ADD", "SEARCH", "EXIT");
+	PhoneBook	phonebook("ADD", "SEARCH", "EXIT");
+	int			user_counter = 0;
 
+	user_counter = 0;
 	while (1)
 	{
-		std::cin >> input;
-		if (input.compare(p_b.add) == 0)
+		std::getline(std::cin, input);
+		std::cout << input << std::endl;
+		if (input.compare(phonebook.add) == 0)
 		{
-			std::cout << "ADD CALLED" << std::endl;
+			std::getline(std::cin, input);
+			phonebook.addUser(input, user_counter);
+			user_counter += 1;
 		}
-		else if (input.compare(p_b.search) == 0)
+		else if (input.compare(phonebook.search) == 0)
 		{
 			std::cout << "SEARCH CALLED" << std::endl;
 		}
-		else if (input.compare(p_b.exit) == 0)
+		else if (input.compare(phonebook.exit) == 0)
 			break ;
 		else
-			std::cout << "\033[6;31mUnknow command, please try again.\033[0m" << std::endl;
+			phonebook.print_unknow_cmd();
+		phonebook.show_cmd();
 	}
 	return (0);
 }
