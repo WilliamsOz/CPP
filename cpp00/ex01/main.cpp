@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 14:45:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/19 14:51:25 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/19 16:13:06 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,29 @@ int main(void)
 {
 	std::string	input;
 	PhoneBook	phonebook("ADD", "SEARCH", "EXIT");
+	Contact		contact;
 	int			user_counter = 0;
 
 	user_counter = 0;
 	while (1)
 	{
 		std::getline(std::cin, input);
-		std::cout << input << std::endl;
 		if (input.compare(phonebook.add) == 0)
 		{
-			std::getline(std::cin, input);
 			phonebook.addUser(input, user_counter);
+			contact.addContact(phonebook.getUser(user_counter), user_counter);
 			user_counter += 1;
 		}
 		else if (input.compare(phonebook.search) == 0)
 		{
-			std::cout << "SEARCH CALLED" << std::endl;
+			contact.showContact();
 		}
 		else if (input.compare(phonebook.exit) == 0)
 			break ;
 		else
 			phonebook.print_unknow_cmd();
+		if (user_counter == 8)
+			user_counter = 0;
 		phonebook.show_cmd();
 	}
 	return (0);
