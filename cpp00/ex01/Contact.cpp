@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:03 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/19 16:17:04 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/21 14:34:43 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 void	Contact::showContact( void ) const
 {
+	int i = 0;
 
+	while (i < 8)
+	{
+		std::cout << std::setw(10);
+		std::cout << _tab_contact[i][0] << "|";
+		i++;
+	}
 	return ;
 }
 
@@ -32,12 +39,18 @@ void	Contact::get_last_name(std::string dest)
 	}
 	if (input.length() > 10)
 	{
-		input.resize(10);
+		dest.resize(10);
 		input[9] = '.';
 	}
 	dest.assign(input);
 	return ;
 }
+
+// first name (prénom)
+// last name (nom de famille)
+// nickname (surnom)
+// phone number (numéro de téléphone)
+// darkest secret (son plus lourd secret).
 
 void	Contact::addContact(std::string new_user, int index)
 {

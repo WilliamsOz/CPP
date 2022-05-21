@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/19 16:12:41 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/21 14:20:44 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class Contact
 {
