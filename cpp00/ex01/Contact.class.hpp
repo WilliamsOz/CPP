@@ -6,21 +6,25 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/22 12:42:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/22 15:24:07 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_HPP
 # define CONTACT_CLASS_HPP
 
+#include "PhoneBook.class.hpp"
 #include <iostream>
 #include <string>
 #include <iomanip>
+#define FALSE 0
+#define TRUE 1
 #define FIRST_NAME 0
 #define LAST_NAME 1
 #define NICKNAME 2
 #define PHONE_NUMBER 3
 #define DARKEST_SECRET 4
+
 
 class Contact
 {
@@ -28,7 +32,8 @@ class Contact
 
 	void		printSummary( void ) const;
 	void		addContact(std::string new_user, int index);
-	void		showContact( void ) const;
+	void		showContact(PhoneBook phonebook) const;
+	bool		only_number(std::string) const;
 	std::string	get_last_name( std::string dest );
 	std::string	get_nickname( std::string dest );
 	std::string	get_phone_number( std::string dest );

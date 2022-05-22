@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 14:45:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/22 12:45:10 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/22 15:23:47 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,17 @@ int main(void)
 		}
 		else if (input.compare(phonebook.search) == 0)
 		{
-			contact.showContact();
+			contact.showContact(phonebook);
 		}
 		else if (input.compare(phonebook.exit) == 0)
 			break ;
 		else
 			phonebook.print_unknow_cmd();
 		if (user_counter == 8)
+		{
+			std::cout << std::endl << "\033[1;31m¡ Be careful, each new user added will delete the oldest one!\033[m" << std::endl;
 			user_counter = 0;
+		}
 		phonebook.show_cmd();
 	}
 	return (0);

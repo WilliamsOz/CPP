@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:03 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/22 12:46:35 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/22 23:28:08 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	Contact::printSummary( void ) const
 	std::cout << std::endl;
 }
 
-void	Contact::showContact( void ) const
+void	Contact::showContact(PhoneBook phonebook) const
 {
 	int i = 0;
 
@@ -43,9 +43,14 @@ void	Contact::showContact( void ) const
 		std::cout << "|";
 		std::cout <<std::setw(10);
 		std::cout << _tab_contact[i][NICKNAME];
+		std::cout << std::endl;
 		i++;
 	}
 	std::cout << std::endl;
+	if (!(phonebook.getUser(0).empty()))
+	{
+		std::cout << "Enter a valid index between 0 and 7 corresponding to the user" << std::endl;
+	}
 	return ;
 }
 
@@ -91,6 +96,21 @@ std::string	Contact::get_nickname(std::string dest)
 	return (dest);
 }
 
+bool Contact::only_number(std::string str) const
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (FALSE);
+		else
+			i++;
+	}
+	return (TRUE);
+}
+
 std::string	Contact::get_phone_number(std::string dest)
 {
 	std::string	input;
@@ -102,6 +122,11 @@ std::string	Contact::get_phone_number(std::string dest)
 		std::getline(std::cin, input);
 		if (input.empty())
 			std::cout << "\033[1;31mInput must not be empty !\033[0m" << std::endl;
+		else if (only_number(input) == FALSE)
+		{
+			std::cout << "\033[1;31mOnly numbers are allowed !\033[0m" << std::endl;
+			input.clear();
+		}
 	}
 	if (input.length() > 10)
 	{
