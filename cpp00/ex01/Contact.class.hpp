@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/21 14:20:44 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/22 12:42:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,27 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#define FIRST_NAME 0
+#define LAST_NAME 1
+#define NICKNAME 2
+#define PHONE_NUMBER 3
+#define DARKEST_SECRET 4
 
 class Contact
 {
 	public :
 
-	void	addContact(std::string new_user, int index);
-	void	showContact( void ) const;
-	void	get_last_name( std::string dest );
+	void		printSummary( void ) const;
+	void		addContact(std::string new_user, int index);
+	void		showContact( void ) const;
+	std::string	get_last_name( std::string dest );
+	std::string	get_nickname( std::string dest );
+	std::string	get_phone_number( std::string dest );
+	std::string	get_darkest_secret( std::string dest );
 
 	private :
 
-	std::string	_tab_contact[8][4];
+	std::string	_tab_contact[8][5];
 };
 
 #endif
