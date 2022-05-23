@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 14:45:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/23 09:51:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/23 17:57:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "Contact.class.hpp"
 #include "PhoneBook.class.hpp"
 
-//show user if its valid index inside SEARCH cmd
 int main(void)
 {
 	std::string	input;

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/23 09:48:46 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/23 17:44:34 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@
 #define PHONE_NUMBER 3
 #define DARKEST_SECRET 4
 
-
 class Contact
 {
 	public :
 
+	int			ft_stoi( std::string str ) const;
 	void		printSummary( void ) const;
 	void		addContact(std::string new_user, int index);
 	void		showContact(PhoneBook phonebook) const;
