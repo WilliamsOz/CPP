@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/22 15:24:07 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/23 09:48:46 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ class Contact
 	void		printSummary( void ) const;
 	void		addContact(std::string new_user, int index);
 	void		showContact(PhoneBook phonebook) const;
-	bool		only_number(std::string) const;
+	bool		is_index(std::string num) const;
+	bool		only_number(std::string str) const;
 	std::string	get_last_name( std::string dest );
 	std::string	get_nickname( std::string dest );
 	std::string	get_phone_number( std::string dest );

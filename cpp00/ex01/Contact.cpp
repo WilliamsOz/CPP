@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:03 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/22 23:28:08 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/23 09:51:17 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,21 @@ void	Contact::printSummary( void ) const
 	std::cout << std::endl;
 }
 
+bool	Contact::is_index( std::string num ) const
+{
+	if (num[0] < '0' || num[0] > '7')
+		return (FALSE);
+	else
+		return (TRUE);
+}
+
 void	Contact::showContact(PhoneBook phonebook) const
 {
-	int i = 0;
+	std::string	num;
+	int i;
 
 	printSummary();
+	i = 0;
 	while (!(_tab_contact[i][0].empty()) && i < 8)
 	{
 		std::cout << std::setw(10);
@@ -47,9 +57,17 @@ void	Contact::showContact(PhoneBook phonebook) const
 		i++;
 	}
 	std::cout << std::endl;
+	num.clear();
 	if (!(phonebook.getUser(0).empty()))
 	{
-		std::cout << "Enter a valid index between 0 and 7 corresponding to the user" << std::endl;
+		std::cout << "\033[3;32mEnter a valid index between 0 and 7 inclusive, corresponding to the user :\033[0m" << std::endl;
+		std::getline(std::cin, num);
+		while (num.empty() || num.size() >= 2 || num.size() == 0 || is_index(num) == FALSE)
+		{
+			std::cout << std::endl << "\033[1;31mIncorrect input, enter an integer between 0 and 7 inclusive :\033[0m" << std::endl;
+			num.clear();
+			std::getline(std::cin, num);
+		}
 	}
 	return ;
 }

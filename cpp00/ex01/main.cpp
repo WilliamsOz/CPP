@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 14:45:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/22 15:23:47 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/23 09:51:32 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "Contact.class.hpp"
 #include "PhoneBook.class.hpp"
 
+//show user if its valid index inside SEARCH cmd
 int main(void)
 {
 	std::string	input;
@@ -33,9 +34,7 @@ int main(void)
 			user_counter += 1;
 		}
 		else if (input.compare(phonebook.search) == 0)
-		{
 			contact.showContact(phonebook);
-		}
 		else if (input.compare(phonebook.exit) == 0)
 			break ;
 		else
@@ -47,5 +46,6 @@ int main(void)
 		}
 		phonebook.show_cmd();
 	}
+	std::cout << "\033[3;32mSee you next time !\033[0m" << std::endl;
 	return (0);
 }

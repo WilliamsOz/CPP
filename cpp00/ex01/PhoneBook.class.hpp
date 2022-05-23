@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/22 15:23:48 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/23 09:49:25 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,10 @@ class PhoneBook
 	PhoneBook(std::string p_add, std::string p_search, std::string p_exit);
 	~PhoneBook( void );
 
-	//DISPLAY
 	void	show_welcome_msg( void ) const;
-	void	show_goodbye_msg( void ) const;
 	void	show_cmd( void ) const;
 	void	print_unknow_cmd( void ) const;
 
-	//ACCESSORS
 	std::string	getUser( int index ) const;
 	void		addUser(std::string new_user, int index);
 	void		showUser();
