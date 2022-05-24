@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:54:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 14:07:28 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/24 14:39:36 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Zombie::Zombie( std::string name ) : _name(name)
 
 Zombie::~Zombie( void )
 {
-	
 	std::cout << "Delete : " << this->_name << std::endl;
 	return ;
 }

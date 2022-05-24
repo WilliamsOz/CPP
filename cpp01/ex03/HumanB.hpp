@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 14:10:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 16:46:11 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/05/24 16:11:43 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/05/24 16:47:32 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
-void	Zombie::setHordeName( std::string horde_name )
+class	HumanB
 {
-	this->_name = horde_name;
-	return ;
-}
+	public :
+	HumanB(std::string name);
+	~HumanB();
 
-void	Zombie::announce( void )
-{
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-	return ;
-}
+	private :
 
-Zombie::Zombie( void )
-{
-	return ;
-}
+};
 
-Zombie::~Zombie( void )
-{
-	std::cout << "Delete : " << this->_name << std::endl;
-	return ;
-}
+#endif

@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 14:10:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 16:46:11 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/05/24 16:09:47 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/05/24 16:50:39 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-void	Zombie::setHordeName( std::string horde_name )
+int main()
 {
-	this->_name = horde_name;
-	return ;
-}
+	{
+		Weapon	club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon	club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
 
-void	Zombie::announce( void )
-{
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-	return ;
-}
-
-Zombie::Zombie( void )
-{
-	return ;
-}
-
-Zombie::~Zombie( void )
-{
-	std::cout << "Delete : " << this->_name << std::endl;
-	return ;
+	return 0;
 }

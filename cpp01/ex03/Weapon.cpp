@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 14:10:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 16:46:11 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/05/24 16:10:36 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/05/24 16:50:34 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-void	Zombie::setHordeName( std::string horde_name )
+const std::string	Weapon::getType()
 {
-	this->_name = horde_name;
+	std::string	&typeREF = this->_type;
+	return typeREF;
+}
+
+void	Weapon::setType(std::string type)
+{
+	this->_type = type;
 	return ;
 }
 
-void	Zombie::announce( void )
+Weapon::Weapon( std::string type ) : _type(type)
 {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+
 	return ;
 }
 
-Zombie::Zombie( void )
+Weapon::~Weapon( void )
 {
-	return ;
-}
 
-Zombie::~Zombie( void )
-{
-	std::cout << "Delete : " << this->_name << std::endl;
 	return ;
 }

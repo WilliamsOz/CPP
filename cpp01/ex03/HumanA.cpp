@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 14:10:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 16:46:11 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/05/24 16:11:04 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/05/24 16:46:52 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-void	Zombie::setHordeName( std::string horde_name )
+HumanA::HumanA(std::string name, Weapon Weapon)
 {
-	this->_name = horde_name;
+
 	return ;
 }
 
-void	Zombie::announce( void )
+HumanA::~HumanA( void )
 {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+
+
 	return ;
 }
 
-Zombie::Zombie( void )
-{
-	return ;
-}
-
-Zombie::~Zombie( void )
-{
-	std::cout << "Delete : " << this->_name << std::endl;
-	return ;
-}
