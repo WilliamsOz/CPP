@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:09:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 14:41:54 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/24 15:57:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ class	Zombie
 {
 	public :
 
-	Zombie( std::string name );
+	Zombie( void );
 	~Zombie( void );
-	void 	announce( void );
+	void	announce( void );
+	void	setHordeName( std::string horde_name );
 
 
 	private :
 
 	std::string	_name;
-
 };
 
 Zombie*	zombieHorde(int N, std::string name);

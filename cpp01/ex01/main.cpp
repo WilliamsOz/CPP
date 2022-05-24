@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:08:45 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 14:41:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/24 16:00:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(void)
 {
 	Zombie	*horde;
 
-	horde = zombieHorde(5, "heapZombie");
+	horde = zombieHorde(10, "heapZombie");
+	delete [] horde;
 	return (0);
 }
