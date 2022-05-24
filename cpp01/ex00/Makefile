@@ -6,15 +6,15 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 10:34:05 by wiozsert          #+#    #+#              #
-#    Updated: 2022/05/24 10:38:00 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/05/24 14:07:48 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = zombie
 
-SRCS = main.cpp PhoneBook.cpp Contact.cpp Display.cpp
+SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
-OBJ = main.o PhoneBook.o Contact.o Display.o
+OBJ = main.o Zombie.o newZombie.o randomChump.o
 
 $(NAME) : all
 
