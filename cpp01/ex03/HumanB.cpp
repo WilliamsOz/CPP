@@ -6,21 +6,30 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:11:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 11:54:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 13:31:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "HumanB.hpp"
+#include "HumanB.hpp"
 
-// HumanB::HumanB(std::string name)
-// {
+HumanB::HumanB(std::string name) : _name(name)
+{
+	return ;
+}
 
-// 	return ;
-// }
+HumanB::~HumanB( void )
+{
+	return ;
+}
 
-// HumanB::~HumanB( void )
-// {
+void	HumanB::setWeapon(Weapon &weapon)
+{
+	_weaponPTR = &weapon;
+	return ;
+}
 
-
-// 	return ;
-// }
+void	HumanB::attack( void )
+{
+	std::cout << _name << " attacks with their " << _weaponPTR->getType() << std::endl;
+	return ;
+}

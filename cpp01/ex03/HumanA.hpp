@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:12:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 12:30:35 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 13:23:11 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class	HumanA
 
 	private :
 	std::string	_name;
-	std::string	_weapon;
+	Weapon		&_weaponREF;
 };
 
 #endif

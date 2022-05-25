@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:10:15 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 12:23:37 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 13:24:31 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include <string>
 #include "HumanA.hpp"
-// #include "HumanB.hpp"
+#include "HumanB.hpp"
 
 class	Weapon
 {
