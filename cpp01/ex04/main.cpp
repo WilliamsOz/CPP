@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:42:35 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 14:58:08 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:42:02 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@
 //faire son propre main de test pour verifier
 int main(int ac, char **av)
 {
-	std::ofstream	outputFile(av[1]);
+	Sed	sed;
 
 	if (ac != 4)
 		std::cout << "Error" << std::endl << "Enter only 3 arguments" << std::endl;
 	else
 	{
-		std::cout << av[1] << std::endl;
+		if (sed.argumentErrors(av[1], av[2], av[3]) == TRUE)
+			return (0);
 	}
 
 	return (0);
