@@ -6,21 +6,21 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:11:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 16:47:38 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 11:54:56 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+// #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name)
-{
+// HumanB::HumanB(std::string name)
+// {
 
-	return ;
-}
+// 	return ;
+// }
 
-HumanB::~HumanB( void )
-{
+// HumanB::~HumanB( void )
+// {
 
 
-	return ;
-}
+// 	return ;
+// }

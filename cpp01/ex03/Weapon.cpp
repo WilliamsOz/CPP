@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:10:36 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 16:50:34 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 12:29:06 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ void	Weapon::setType(std::string type)
 
 Weapon::Weapon( std::string type ) : _type(type)
 {
-
 	return ;
 }
 
 Weapon::~Weapon( void )
 {
-
 	return ;
 }

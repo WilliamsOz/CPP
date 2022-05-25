@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:12:10 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 16:46:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 12:30:35 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,19 @@
 
 #include "Weapon.hpp"
 
+class	Weapon;
+
 class	HumanA
 {
 	public :
-	HumanA(std::string name, Weapon Weapon);
+	HumanA(std::string name, Weapon &weapon);
 	~HumanA();
+	void	attack( void );
+
 
 	private :
-
+	std::string	_name;
+	std::string	_weapon;
 };
 
 #endif

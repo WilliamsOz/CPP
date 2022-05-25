@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:09:47 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/24 16:50:39 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 12:25:34 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ int main()
 		club.setType("some other type of club");
 		bob.attack();
 	}
-	{
-		Weapon	club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+	// {
+	// 	Weapon	club = Weapon("crude spiked club");
+	// 	HumanB jim("Jim");
+	// 	jim.setWeapon(club);
+	// 	jim.attack();
+	// 	club.setType("some other type of club");
+	// 	jim.attack();
+	// }
 
 	return 0;
 }
