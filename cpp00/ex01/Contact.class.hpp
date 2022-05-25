@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/23 21:01:24 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 18:09:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#define FALSE 0
-#define TRUE 1
+#define TRUE 0
+#define FALSE 1
 #define FIRST_NAME 0
 #define LAST_NAME 1
 #define NICKNAME 2

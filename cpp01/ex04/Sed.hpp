@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:42:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 15:40:48 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/25 18:07:15 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#define FALSE 0
-#define TRUE 1
+#define FALSE //0 //c'est l'inverse
+#define TRUE //1
 
 bool	fileNameErrors(char *fileName);
 
