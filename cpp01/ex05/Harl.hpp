@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 14:08:45 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/26 09:35:03 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/05/26 13:53:14 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/05/26 13:54:55 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int	main(void)
+class Harl
 {
-	Zombie	*horde;
+	public:
+	Harl( void );
+	~Harl( void );
 
-	horde = zombieHorde(10, "heapZombie");
-	delete [] horde;
-	return (0);
-}
+
+	private:
+	
+};
+
+
+#endif

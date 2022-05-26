@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FileNameErrors.cpp                                 :+:      :+:    :+:   */
+/*   createNewFile.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 15:30:59 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 15:45:24 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/05/26 14:14:06 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/05/26 14:20:26 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-bool	fileNameErrors(char *fileName)
+void	createNewFile(char *fileName, char *from, char *to)
 {
-	std::ifstream	output(fileName);
 
-	if (output.is_open() == FALSE)
-		std::cout << "Coucou" << std::endl;
-	return (FALSE);
+	return ;
 }

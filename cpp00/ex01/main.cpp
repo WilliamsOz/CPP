@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 14:45:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/26 15:54:09 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/26 16:18:15 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int main(void)
 	std::string	input;
 	PhoneBook	phonebook("ADD", "SEARCH", "EXIT");
 	Contact		contact;
-	// int			user_counter = 0;
 
-	// user_counter = 0;
 	while (1)
 	{
 		std::getline(std::cin, input);

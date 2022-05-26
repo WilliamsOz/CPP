@@ -5,18 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 14:08:45 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/26 09:35:03 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/05/26 13:53:45 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/05/26 13:54:58 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-int	main(void)
+int main(int ac, char **av)
 {
-	Zombie	*horde;
 
-	horde = zombieHorde(10, "heapZombie");
-	delete [] horde;
 	return (0);
 }
+
