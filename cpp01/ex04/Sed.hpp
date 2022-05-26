@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:42:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 18:07:15 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/26 12:36:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#define FALSE //0 //c'est l'inverse
-#define TRUE //1
+#include <sys/stat.h> // Get File Information
+#include <ios>
+#define PS(x) std::cout << x << std::endl;  
+// #include <fcntl.h> //O_RDWR
 
 bool	fileNameErrors(char *fileName);
 
@@ -27,7 +29,7 @@ class	Sed
 	public :
 	Sed( void );
 	~Sed( void );
-	bool	argumentErrors(char *fileName, char *from, char *to);
+	bool	validArguments(char *fileName);
 
 
 	private :
