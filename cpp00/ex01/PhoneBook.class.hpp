@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 18:24:10 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/26 15:54:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,16 @@ class PhoneBook
 	void	show_cmd( void ) const;
 	void	print_unknow_cmd( void ) const;
 
+	void		resetUserCounter( void );
+	int			getUserCounter( void );
+	void		addUserCounter( void );
 	std::string	getUser( int index ) const;
 	void		addUser(std::string new_user, int index);
 	void		showUser();
+	std::string	tab_user[8];
 
 	private :
-
-	std::string	_tab_user[8];
+	static int	_userCounter;
 };
 
 #endif

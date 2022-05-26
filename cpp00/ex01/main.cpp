@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 14:45:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 18:30:22 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/26 15:54:09 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,18 @@ int main(void)
 	std::string	input;
 	PhoneBook	phonebook("ADD", "SEARCH", "EXIT");
 	Contact		contact;
-	int			user_counter = 0;
+	// int			user_counter = 0;
 
-	user_counter = 0;
+	// user_counter = 0;
 	while (1)
 	{
 		std::getline(std::cin, input);
 		if (input.compare(phonebook.add) == TRUE)
 		{
-			phonebook.addUser(input, user_counter);
-			contact.addContact(phonebook.getUser(user_counter), user_counter);
-			user_counter += 1;
+			phonebook.addUser(input, phonebook.getUserCounter());
+			contact.addContact(phonebook.tab_user[phonebook.getUserCounter()],
+				phonebook.getUserCounter());
+			phonebook.addUserCounter();
 		}
 		else if (input.compare(phonebook.search) == TRUE)
 			contact.showContact(phonebook);
@@ -38,10 +39,10 @@ int main(void)
 			break ;
 		else
 			phonebook.print_unknow_cmd();
-		if (user_counter == 8)
+		if (phonebook.getUserCounter() == 8)
 		{
 			std::cout << std::endl << "\033[1;31m¡ Be careful, each new user added will delete the oldest one!\033[m" << std::endl;
-			user_counter = 0;
+			phonebook.resetUserCounter();
 		}
 		phonebook.show_cmd();
 	}

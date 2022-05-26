@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:52:49 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 18:28:41 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/26 14:58:46 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,13 @@ void	PhoneBook::addUser(std::string input, int index)
 		if (input.empty())
 			std::cout << "\033[1;31mInput must not be empty !\033[0m" << std::endl;
 	}
-	if (input.length() > 10)
-	{
-		input.resize(10)/
-		; //peut etre un pb ici cat il faut garder toute la chaine pour lafficher avec search quand le contact es trouve
-		input[9] = '.';
-	}
-	_tab_user[index].assign(input);
+	tab_user[index].assign(input);
 	return ;
 }
 
 std::string	PhoneBook::getUser( int index ) const
 {
-	return (_tab_user[index]);
+	return (tab_user[index]);
 }
 
 PhoneBook::PhoneBook(std::string p_add, std::string p_search, std::string p_exit) 
@@ -48,3 +42,22 @@ PhoneBook::~PhoneBook( void )
 {
 	return ;
 }
+
+void	PhoneBook::resetUserCounter( void )
+{
+	_userCounter = 0;
+	return ;
+}
+
+int	PhoneBook::getUserCounter( void )
+{
+	return _userCounter;
+}
+
+void	PhoneBook::addUserCounter( void )
+{
+	_userCounter += 1;
+	return ;
+}
+
+int	PhoneBook::_userCounter = 0;
