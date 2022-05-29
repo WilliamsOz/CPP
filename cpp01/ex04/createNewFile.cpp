@@ -6,36 +6,24 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 14:14:06 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/26 22:24:51 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/29 12:50:04 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-static int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 void	Sed::createNewFile(char *fileName, char *from, char *to)
 {
-	std::fstream	in_out_stream;
-	std::size_t		found;
-	std::string		input;
-	std::string		*ptr_input = &input;
+	std::fstream	old_file;
+	std::fstream	new_file;
+	std::string		replace = fileName;
 
-	in_out_stream.open(fileName, std::ios::in | std::ios::out);
-	std::getline(in_out_stream, input);
-	found = input.find_first_of(from, ft_strlen(to));
-	while (found != std::string::npos)
+	replace.append(".replace");
+	new_file.open(replace.c_str(), std::ios::in | std::ios::out | std::ios::app);
+	while (std::getline(new_file, replace))
 	{
-		ptr_input[found] = to;
-		found = input.find_first_of(from, found+1);
+		
 	}
+	while
 	return ;
 }
