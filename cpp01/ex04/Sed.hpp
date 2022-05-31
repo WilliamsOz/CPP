@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:42:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/26 22:22:48 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/31 13:06:12 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class	Sed
 	Sed( void );
 	~Sed( void );
 	bool	validArguments( char *fileName ) const;
-	void	createNewFile(char *fileName, char *from, char *to);
+	void	generateNewFile(char *fileName, char *from, char *to);
 
 	private :
 	bool	validFile(char *fileName) const;

@@ -6,24 +6,49 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 14:14:06 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/29 12:50:04 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/31 20:22:32 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-void	Sed::createNewFile(char *fileName, char *from, char *to)
+int	strlen(char *str)
 {
-	std::fstream	old_file;
-	std::fstream	new_file;
+	int i=0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void	Sed::generateNewFile(char *fileName, char *old_str, char *new_str)
+{
+	std::ifstream	ifs;
+	std::ofstream	ofs;
 	std::string		replace = fileName;
+	std::size_t		found;
 
 	replace.append(".replace");
-	new_file.open(replace.c_str(), std::ios::in | std::ios::out | std::ios::app);
-	while (std::getline(new_file, replace))
+	ifs.open(fileName, std::ios::in | std::ios::app);
+	ofs.open(replace.c_str(), std::ios::out | std::ios::trunc);
+	replace.clear();
+	while (1)
 	{
-		
+		getline(ifs, replace);
+		while (1)
+		{
+			found = replace.find(old_str);
+			if (found == std::string::npos)
+			{
+				ofs << replace;
+				break ;
+			}
+			ofs << replace.substr(0, found) << new_str;
+			replace = replace.substr(found + strlen(old_str));
+		}
+		if (ifs.eof())
+			break ;
+		else
+			ofs << std::endl;
 	}
-	while
 	return ;
 }

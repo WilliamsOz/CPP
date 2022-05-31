@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:42:35 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/26 21:57:18 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/05/31 13:06:11 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int ac, char **av)
 		if (sed.validArguments(av[1]) == false)
 			return (1);
 		else
-			sed.createNewFile(av[1], av[2], av[3]);
+			sed.generateNewFile(av[1], av[2], av[3]);
 	}
 
 	return (0);
