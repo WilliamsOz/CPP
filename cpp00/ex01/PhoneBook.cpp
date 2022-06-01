@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:52:49 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/26 14:58:46 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/06/01 12:24:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,20 @@
 void	PhoneBook::addUser(std::string input, int index)
 {
 	input.clear();
+	std::cout << std::endl << "\033[3;32mEnter a first name :\033[0m" << std::endl;
 	while (input.empty())
 	{
-		std::cout << std::endl << "\033[3;32mEnter a first name :\033[0m" << std::endl;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			return ;
 		if (input.empty())
+		{
 			std::cout << "\033[1;31mInput must not be empty !\033[0m" << std::endl;
+			std::cout << std::endl << "\033[3;32mEnter a first name :\033[0m" << std::endl;
+		}
 	}
+	if (std::cin.eof())
+		return ;
 	tab_user[index].assign(input);
 	return ;
 }

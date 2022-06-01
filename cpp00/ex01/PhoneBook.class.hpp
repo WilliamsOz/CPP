@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:53:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/26 15:54:27 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/06/01 12:18:54 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define PHONEBOOK_CLASS_HPP
 
 #include <iostream>
+#include <stdlib.h>
+#define EXIT_SUCCESS 0
+#define EXIT_FAILURE 1
 
 class PhoneBook
 {
@@ -27,6 +30,7 @@ class PhoneBook
 	~PhoneBook( void );
 
 	void	show_welcome_msg( void ) const;
+	void	show_goodbye_msg( void ) const;
 	void	show_cmd( void ) const;
 	void	print_unknow_cmd( void ) const;
 
