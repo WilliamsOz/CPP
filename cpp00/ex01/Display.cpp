@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:11:26 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/06/01 12:26:40 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/06/02 12:02:56 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 void	PhoneBook::show_goodbye_msg( void ) const
 {
 	std::cout << "\033[3;32mSee you next time !\033[0m" << std::endl;
+	return ;
+}
+
+void	PhoneBook::print_empty_input( void ) const
+{
+	std::cout << "\033[1;31mInput must not be empty !\033[0m" << std::endl;
 	return ;
 }
 

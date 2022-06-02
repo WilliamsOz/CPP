@@ -6,7 +6,7 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/15 09:29:45 by oozsertt          #+#    #+#              #
-#    Updated: 2022/05/26 15:49:08 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/06/02 12:01:05 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ SRCS = main.cpp PhoneBook.cpp Contact.cpp Display.cpp printSummary.cpp
 
 OBJ = main.o PhoneBook.o Contact.o Display.o printSummary.o
 
-$(NAME) : all
+all : $(NAME)
 
-all :
+$(NAME) : $(SRCS)
 	mkdir -p obj
 	c++ -Wall -Wextra -Werror -std=c++98 $(SRCS) -c
 	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
