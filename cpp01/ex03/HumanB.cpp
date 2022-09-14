@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: willyiony <willyiony@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:11:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 13:31:27 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/14 11:38:13 by willyiony        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	HumanB::setWeapon(Weapon &weapon)
 	return ;
 }
 
-void	HumanB::attack( void )
+void	HumanB::attack( void ) const
 {
-	std::cout << _name << " attacks with their " << _weaponPTR->getType() << std::endl;
+	std::cout << "\033[1;34m" << _name << " attacks with their " << _weaponPTR->getType() << "\033[1;32m" << std::endl;
 	return ;
 }

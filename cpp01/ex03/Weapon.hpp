@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: willyiony <willyiony@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:10:15 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 13:24:31 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/14 11:40:03 by willyiony        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 class	Weapon
 {
 	public :
+
 	Weapon( std::string type );
 	~Weapon( void );
 	const std::string	getType();
@@ -28,7 +29,9 @@ class	Weapon
 
 
 	private :
+
 	std::string	_type;
+
 };
 
 #endif
