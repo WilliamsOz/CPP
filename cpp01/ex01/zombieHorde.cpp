@@ -6,13 +6,13 @@
 /*   By: willyiony <willyiony@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:10:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 09:36:11 by willyiony        ###   ########.fr       */
+/*   Updated: 2022/09/14 09:56:11 by willyiony        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* 	Zombie::setNameToTheHorde(Zombie *horde, int N, std::string name) const
+Zombie*	setNameToTheHorde(Zombie *horde, int N, std::string name)
 {
 	int i = 0;
 
@@ -24,7 +24,7 @@ Zombie* 	Zombie::setNameToTheHorde(Zombie *horde, int N, std::string name) const
 	return (horde);
 }
 
-void	Zombie::introduceYourselves(Zombie *horde, int N) const
+void	introduceYourselves(Zombie *horde, int N)
 {
 	int	i = 0;
 
@@ -36,7 +36,7 @@ void	Zombie::introduceYourselves(Zombie *horde, int N) const
 	return ;
 }
 
-Zombie*	Zombie::zombieHorde(int N, std::string name)
+Zombie*	zombieHorde(int N, std::string name)
 {
 	Zombie	*horde = new Zombie[N];
 	horde = setNameToTheHorde(horde, N, name);

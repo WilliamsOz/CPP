@@ -6,7 +6,7 @@
 /*   By: willyiony <willyiony@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:09:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 09:36:14 by willyiony        ###   ########.fr       */
+/*   Updated: 2022/09/14 09:54:33 by willyiony        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,15 @@ class	Zombie
 	~Zombie( void );
 	void	announce( void ) const;
 	void	setHordeName( std::string horde_name );
-	Zombie*	zombieHorde(int N, std::string name);
 
 
 	private :
 
 	std::string	_name;
-	Zombie*	setNameToTheHorde(Zombie *horde, int N, std::string name) const;
-	void	introduceYourselves(Zombie *horde, int N) const;
 
 };
+
+Zombie*	zombieHorde(int N, std::string name);
 
 
 #endif
