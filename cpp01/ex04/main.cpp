@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:42:35 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/06/01 12:07:03 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/14 12:35:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int ac, char **av)
 	Sed	sed;
 
 	if (ac != 4)
-		std::cerr << "Error" << std::endl << "Enter only 3 arguments" << std::endl;
+		std::cerr << "Error" << std::endl << "You must enter 3 arguments" << std::endl;
 	else
 	{
 		if (sed.validArguments(av[1]) == false)
