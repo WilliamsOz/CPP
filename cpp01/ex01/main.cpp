@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: willyiony <willyiony@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:08:45 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/26 09:35:03 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/14 09:35:44 by willyiony        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(void)
 {
-	Zombie	*horde;
+	Zombie	*horde = NULL;
 
-	horde = zombieHorde(10, "heapZombie");
+	horde->zombieHorde(5, "heapZombie");
 	delete [] horde;
 	return (0);
 }

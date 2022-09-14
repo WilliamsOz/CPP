@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: willyiony <willyiony@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:10:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/05/25 18:32:29 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/14 09:36:00 by willyiony        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	Zombie::setHordeName( std::string horde_name )
 	return ;
 }
 
-void	Zombie::announce( void )
+void	Zombie::announce( void ) const
 {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << "\033[1;32m" << _name << ": BraiiiiiiinnnzzzZ..." << "\033[1;32m" << std::endl;
 	return ;
 }
 
@@ -31,6 +31,5 @@ Zombie::Zombie( void )
 
 Zombie::~Zombie( void )
 {
-	std::cout << "Delete : " << this->_name << std::endl;
 	return ;
 }
