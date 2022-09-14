@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:42:35 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 12:35:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:33:05 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,13 @@ int main(int ac, char **av)
 	Sed	sed;
 
 	if (ac != 4)
-		std::cerr << "Error" << std::endl << "You must enter 3 arguments" << std::endl;
+		std::cerr << REDCOLOR << "Error, You must enter 3 arguments" << ENDCOLOR << std::endl;
 	else
 	{
 		if (sed.validArguments(av[1]) == false)
 			return (1);
 		else
-			sed.generateNewFile(av[1], av[2], av[3]);
+			sed.createNewFile(av[1], av[2], av[3]);
 	}
-
 	return (0);
 }

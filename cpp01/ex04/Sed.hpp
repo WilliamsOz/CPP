@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 14:42:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 12:34:08 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:33:09 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 #include <fstream>
 #include <sys/stat.h> // Get File Information
 #include <ios>
-#define PS(x) std::cout << x << std::endl;  
+#include <fcntl.h>
+#include <unistd.h>
+#include "Color.hpp"
+#define PS(x) std::cout << x << std::endl;  //REMOVE
 
 
 class	Sed
@@ -28,7 +31,7 @@ class	Sed
 	Sed( void );
 	~Sed( void );
 	bool	validArguments( char *fileName ) const;
-	void	generateNewFile(char *fileName, char *from, char *to);
+	void	createNewFile(char *fileName, char *from, char *to);
 
 	private :
 	bool	validFile(char *fileName) const;

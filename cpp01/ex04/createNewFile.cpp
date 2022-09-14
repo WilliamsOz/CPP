@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 14:14:06 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 12:34:03 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/14 18:35:53 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	strlen(char *str)
 	return (i);
 }
 
-void	Sed::generateNewFile(char *fileName, char *old_str, char *new_str)
+void	Sed::createNewFile(char *fileName, char *old_str, char *new_str)
 {
 	std::ifstream	ifs;
 	std::ofstream	ofs;
