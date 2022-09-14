@@ -6,7 +6,7 @@
 /*   By: willyiony <willyiony@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:38:12 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 07:47:17 by willyiony        ###   ########.fr       */
+/*   Updated: 2022/09/14 09:40:49 by willyiony        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ class	Zombie
 	Zombie( std::string name );
 	~Zombie( void );
 	void 	announce( void );
+	void	introduceYourself( Zombie *heapZombie) const;
 
 
 	private :
-
 	std::string	_name;
+
 };
 
 Zombie *newZombie( std::string heapZombie );
