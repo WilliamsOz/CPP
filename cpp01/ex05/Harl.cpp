@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 13:53:00 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/06/01 16:03:49 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/15 11:10:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,46 @@
 
 Harl::Harl( void )
 {
-	
 	return ;
 }
 
 Harl::~Harl( void )
 {
-
 	return ;
 }
 
 void	Harl::debug( void )
 {
-	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
+	std::cout << GRNCOLOR << "Give me a good portion and add some extra cheese and bacon, now !" << ENDCOLOR << std::endl;
 	return ;
 }
 void	Harl::info( void )
 {
-	std::cout << "I cannot believe adding extra bacon costs more money. You didn't put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
+	std::cout << MAGCOLOR << "What ??? It's the first time that someone refuse something me here, it is unacceptable !" << ENDCOLOR << std::endl;
 	return ;
 }
 
 void	Harl::warning( void )
 {
-	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month." << std::endl;
+	std::cout << YELCOLOR << "You are nobody, give me what i'm asking for or you will be have problems !" << ENDCOLOR << std::endl;
 	return ;
 }
 
 void	Harl::error( void )
 {
-	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
+	std::cout << REDCOLOR << "Be sure that it's your last day here !" << ENDCOLOR << std::endl;
 	return ;
 }
-	// void	(Harl::*f)( void );
-	// std::string	tab[1][1] = {{"DEBUG"}};
-
-	// tab[0][0] = &(harl.*f)();
 
 void	Harl::complain( std::string level )
 {
-	Harl	harl;
 	t_tab	tab[4] = {
 		{"DEBUG", &Harl::debug},
 		{"INFO", &Harl::info},
 		{"WARNING", &Harl::warning},
 		{"ERROR", &Harl::error}
 	};
+	Harl	harl;
 	void	(Harl::*f)();
 	int		i = 0;
 
@@ -69,7 +63,7 @@ void	Harl::complain( std::string level )
 		{
 			f = tab[i].f;
 			(harl.*f)();
-			i++;
+			return ;
 		}
 		else
 			i++;
