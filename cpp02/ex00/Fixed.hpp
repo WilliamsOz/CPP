@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 09:40:18 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/20 10:28:14 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:12:15 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Fixed
 	Fixed( void );
 	Fixed(Fixed &f);
 	~Fixed();
-	Fixed&	operator=(Fixed &f);
+	Fixed&	operator=(Fixed const &f);
 	int		getRawBits( void ) const;//renvoie la valeur brute de la valeur à virgule fixe
 	void	setRawBits( int const raw );//définit la valeur brute du nombre à virgule fixe.
 

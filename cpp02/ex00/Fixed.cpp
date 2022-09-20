@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 09:40:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/20 10:41:07 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/20 11:12:08 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed( Fixed & f)
     return ;
 }
 
-Fixed & Fixed::operator=(Fixed &f)
+Fixed & Fixed::operator=(Fixed const &f)
 {
     std::cout << "Copy assignement operator called" << std::endl;
 
