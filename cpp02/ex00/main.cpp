@@ -6,11 +6,12 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 09:40:20 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/20 10:35:59 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:08:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+#include <iostream>
 
 int main (void)
 {

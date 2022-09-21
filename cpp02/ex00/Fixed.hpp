@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 09:40:18 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/20 11:12:15 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/21 10:09:22 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Fixed
 	private:
 
 	int			_fixedPointNumberValue;
-	static int	_numberOfFractionalBits;
+	const static int	_numberOfFractionalBits;
 
 };
 
