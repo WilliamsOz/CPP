@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 13:53:14 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/15 11:07:02 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:58:07 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #define BLUECOLOR "\033[1;34m"
 #define MAGCOLOR "\033[1;35m"
 #define CYANCOLOR "\033[1;36m"
-#define ENDCOLOR "\033[1;32m"
+#define ENDCOLOR "\033[0m"
 
 class Harl
 {
