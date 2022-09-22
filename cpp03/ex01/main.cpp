@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 11:44:57 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/22 11:55:42 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	gateKeeperMode( void )
 	return ;
 }
 
-int main ( void ) //pb assignation operator //pb copy contructor
+int main ( void )
 {
 	checkChaining();
 	// attacksUntillExhaustion();
