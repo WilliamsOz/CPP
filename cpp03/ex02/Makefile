@@ -6,15 +6,15 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/21 16:22:52 by wiozsert          #+#    #+#              #
-#    Updated: 2022/09/22 18:07:49 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/09/22 18:08:41 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavtrap
+NAME = fragtrap
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
-OBJ = main.o ClapTrap.o ScavTrap.o
+OBJ = main.o ClapTrap.o ScavTrap.o FragTrap.o
 
 all : $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:22 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 10:18:06 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/22 17:51:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,17 @@ ClapTrap::~ClapTrap( void )
 ClapTrap::ClapTrap( std::string name )
 : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << name << "constructor called" << std::endl;
+	return ;
+}
+
+ClapTrap::ClapTrap( ClapTrap const &copy )
+{
+	std::cout << "Copy constructor from " << this->_name << " to " << copy._name << " has been called" << std::endl;
+	this->_name = copy._name;
+	this->_hitPoints = copy._hitPoints;
+	this->_energyPoints = copy._energyPoints;
+	this->_attackDamage = copy._attackDamage;
 	return ;
 }
 

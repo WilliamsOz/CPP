@@ -6,14 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 08:50:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 18:10:40 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/22 17:40:19 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-: ScavTrap::ClapTrap()
+: ClapTrap::ClapTrap()
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 	this->_name = "Unknow";

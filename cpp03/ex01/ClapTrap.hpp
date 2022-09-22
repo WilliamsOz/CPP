@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:19:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 11:54:47 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/22 17:47:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class ClapTrap
 	ClapTrap( void );
 	~ClapTrap();
 	ClapTrap( std::string name );
+	ClapTrap( ClapTrap const &copy );
 	ClapTrap &	operator=( ClapTrap &rhs );
 	void		attack(const std::string& target);
 	void		takeDamage(unsigned int amount);
