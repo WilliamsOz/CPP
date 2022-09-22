@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:22 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/21 18:10:22 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/22 08:22:31 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ ClapTrap &	ClapTrap::operator=( ClapTrap &rhs )
 	std::cout << "Assignation operator called" << std::endl;
 	if (this != &rhs)
 	{
-		rhs._name = this->_name;
-		rhs._hitPoints = this->_hitPoints;
-		rhs._energyPoints = this->_energyPoints;
-		rhs._attackDamage = this->_attackDamage;
+		this->_name = rhs._name;
+		this->_hitPoints = rhs._hitPoints;
+		this->_energyPoints = rhs._energyPoints;
+		this->_attackDamage = rhs._attackDamage;
 	}
 	return *this;
 }
