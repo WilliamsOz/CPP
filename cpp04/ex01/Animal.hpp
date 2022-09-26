@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:43:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 16:22:49 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/26 17:41:06 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include "Animal.class.hpp"
+#include "Brain.class.hpp"
 #include "Dog.class.hpp"
 #include "Cat.class.hpp"
 #include "WrongAnimal.class.hpp"

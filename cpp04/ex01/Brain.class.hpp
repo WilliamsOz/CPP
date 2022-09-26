@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.class.hpp                                      :+:      :+:    :+:   */
+/*   Brain.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 10:57:54 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 18:29:31 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/26 16:38:41 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/09/26 17:43:58 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_CLASS_HPP
-#define DOG_CLASS_HPP
+#ifndef BRAIN_CLASS_HPP
+#define BRAIN_CLASS_HPP
 
 #include "Animal.hpp"
 
-class Dog : public Animal
+class Brain
 {
-
 	public :
-	Dog( void );
-	virtual ~Dog();
-	Dog( const Dog &copy );
-	Dog &   operator=( Dog &rhs );
-	virtual void makeSound( void ) const;
-	const std::string &	getIdeas( int index ) const;
-	void	setIdeas( std::string newIdea, const int index );
 
-	private :
-	Brain	*_brain;
+	Brain( void );
+	virtual ~Brain( void );
+	Brain( const Brain &copy );
+	Brain &		operator=( const Brain &rhs );
+	std::string	_ideas[100];
 
 };
-
 
 #endif

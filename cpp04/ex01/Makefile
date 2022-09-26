@@ -6,15 +6,15 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/23 11:52:21 by wiozsert          #+#    #+#              #
-#    Updated: 2022/09/26 16:29:41 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/09/26 17:43:11 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = animal
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS = main.cpp Animal.cpp Brain.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
-OBJ = main.o Animal.o Cat.o Dog.o WrongAnimal.o WrongCat.o
+OBJ = main.o Animal.o Brain.o Cat.o Dog.o WrongAnimal.o WrongCat.o
 
 all : $(NAME)
 

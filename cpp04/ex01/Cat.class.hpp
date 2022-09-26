@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:48:18 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 16:22:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/26 18:30:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ class Cat : public Animal
 	Cat( const Cat &copy );
 	Cat &   operator=( const Cat &rhs );
 	virtual void makeSound( void ) const;
+	const std::string &	getIdeas( int index ) const;
+	void	setIdeas( std::string newIdea, const int index );
+
+	private :
+	Brain	*_brain;
 
 };
 
