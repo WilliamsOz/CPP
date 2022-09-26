@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.class.hpp                                   :+:      :+:    :+:   */
+/*   WrongAnimal.class.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 12:59:39 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 16:35:33 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/23 13:29:01 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/09/26 16:27:43 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_CLASS_HPP
-#define ANIMAL_CLASS_HPP
+#ifndef WRONGANIMAL_CLASS_HPP
+#define WRONGANIMAL_CLASS_HPP
 
 #include "Animal.hpp"
 
-class Animal
+class WrongAnimal
 {
 	public :
 
-	Animal( void );
-	Animal( const Animal &copy );
-	virtual ~Animal( void );
-	Animal &    operator=( Animal &rhs );
+	WrongAnimal( void );
+	WrongAnimal( const WrongAnimal &copy );
+	virtual ~WrongAnimal( void );
+	WrongAnimal &    operator=( WrongAnimal &rhs );
 	const std::string &	getType( void ) const;
 	virtual void makeSound( void ) const;
 
@@ -33,6 +33,6 @@ class Animal
 
 };
 
-std::ostream &	operator<<( std::ostream &o, Animal const &rhs );
+
 
 #endif
