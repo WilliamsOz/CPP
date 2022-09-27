@@ -6,15 +6,15 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 19:49:48 by wiozsert          #+#    #+#              #
-#    Updated: 2022/09/26 19:50:32 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/09/27 17:38:32 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bureaucrat
 
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = main.cpp Exception.cpp Bureaucrat.cpp
 
-OBJ = main.o Bureaucrat.o
+OBJ = main.o Exception.o Bureaucrat.o
 
 all : $(NAME)
 

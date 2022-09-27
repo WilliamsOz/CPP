@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 19:51:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:40:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,14 @@ class Bureaucrat
 	Bureaucrat( Bureaucrat const &copy );
 	Bureaucrat & operator=( const Bureaucrat &rhs );
 	const std::string	getName( void );
-	const int	getGrade( void );
-	const void	levelUp( void );
-	const void	levelDown( void );
+	int	getGrade( void );
+	void	levelUp( void );
+	void	levelDown( void );
 
 	private :
 	const std::string _name;
 	int	_grade;
+	Exception	_e;
 
 };
 

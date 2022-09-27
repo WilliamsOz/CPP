@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Exception.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/27 17:51:34 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/27 11:52:24 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/09/27 17:35:50 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EXCEPTION_CLASS_HPP
+#define EXCEPTION_CLASS_HPP
+
 #include "Bureaucrat.hpp"
 
-int main(void)
+class Exception : public std::exception
 {
-    Bureaucrat  Willy("Willy", 5);
 
-    Willy.levelUp();
-    Willy.levelUp();
-    Willy.levelUp();
-    Willy.levelUp();
-    Willy.levelUp();
-    return (0);
-}
+	public :
+	
+	Exception( void );
+	// ~Exception();
+	virtual const char *	what( void ) const throw();
+	
+
+};
+
+#endif

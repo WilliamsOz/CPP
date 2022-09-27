@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 19:53:19 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:50:32 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,30 @@ const std::string  Bureaucrat::getName( void )
 	return this->_name;
 }
 
-const int   Bureaucrat::getGrade( void )
+int   Bureaucrat::getGrade( void )
 {
 	return this->_grade;
 }
 
-const void  Bureaucrat::levelUp( void )
+void  Bureaucrat::levelUp( void )
 {
-	this->_grade--;
+	try
+	{
+		if (this->_grade == 1)
+			throw _e;
+		this->_grade--;
+		std::cout << GRNCOLOR << this->_name
+		<< "'s rank has been successfully increase from "
+		<<  this->_grade + 1 << " to " << this->_grade << std::endl;
+	}
+	catch (Exception &e)
+	{
+		std::cout << REDCOLOR << e.what() << ENDCOLOR << std::endl;
+	}
 	return ;
 }
 
-const void  Bureaucrat::levelDown( void )
+void  Bureaucrat::levelDown( void )
 {
     this->_grade++;
     return ;
