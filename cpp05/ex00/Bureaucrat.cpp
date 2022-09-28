@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 10:29:30 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/28 10:54:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 	}
 	catch(const Exception::GradeTooHighException _e)
 	{
-		std::cout << REDCOLOR << _exception.gradeTooHighException.what() << ENDCOLOR << std::endl;
+		std::cout << REDCOLOR << _exception.gradeTooHighException.what()<< ENDCOLOR << std::endl;
+		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
 	catch(const Exception::GradeTooLowException _e)
 	{
 		std::cout << REDCOLOR << _exception.gradeTooLowException.what() << ENDCOLOR << std::endl;
+		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 	return ;

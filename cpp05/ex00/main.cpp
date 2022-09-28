@@ -6,16 +6,25 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 10:35:12 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/28 10:58:15 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void    badInstantiate( void )
+void    gradeInstantiacionTooLow( void )
 {
 	Bureaucrat  Willy("Willy", 155);
 
+	std::cout << MAGCOLOR << Willy << ENDCOLOR;
+	return ;
+}
+
+void    gradeInstantiacionTooHigh( void )
+{
+	Bureaucrat  Willy("Willy", 0);
+
+	std::cout << MAGCOLOR << Willy << ENDCOLOR;
 	return ;
 }
 
@@ -23,9 +32,7 @@ void    reachHighRank( void )
 {
 	Bureaucrat  Willy("Willy", 5);
 	
-	std::cout << MAGCOLOR << Willy.getName()
-	<< " has been successfully create with grade : "
-	<< Willy.getGrade() << ENDCOLOR << std::endl;
+	std::cout << MAGCOLOR << Willy << ENDCOLOR;
 	Willy.levelUp();
 	Willy.levelUp();
 	Willy.levelUp();
@@ -38,9 +45,7 @@ void	reachLowRank( void )
 {
 	Bureaucrat  Willy("Willy", 146);
 
-	std::cout << MAGCOLOR << Willy.getName()
-	<< " has been successfully create with grade : "
-	<< Willy.getGrade() << ENDCOLOR << std::endl;
+	std::cout << MAGCOLOR << Willy << ENDCOLOR;
 	Willy.levelDown();
 	Willy.levelDown();
 	Willy.levelDown();
@@ -51,10 +56,12 @@ void	reachLowRank( void )
 
 int main(void)
 {
-	badInstantiate();
+	gradeInstantiacionTooLow();
 	std::cout << std::endl;
-	reachHighRank();
+	gradeInstantiacionTooHigh();
 	std::cout << std::endl;
-	reachLowRank();
+	// reachHighRank();
+	// std::cout << std::endl;
+	// reachLowRank();
 	return (0);
 }
