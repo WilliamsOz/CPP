@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/27 17:40:38 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/28 10:19:18 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,21 @@ class Bureaucrat
 
 	public :
 
-	Bureaucrat( std::string const name, int grade );
+	void				tryInitBureaucrat( int grade);
+	Bureaucrat( const std::string name, int grade );
 	~Bureaucrat();
 	Bureaucrat( Bureaucrat const &copy );
-	Bureaucrat & operator=( const Bureaucrat &rhs );
+	Bureaucrat &	operator=( const Bureaucrat &rhs );
+
 	const std::string	getName( void );
-	int	getGrade( void );
-	void	levelUp( void );
-	void	levelDown( void );
+	int					getGrade( void );
+	void				levelUp( void );
+	void				levelDown( void );
 
 	private :
-	const std::string _name;
-	int	_grade;
-	Exception	_e;
-
+	const std::string	_name;
+	int					_grade;
+	Exception 			_exception;
 };
 
 std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs );
