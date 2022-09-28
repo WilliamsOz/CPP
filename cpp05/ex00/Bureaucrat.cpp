@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 10:54:59 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:26:56 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ void Bureaucrat::tryInitBureaucrat( int grade)
 {
 	if (grade < 1)
 	{
-		throw _exception.gradeTooHighException;
+		throw gradeTooHigh;
 	}
 	else if (grade > 150)
 	{
-		throw _exception.gradeTooLowException;
+		throw gradeTooLow;
 	}
-	this->_grade = grade;
+	else
+		this->_grade = grade;
 }
 
 Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grade(150)
@@ -31,14 +32,14 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 	{
 		tryInitBureaucrat(grade);
 	}
-	catch(const Exception::GradeTooHighException _e)
+	catch(const GradeTooHighException e)
 	{
-		std::cout << REDCOLOR << _exception.gradeTooHighException.what()<< ENDCOLOR << std::endl;
+		std::cout << REDCOLOR << gradeTooHigh.what()<< ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
-	catch(const Exception::GradeTooLowException _e)
+	catch(const GradeTooLowException e)
 	{
-		std::cout << REDCOLOR << _exception.gradeTooLowException.what() << ENDCOLOR << std::endl;
+		std::cout << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
 	std::cout << "Bureaucrat default constructor called" << std::endl;
@@ -80,19 +81,19 @@ void  Bureaucrat::levelUp( void )
 	try
 	{
 		if (this->_grade == 1)
-			throw _exception.gradeTooHighException;
+			throw gradeTooHigh;
 		this->_grade--;
 		std::cout << GRNCOLOR << this->_name
 		<< "'s rank has been successfully increase from "
 		<<  this->_grade + 1 << " to " << this->_grade << ENDCOLOR << std::endl;
 	}
-	catch (Exception::GradeTooHighException gradeTooHighException)
+	catch (const GradeTooHighException e)
 	{
-		std::cout << REDCOLOR << _exception.gradeTooHighException.what() << ENDCOLOR << std::endl;
+		std::cout << REDCOLOR << gradeTooHigh.what() << ENDCOLOR << std::endl;
 	}
-	catch ( Exception _exception )
+	catch (const GradeTooLowException e)
 	{
-		std::cout << REDCOLOR << _exception.what() << ENDCOLOR << std::endl;
+		std::cout << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 		exit (EXIT_FAILURE);
 	}
 	return ;
@@ -103,22 +104,16 @@ void  Bureaucrat::levelDown( void )
 	try
 	{
 		if (this->_grade == 150)
-			throw _exception.gradeTooLowException;
+			throw gradeTooLow;
     	this->_grade++;
 		std::cout << GRNCOLOR << this->_name
 		<< "'s rank has been successfully increase from "
 		<<  this->_grade - 1 << " to " << this->_grade << ENDCOLOR << std::endl;
 	}
-	catch (Exception::GradeTooLowException &gradeTooLowException)
+	catch (GradeTooLowException e)
 	{
-		std::cout << REDCOLOR << _exception.gradeTooLowException.what() << ENDCOLOR << std::endl;
+		std::cout << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 	}
-	catch ( Exception _exception )
-	{
-		std::cout << REDCOLOR << _exception.what() << ENDCOLOR << std::endl;
-		exit (EXIT_FAILURE);
-	}
-	return ;
     return ;
 }
 

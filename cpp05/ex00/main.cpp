@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 10:58:15 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:27:09 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int main(void)
 	gradeInstantiacionTooLow();
 	std::cout << std::endl;
 	gradeInstantiacionTooHigh();
-	std::cout << std::endl;
+	std::cout <<` std::endl;
 	// reachHighRank();
 	// std::cout << std::endl;
 	// reachLowRank();
