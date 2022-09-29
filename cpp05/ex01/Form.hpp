@@ -1,52 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 19:26:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 10:20:46 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/28 10:59:42 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/09/29 10:20:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_HPP
-#define BUREAUCRAT_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 
-#include <iostream>
-#include "Form.hpp"
-#define REDCOLOR "\033[1;31m"
-#define GRNCOLOR "\033[1;32m"
-#define YELCOLOR "\033[1;33m"
-#define BLUECOLOR "\033[1;34m"
-#define MAGCOLOR "\033[1;35m"
-#define CYANCOLOR "\033[1;36m"
-#define ENDCOLOR "\033[0m"
+#include "Bureaucrat.hpp"
 
-class Form;
+class Bureaucrat;
 
-class Bureaucrat
+class Form
 {
-
 	public :
 
 	/*------------------CONSTRUCTORS------------------*/
-	void				tryInitBureaucrat( int grade);
-	Bureaucrat( const std::string name, int grade );
-	Bureaucrat( Bureaucrat const &copy );
-	Bureaucrat &	operator=( const Bureaucrat &rhs );
+	void	tryInitForm( const int gradeRequiredToBeSigned, const int gradeRequiredToBeExecuted );
+	Form( const std::string name, const int gradeRequiredToBeSigned,  const int gradeRequiredToBeExecuted);
+	Form( Form const &copy );
+	Form &	operator=( Form const &rhs );
 
 
 	/*------------------DESTRUCTOR------------------*/
-	~Bureaucrat();
+	~Form();
 
-	
+
 	/*------------------ACCESORS------------------*/
 	const std::string	getName( void );
-	int					getGrade( void );
-	void				levelUp( void );
-	void				levelDown( void );
-	void				signForm( Form &form );
+	bool				getIsSigned( void );
+	int					getGradeRequiredToBeSigned( void );
+	int					getGradeRequiredToBeExecuted( void );
+	void				tryToSign( Bureaucrat &name );
+	void				beSigned( Bureaucrat &name );
+
 
 	/*------------------NESTED CLASS------------------*/
 class GradeTooHighException : public std::exception
@@ -76,10 +69,11 @@ class GradeTooLowException : public std::exception
 	private :
 
 	const std::string	_name;
-	int					_grade;
-
+	bool				_isSigned;
+	const int			_gradeRequiredToBeSigned;
+	const int			_gradeRequiredToBeExecuted;
 };
 
-std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs );
+std::ostream &	operator<<(std::ostream &o, Form &rhs );
 
 #endif
