@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:44:30 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:46:39 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
 	return *this;
 }
 
-const std::string  Bureaucrat::getName( void )
+const std::string  Bureaucrat::getName( void ) const
 {
 	return this->_name;
 }
@@ -117,7 +117,7 @@ void  Bureaucrat::levelDown( void )
 	return ;
 }
 
-void	Bureaucrat::tryToSign( AForm &form )
+void	Bureaucrat::tryToSign( AForm &form ) const
 {
 	if (this->getGrade() > form.getGradeRequiredToBeSigned())
 		throw gradeTooLow;
@@ -126,7 +126,7 @@ void	Bureaucrat::tryToSign( AForm &form )
 	return ;
 }
 
-void	Bureaucrat::signForm( AForm &form )
+void	Bureaucrat::signForm( AForm &form ) const
 {
 	try
 	{
@@ -151,4 +151,34 @@ std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
 {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
 	return o;
+}
+
+void		Bureaucrat::tryExecuteForm( AForm const &form ) const
+{
+	if (form.getIsSigned() == false)
+		throw notSigned;
+	else if (this->getGrade() > form.getGradeRequiredToBeExecuted())
+		throw gradeTooLow;
+	return ;
+}
+
+void		Bureaucrat::executeForm( AForm const &form ) const
+{
+	try
+	{
+		tryExecuteForm(form);
+	}
+	catch(NotSignedException e)
+	{
+		std::cerr << REDCOLOR << this->_name << " couldn't execute " << form.getName() << " because " << notSigned.what() << ENDCOLOR << std::endl;
+		return ;
+	}
+	catch(GradeTooLowException e)
+	{
+		std::cerr << REDCOLOR << this->_name << " couldn't execute " << form.getName() << " because " << gradeTooLow.what() << ENDCOLOR << std::endl;
+		return ;		
+	}
+	std::cout << GRNCOLOR << this->_name << " executed " << form.getName() << ENDCOLOR << std::endl;
+	form.execute(*this);
+	return ;
 }

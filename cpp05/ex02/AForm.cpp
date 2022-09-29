@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:05:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:57:57 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:48:24 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ AForm::AForm( const std::string name, const int gradeRequiredToBeSigned,  const 
 		std::cerr << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
-	std::cout << "Form default constructor called" << std::endl;
+	std::cout << "AForm default constructor called" << std::endl;
 	return ;
 }
 
@@ -67,7 +67,7 @@ AForm &	AForm::operator=( AForm const &rhs )
 	return *this;
 }
 
-const std::string	AForm::getName( void )
+const std::string	AForm::getName( void ) const
 {
 	return this->_name;
 }
@@ -78,17 +78,17 @@ void		AForm::setSigned( void )
 	return ;
 }
 
-bool		AForm::getIsSigned( void )
+bool		AForm::getIsSigned( void ) const
 {
 	return this->_isSigned;
 }
 
-int	AForm::getGradeRequiredToBeSigned( void )
+int	AForm::getGradeRequiredToBeSigned( void ) const
 {
 	return this->_gradeRequiredToBeSigned;
 }
 
-int	AForm::getGradeRequiredToBeExecuted( void )
+int	AForm::getGradeRequiredToBeExecuted( void ) const
 {
 	return this->_gradeRequiredToBeExecuted;
 }

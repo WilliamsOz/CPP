@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:59:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:57:52 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:36:49 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ class AForm
 
 
 	/*------------------ACCESORS------------------*/
-	const std::string	getName( void );
-	bool				getIsSigned( void );
-	int					getGradeRequiredToBeSigned( void );
-	int					getGradeRequiredToBeExecuted( void );
+	const std::string	getName( void ) const;
+	bool				getIsSigned( void ) const;
+	int					getGradeRequiredToBeSigned( void ) const;
+	int					getGradeRequiredToBeExecuted( void ) const;
 	void				setSigned( void );
 
 
@@ -54,7 +54,7 @@ class GradeTooHighException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("grade too high !");
+		return ("grade is too high !");
 	}
 };
 	
@@ -64,7 +64,7 @@ class GradeTooLowException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("grade too low !");
+		return ("grade is too low !");
 	}
 };
 

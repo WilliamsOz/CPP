@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:26:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 17:04:37 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:36:36 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,17 @@ class Bureaucrat
 
 	
 	/*------------------ACCESORS------------------*/
-	const std::string	getName( void );
+	const std::string	getName( void ) const;
 	int					getGrade( void ) const;
 	void				levelUp( void );
 	void				levelDown( void );
 
 	
 	/*------------------MEMBER FUNCTIONS------------------*/
-	void				tryToSign( AForm &form );
-	void				signForm( AForm &form );
+	void				tryToSign( AForm &form ) const;
+	void				signForm( AForm &form ) const;
+	void				tryExecuteForm( AForm const &form ) const;
+	void				executeForm( AForm const &form ) const;
 
 
 	/*------------------NESTED CLASS------------------*/
@@ -64,7 +66,7 @@ class GradeTooHighException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("grade too high !");
+		return ("grade is too high !");
 	}
 };
 	
@@ -74,7 +76,7 @@ class GradeTooLowException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("grade too low !");
+		return ("grade is too low !");
 	}
 };
 
@@ -88,10 +90,19 @@ class AlreadySigned : public std::exception
 	}
 };
 
+class NotSignedException : public std::exception
+{
+	public :	
+	virtual  const char *	what() const throw()
+	{
+		return ("form is not signed !");
+	}
+};
+
 	GradeTooHighException   gradeTooHigh;
 	GradeTooLowException    gradeTooLow;
 	AlreadySigned			alreadySigned;
-
+	NotSignedException		notSigned;
 
 	private :
 

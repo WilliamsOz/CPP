@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:06:36 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 17:01:58 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:52:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	ShrubberyCreationForm::execute( Bureaucrat const &executor ) const
 	ofs <<"       |o|        | |         | |" << std::endl;
 	ofs <<"       |.|        | |         | |" << std::endl;
 	ofs <<"____\\\\/ ._\\//_/__/  ,\\_//___\\/.  \\_//__/_";
+	std::cout << GRNCOLOR << this->getName() << " has been successfully executed by " << executor.getName() << ENDCOLOR << std::endl;
 	return ;
 }
