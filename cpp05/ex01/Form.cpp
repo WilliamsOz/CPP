@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:05:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 13:38:04 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 10:19:04 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	Form::tryInitForm( const int gradeRequiredToBeSigned, const int gradeRequiredToBeExecuted )
 {
 	if (gradeRequiredToBeSigned > 150)
-		throw _exception.gradeTooLowException;
+		throw gradeTooLow;
 	else if (gradeRequiredToBeSigned < 1)
-		throw _exception.gradeTooHighException;
+		throw gradeTooHigh;
 	if (gradeRequiredToBeExecuted > 150)
-		throw _exception.gradeTooLowException;
+		throw gradeTooLow;
 	else if (gradeRequiredToBeExecuted < 1)
-		throw _exception.gradeTooHighException;
+		throw gradeTooHigh;
 	return ;
 }
 
@@ -32,14 +32,14 @@ Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const in
 	{
 		tryInitForm(gradeRequiredToBeSigned, gradeRequiredToBeExecuted);
 	}
-	catch(const Exception::GradeTooHighException)
+	catch(const GradeTooHighException e)
 	{
-		std::cout << REDCOLOR << _exception.gradeTooHighException.what() << ENDCOLOR << std::endl;
+		std::cout << REDCOLOR << gradeTooHigh.what() << ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
-	catch (const Exception::GradeTooLowException)
+	catch (const GradeTooLowException e)
 	{
-		std::cout << REDCOLOR << _exception.gradeTooLowException.what() << ENDCOLOR << std::endl;
+		std::cout << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
 	std::cout << "Form default constructor called" << std::endl;
@@ -99,7 +99,7 @@ std::ostream &	operator<<(std::ostream &o, Form &rhs )
 void		Form::tryToSign( Bureaucrat &name )
 {
 	if (name.getGrade() > _gradeRequiredToBeSigned)
-		throw _exception.gradeTooLowException;
+		throw gradeTooLow;
 	else
 	{
 		this->_isSigned = true;
@@ -113,10 +113,10 @@ void		Form::beSigned( Bureaucrat &name)
 	{
 		tryToSign(name);
 	}
-	catch (const Exception::GradeTooLowException)
+	catch (const GradeTooLowException e)
 	{
 		name.signForm(*this);
-		std::cout << _exception.gradeTooLowException.what() << ENDCOLOR << std::endl;
+		std::cout << gradeTooLow.what() << ENDCOLOR << std::endl;
 	}
 	return ;
 }

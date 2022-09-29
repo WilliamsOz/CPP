@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 13:44:05 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 10:19:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,13 @@ void	canSign( void )
 	
 	std::cout << form;
 	form.beSigned( Willy );
-	std::cout << std::endl;
 	return ;
 }
 
 int main(void)
 {
 	// levelTooLowToSign();
-	// levelUpToSign();
+	levelUpToSign();
 	canSign();
 
 	return (0);

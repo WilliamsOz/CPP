@@ -6,15 +6,15 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 19:49:48 by wiozsert          #+#    #+#              #
-#    Updated: 2022/09/28 12:34:12 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/09/28 18:29:14 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = form
 
-SRCS = main.cpp Exception.cpp Bureaucrat.cpp Form.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 
-OBJ = main.o Exception.o Bureaucrat.o Form.o
+OBJ = main.o Bureaucrat.o Form.o
 
 all : $(NAME)
 
