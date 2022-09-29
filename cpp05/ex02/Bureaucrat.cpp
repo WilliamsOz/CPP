@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:47:11 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:44:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ const std::string  Bureaucrat::getName( void )
 	return this->_name;
 }
 
-int   Bureaucrat::getGrade( void )
+int   Bureaucrat::getGrade( void ) const
 {
 	return this->_grade;
 }
@@ -105,7 +105,7 @@ void  Bureaucrat::levelDown( void )
 	{
 		if (this->_grade == 150)
 			throw gradeTooLow;
-    	this->_grade++;
+		this->_grade++;
 		std::cout << GRNCOLOR << this->_name
 		<< "'s rank has been successfully increase from "
 		<<  this->_grade - 1 << " to " << this->_grade << ENDCOLOR << std::endl;
@@ -114,7 +114,37 @@ void  Bureaucrat::levelDown( void )
 	{
 		std::cerr << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 	}
-    return ;
+	return ;
+}
+
+void	Bureaucrat::tryToSign( AForm &form )
+{
+	if (this->getGrade() > form.getGradeRequiredToBeSigned())
+		throw gradeTooLow;
+	else if (form.getIsSigned() == true)
+		throw alreadySigned;
+	return ;
+}
+
+void	Bureaucrat::signForm( AForm &form )
+{
+	try
+	{
+		tryToSign(form);
+	}
+	catch(GradeTooLowException e)
+	{
+		std::cerr << REDCOLOR << this->getName() << " couldn’t sign " << form.getName() << " because " << gradeTooLow.what() << ENDCOLOR << std::endl;
+		return ;
+	}
+	catch(AlreadySigned e)
+	{
+		std::cerr << REDCOLOR << this->getName() << " couldn’t sign " << form.getName() << " because " << alreadySigned.what() << ENDCOLOR << std::endl;
+		return ;
+	}
+	std::cout << GRNCOLOR << this->getName() << " signed " << form.getName() << ENDCOLOR << std::endl;
+	form.setSigned();
+	return ;
 }
 
 std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 10:19:09 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:46:07 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 	}
 	catch(const GradeTooHighException e)
 	{
-		std::cout << REDCOLOR << gradeTooHigh.what()<< ENDCOLOR << std::endl;
+		std::cerr << REDCOLOR << gradeTooHigh.what()<< ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
 	catch(const GradeTooLowException e)
 	{
-		std::cout << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
+		std::cerr << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
 	std::cout << "Bureaucrat default constructor called" << std::endl;
@@ -89,11 +89,11 @@ void  Bureaucrat::levelUp( void )
 	}
 	catch (const GradeTooHighException e)
 	{
-		std::cout << REDCOLOR << gradeTooHigh.what() << ENDCOLOR << std::endl;
+		std::cerr << REDCOLOR << gradeTooHigh.what() << ENDCOLOR << std::endl;
 	}
 	catch (const GradeTooLowException e)
 	{
-		std::cout << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
+		std::cerr << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 		exit (EXIT_FAILURE);
 	}
 	return ;
@@ -112,7 +112,7 @@ void  Bureaucrat::levelDown( void )
 	}
 	catch (GradeTooLowException e)
 	{
-		std::cout << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
+		std::cerr << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 	}
 	return ;
 }
@@ -122,7 +122,7 @@ void	Bureaucrat::signForm( Form &form )
 	if (form.getIsSigned() == true)
 		std::cout << GRNCOLOR << this->getName() << " signed " << form.getName() << ENDCOLOR << std::endl;
 	else
-		std::cout << REDCOLOR << this->getName() << " couldn’t sign " << form.getName() << " because ";
+		std::cerr << REDCOLOR << this->getName() << " couldn’t sign " << form.getName() << " because ";
 	return ;
 }
 

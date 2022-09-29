@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:26:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 10:38:03 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 15:31:03 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include <fstream>
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #define REDCOLOR "\033[1;31m"
 #define GRNCOLOR "\033[1;32m"
 #define YELCOLOR "\033[1;33m"
@@ -23,7 +27,7 @@
 #define CYANCOLOR "\033[1;36m"
 #define ENDCOLOR "\033[0m"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -43,10 +47,15 @@ class Bureaucrat
 	
 	/*------------------ACCESORS------------------*/
 	const std::string	getName( void );
-	int					getGrade( void );
+	int					getGrade( void ) const;
 	void				levelUp( void );
 	void				levelDown( void );
-	void				signForm( Form &form );
+
+	
+	/*------------------MEMBER FUNCTIONS------------------*/
+	void				tryToSign( AForm &form );
+	void				signForm( AForm &form );
+
 
 	/*------------------NESTED CLASS------------------*/
 class GradeTooHighException : public std::exception
@@ -55,7 +64,7 @@ class GradeTooHighException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("Exception : grade too high !");
+		return ("grade too high !");
 	}
 };
 	
@@ -65,12 +74,23 @@ class GradeTooLowException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("Exception : grade too low !");
+		return ("grade too low !");
+	}
+};
+
+class AlreadySigned : public std::exception
+{
+
+	public :
+	virtual  const char *	what() const throw()
+	{
+		return ("form is already signed !");
 	}
 };
 
 	GradeTooHighException   gradeTooHigh;
 	GradeTooLowException    gradeTooLow;
+	AlreadySigned			alreadySigned;
 
 
 	private :

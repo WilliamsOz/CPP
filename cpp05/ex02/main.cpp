@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Exception.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/27 12:36:21 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 10:17:38 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/09/29 16:40:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Exception::Exception( void )
+int main(void)
 {
-	std::cout << "Exception default constructor called" << std::endl;
-	return ;
+	Bureaucrat	Willy("Willy", 45);
+	// ShrubberyCreationForm	sc("home");
+	// RobotomyRequestForm		rb("Drilling robot");
+
+	// sc.beSigned(Willy);
+	// sc.beSigned(Willy);
+	// Willy.signForm(sc);
+	// Willy.signForm(sc);
+	// sc.execute(Willy);
+	// rb.beSigned(Willy);
+	// rb.execute(Willy);
+	// rb.execute(Willy);
+	// rb.execute(Willy);
+	// rb.execute(Willy);
+	// sc.execute(Willy);
+	return (0);
 }
