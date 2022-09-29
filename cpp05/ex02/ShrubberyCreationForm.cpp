@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:06:36 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:41:45 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:01:58 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,3 @@ void	ShrubberyCreationForm::execute( Bureaucrat const &executor ) const
 	ofs <<"____\\\\/ ._\\//_/__/  ,\\_//___\\/.  \\_//__/_";
 	return ;
 }
-

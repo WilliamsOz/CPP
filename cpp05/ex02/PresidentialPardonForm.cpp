@@ -6,13 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:23:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 17:57:11 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:04:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm( AForm form ) : AForm(form.getName(), 25, 5)
+PresidentialPardonForm::PresidentialPardonForm( const std::string target )
+: AForm(target, 25, 5), _target(target), _gradeRequiredToBeSigned(25), _gradeRequiredToBeExecuted(5)
 {
     std::cout << "PresidentialPardonForm default constructor called" << std::endl;
     return ;
@@ -43,4 +44,22 @@ PresidentialPardonForm &	PresidentialPardonForm::operator=( PresidentialPardonFo
 	return *this;
 }
 
-
+void	PresidentialPardonForm::execute( Bureaucrat const &executor ) const
+{
+	try
+	{
+		canBeExecuted( executor );
+	}
+	catch(const NotSignedException e)
+	{
+		std::cerr << REDCOLOR << this->_target << " can't be executed because " << notSigned.what() << ENDCOLOR << std::endl;
+		return ;
+	}
+	catch(const GradeTooLowException e)
+	{
+		std::cerr << REDCOLOR << this->_target << " can't be executed because " << gradeTooLow.what() << ENDCOLOR << std::endl;
+		return ;
+	}
+	std::cout << GRNCOLOR << this->_target << " has been pardoned by Zaphod Beeblebrox" << ENDCOLOR << std::endl;
+	return ;
+}

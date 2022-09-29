@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:22:51 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 17:57:45 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:04:58 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,18 @@ class PresidentialPardonForm : public AForm
 {
 	public :
 
-	PresidentialPardonForm( AForm form );
-	~PresidentialPardonForm( void );
+	/*------------------CONSTRUCTORS------------------*/
+	PresidentialPardonForm( const std::string target );
 	PresidentialPardonForm( PresidentialPardonForm &copy );
 	PresidentialPardonForm & operator=( PresidentialPardonForm &rhs );
+
+
+	/*------------------DESTRUCTOR------------------*/
+	virtual ~PresidentialPardonForm( void );
+
+
+	/*------------------MEMBER FUNCTIONS------------------*/
+	virtual void		execute(Bureaucrat const & executor) const;
 
 
 	private :

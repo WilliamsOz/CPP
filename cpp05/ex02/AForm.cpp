@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:05:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:44:58 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:57:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,4 +142,3 @@ void			AForm::canBeExecuted( Bureaucrat const &executor ) const
 		throw gradeTooLow;
 	}
 }
-

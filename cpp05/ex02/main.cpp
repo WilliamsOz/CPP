@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:40:59 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:10:58 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int main(void)
 {
-	Bureaucrat	Willy("Willy", 45);
+	Bureaucrat	Willy("Willy", 5);
+	PresidentialPardonForm		pr("Macron");
 	// ShrubberyCreationForm	sc("home");
 	// RobotomyRequestForm		rb("Drilling robot");
 
+	pr.beSigned(Willy);
+	pr.execute(Willy);
 	// sc.beSigned(Willy);
 	// sc.beSigned(Willy);
 	// Willy.signForm(sc);
