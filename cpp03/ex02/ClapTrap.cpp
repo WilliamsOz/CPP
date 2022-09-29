@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:22 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 17:37:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:50:05 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ClapTrap::attack( const std::string &target )
 	}
 	else if (this->_hitPoints <= 0)
 	{
-		std::cout << REDCOLOR
+		std::cerr << REDCOLOR
 		<< "ClapTrap " << this->_name
 		<<  " is dead, he can not attacks" << ENDCOLOR << std::endl;
 		return ;
@@ -85,12 +85,12 @@ void	ClapTrap::takeDamage( unsigned int amount )
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << REDCOLOR
+		std::cerr << REDCOLOR
 		<< "ClapTrap " << this->_name << " is already dead, he can not take more damage"
 		<< ENDCOLOR << std::endl;
 		return ;
 	}
-	std::cout << REDCOLOR << "ClapTrap " << this->_name
+	std::cerr << REDCOLOR << "ClapTrap " << this->_name
 	<< " get hit, and he lose " << amount
 	<< " of his hit points, ";
 	this->_hitPoints -= amount;
@@ -104,7 +104,7 @@ void	ClapTrap::beRepaired( unsigned int amount )
 {
 	if (this->_hitPoints <= 0)
 	{
-		std::cout << REDCOLOR
+		std::cerr << REDCOLOR
 		<< "ClapTrap " << this->_name
 		<<  " is dead, he can not repair himself"
 		<< ENDCOLOR << std::endl;
@@ -112,7 +112,7 @@ void	ClapTrap::beRepaired( unsigned int amount )
 	}
 	else if (this->_energyPoints == 0)
 	{
-		std::cout << REDCOLOR
+		std::cerr << REDCOLOR
 		<< "ClapTrap " << this->_name
 		<< " try to repair himself but energy point are empty"
 		<< ENDCOLOR << std::endl;
