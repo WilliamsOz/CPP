@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:07:14 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 18:18:44 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 08:52:51 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class Bureaucrat;
 
-class ShrubberyCreationForm : public AForm
+class ShrubberyCreationForm : public Form
 {
 
 	public :

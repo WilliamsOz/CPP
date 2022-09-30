@@ -6,17 +6,17 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 19:49:48 by wiozsert          #+#    #+#              #
-#    Updated: 2022/09/29 17:03:12 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/09/30 09:45:22 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = form
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
+RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
-OBJ = main.o Bureaucrat.o AForm.o ShrubberyCreationForm.o \
-RobotomyRequestForm.o PresidentialPardonForm.o
+OBJ = main.o Bureaucrat.o Form.o ShrubberyCreationForm.o \
+RobotomyRequestForm.o PresidentialPardonForm.o Intern.o
 
 all : $(NAME)
 

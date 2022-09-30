@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 18:46:39 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 10:37:53 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,21 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 		std::cerr << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
-	std::cout << "Bureaucrat default constructor called" << std::endl;
 	return ;
 }
 
 Bureaucrat::~Bureaucrat( void )
 {
-	std::cout << "Bureaucrat default destructor called" << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const &copy ) : _name(copy._name), _grade(copy._grade)
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	return ;
 }
 
 Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	if (this != &rhs)
 		this->_grade = rhs._grade;
 	return *this;
@@ -117,7 +113,7 @@ void  Bureaucrat::levelDown( void )
 	return ;
 }
 
-void	Bureaucrat::tryToSign( AForm &form ) const
+void	Bureaucrat::tryToSign( Form &form ) const
 {
 	if (this->getGrade() > form.getGradeRequiredToBeSigned())
 		throw gradeTooLow;
@@ -126,7 +122,7 @@ void	Bureaucrat::tryToSign( AForm &form ) const
 	return ;
 }
 
-void	Bureaucrat::signForm( AForm &form ) const
+void	Bureaucrat::signForm( Form &form ) const
 {
 	try
 	{
@@ -153,7 +149,7 @@ std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
 	return o;
 }
 
-void		Bureaucrat::tryExecuteForm( AForm const &form ) const
+void		Bureaucrat::tryExecuteForm( Form const &form ) const
 {
 	if (form.getIsSigned() == false)
 		throw notSigned;
@@ -162,7 +158,7 @@ void		Bureaucrat::tryExecuteForm( AForm const &form ) const
 	return ;
 }
 
-void		Bureaucrat::executeForm( AForm const &form ) const
+void		Bureaucrat::executeForm( Form const &form ) const
 {
 	try
 	{
