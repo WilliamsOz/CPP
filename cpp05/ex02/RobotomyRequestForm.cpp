@@ -6,14 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:21:17 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 18:44:48 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 08:52:35 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm( const std::string target )
-: AForm(target, 72, 45), _target(target), _gradeRequiredToBeSigned(72), _gradeRequiredToBeExecuted(42)
+: Form(target, 72, 45), _target(target), _gradeRequiredToBeSigned(72), _gradeRequiredToBeExecuted(42)
 {
 	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 	return ;
@@ -26,7 +26,7 @@ RobotomyRequestForm::~RobotomyRequestForm( void )
 }
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm & copy )
-: AForm(copy._target, 72, 45), _target(copy._target), _gradeRequiredToBeSigned(72), _gradeRequiredToBeExecuted(45)
+: Form(copy._target, 72, 45), _target(copy._target), _gradeRequiredToBeSigned(72), _gradeRequiredToBeExecuted(45)
 {
 	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 	return ;

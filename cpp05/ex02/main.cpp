@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 18:55:06 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 08:53:25 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,10 @@ void	tooMuchSign( void )
 int main(void)
 {
 	cantDoNothing();
-	// execShruberry();
-	// execRobotomy();
-	// execPresidential();
-	// execAllForm();
-	// tooMuchSign();
+	execShruberry();
+	execRobotomy();
+	execPresidential();
+	execAllForm();
+	tooMuchSign();
 	return 0;
 }

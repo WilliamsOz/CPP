@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 18:46:39 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 08:51:55 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void  Bureaucrat::levelDown( void )
 	return ;
 }
 
-void	Bureaucrat::tryToSign( AForm &form ) const
+void	Bureaucrat::tryToSign( Form &form ) const
 {
 	if (this->getGrade() > form.getGradeRequiredToBeSigned())
 		throw gradeTooLow;
@@ -126,7 +126,7 @@ void	Bureaucrat::tryToSign( AForm &form ) const
 	return ;
 }
 
-void	Bureaucrat::signForm( AForm &form ) const
+void	Bureaucrat::signForm( Form &form ) const
 {
 	try
 	{
@@ -153,7 +153,7 @@ std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
 	return o;
 }
 
-void		Bureaucrat::tryExecuteForm( AForm const &form ) const
+void		Bureaucrat::tryExecuteForm( Form const &form ) const
 {
 	if (form.getIsSigned() == false)
 		throw notSigned;
@@ -162,7 +162,7 @@ void		Bureaucrat::tryExecuteForm( AForm const &form ) const
 	return ;
 }
 
-void		Bureaucrat::executeForm( AForm const &form ) const
+void		Bureaucrat::executeForm( Form const &form ) const
 {
 	try
 	{

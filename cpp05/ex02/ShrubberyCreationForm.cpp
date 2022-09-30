@@ -6,14 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:06:36 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 18:52:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 08:52:58 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string target )
-: AForm(target, 145, 137), _target(target), _gradeRequiredToBeSigned(145), _gradeRequiredToBeExecuted(137)
+: Form(target, 145, 137), _target(target), _gradeRequiredToBeSigned(145), _gradeRequiredToBeExecuted(137)
 {
 	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 	return ;
@@ -26,7 +26,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void )
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm & copy )
-: AForm(copy._target, 145, 137), _target(copy._target), _gradeRequiredToBeSigned(145), _gradeRequiredToBeExecuted(137)
+: Form(copy._target, 145, 137), _target(copy._target), _gradeRequiredToBeSigned(145), _gradeRequiredToBeExecuted(137)
 {
 	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
 	return ;

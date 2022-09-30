@@ -6,14 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:23:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 17:04:57 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 08:52:23 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm( const std::string target )
-: AForm(target, 25, 5), _target(target), _gradeRequiredToBeSigned(25), _gradeRequiredToBeExecuted(5)
+: Form(target, 25, 5), _target(target), _gradeRequiredToBeSigned(25), _gradeRequiredToBeExecuted(5)
 {
     std::cout << "PresidentialPardonForm default constructor called" << std::endl;
     return ;
@@ -26,7 +26,7 @@ PresidentialPardonForm::~PresidentialPardonForm( void )
 }
 
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm & copy )
-: AForm(copy._target, 25, 5), _target(copy._target), _gradeRequiredToBeSigned(25), _gradeRequiredToBeExecuted(5)
+: Form(copy._target, 25, 5), _target(copy._target), _gradeRequiredToBeSigned(25), _gradeRequiredToBeExecuted(5)
 {
 	std::cout << "PresidentialPardonForm copy constructor called" << std::endl;
 	return ;

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:19:35 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 18:37:03 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 08:52:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "Bureaucrat.hpp"
 
-class RobotomyRequestForm : public AForm
+class RobotomyRequestForm : public Form
 {
 	public :
 	
