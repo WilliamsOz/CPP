@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:46:07 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 10:44:28 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,21 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 		std::cerr << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
-	std::cout << "Bureaucrat default constructor called" << std::endl;
 	return ;
 }
 
 Bureaucrat::~Bureaucrat( void )
 {
-	std::cout << "Bureaucrat default destructor called" << std::endl;
 	return ;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const &copy ) : _name(copy._name), _grade(copy._grade)
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	return ;
 }
 
 Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
 {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	if (this != &rhs)
 		this->_grade = rhs._grade;
 	return *this;

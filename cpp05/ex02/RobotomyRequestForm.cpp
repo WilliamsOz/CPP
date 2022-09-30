@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:21:17 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/30 08:52:35 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 10:43:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,22 @@
 RobotomyRequestForm::RobotomyRequestForm( const std::string target )
 : Form(target, 72, 45), _target(target), _gradeRequiredToBeSigned(72), _gradeRequiredToBeExecuted(42)
 {
-	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 	return ;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm( void )
 {
-    std::cout << "RobotomyRequestForm default destructor called" << std::endl;
 	return ;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm & copy )
 : Form(copy._target, 72, 45), _target(copy._target), _gradeRequiredToBeSigned(72), _gradeRequiredToBeExecuted(45)
 {
-	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 	return ;
 }
 
 RobotomyRequestForm &	RobotomyRequestForm::operator=( RobotomyRequestForm &rhs )
 {
-	std::cout << "RobotomyRequestForm Assignation constructor called" << std::endl;
 	if (this != &rhs)
 	{
 		this->_target = rhs._target;

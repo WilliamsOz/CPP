@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:05:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:47:12 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/09/30 10:44:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,22 @@ Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const in
 		std::cerr << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
 		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
 	}
-	std::cout << "Form default constructor called" << std::endl;
 	return ;
 }
 
 Form::~Form( void )
 {
-	std::cout << "Form default destructor called" << std::endl;
 	return ;
 }
 
 Form::Form( Form const &copy )
 : _name(copy._name), _isSigned(false), _gradeRequiredToBeSigned(copy._gradeRequiredToBeSigned), _gradeRequiredToBeExecuted(copy._gradeRequiredToBeExecuted)
 {
-	std::cout << "Form copy constructor called" << std::endl;
 	return ;
 }
 
 Form &	Form::operator=( Form const &rhs )
 {
-	std::cout << "Form assignement operator called" << std::endl;
 	if (this != &rhs)
 		this->_isSigned = rhs._isSigned;
 	return *this;
