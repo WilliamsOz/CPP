@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Exception.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 16:19:22 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/03 16:44:12 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/03 16:35:44 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/03 16:41:44 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EXCEPTION_HPP
+#define EXCEPTION_HPP
+
 #include "Scalar.hpp"
 
-int main(int ac, char **av)
+class Exception : std::exception
 {
-	Scalar	scalar;
+	public :
 
-	scalar.Error(ac, av);
-	
-	return (0);
-}
+class InvalidNumberOfArguments
+{
+	public :
+	virtual  const char *	what() const throw()
+	{
+		return ("Invalid numbers of arguments");
+	}
+};
+
+
+    InvalidNumberOfArguments    invalidNumberOfArguments;
+
+};
+
+#endif
