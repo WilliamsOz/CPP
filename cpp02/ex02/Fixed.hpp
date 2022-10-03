@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:20:55 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 09:58:24 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/03 16:07:34 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Fixed
 	bool			operator==( Fixed const &rhs ) const;
 	bool			operator!=( Fixed const &rhs ) const;
 	Fixed			operator+( Fixed const &rhs ) const; //check
-	int 			operator-( Fixed const &rhs) const;
+	Fixed 			operator-( Fixed const &rhs) const;
 	Fixed 			operator*( Fixed const &rhs) const;
 	Fixed 			operator/( Fixed const &rhs) const;
 	Fixed			operator++( int ); //post i++
