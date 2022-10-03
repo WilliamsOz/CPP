@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:42:32 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/21 10:23:22 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/03 10:47:35 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class Fixed
 	Fixed( float const f);
 	~Fixed();
 	Fixed &			operator=(Fixed const &f);
-	int				getRawBits( void ) const;
-	void			setRawBits( int const raw );
 	float   		toFloat( void ) const;
 	int     		toInt( void ) const;
 

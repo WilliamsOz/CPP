@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:42:36 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/21 11:52:37 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/03 10:47:48 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,6 @@ std::ostream &	operator<<( std::ostream &o, Fixed const &f )
 {
 	o << f.toFloat();
 	return (o);
-}
-
-int     Fixed::getRawBits( void ) const
-{
-	std::cout << "getRawBits member function called" << std::endl;
-	return (this->_fixedPointNumberValue);
-}
-
-void    Fixed::setRawBits( int const raw )
-{
-	this->_fixedPointNumberValue = raw;
-	return ;
 }
 
 float	Fixed::toFloat( void ) const
