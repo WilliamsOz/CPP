@@ -6,15 +6,15 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 19:49:48 by wiozsert          #+#    #+#              #
-#    Updated: 2022/10/03 16:43:09 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/10/03 23:58:40 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scalar
+NAME = convert
 
-SRCS = main.cpp Scalar.cpp
+SRCS = main.cpp Convert.cpp Errors.cpp
 
-OBJ = main.o Scalar.o
+OBJ = main.o Convert.o Errors.o
 
 all : $(NAME)
 
