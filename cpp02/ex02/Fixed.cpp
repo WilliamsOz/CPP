@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:21:13 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/03 16:09:31 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/03 16:10:08 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ Fixed	Fixed::operator+( Fixed const &rhs ) const
 {
 	return Fixed((float)(this->_fixedPointNumberValue + rhs.getRawBits()) / 256);
 }
-`
+
 Fixed	Fixed::operator-( Fixed const &rhs ) const
 {
 	Fixed	res;
