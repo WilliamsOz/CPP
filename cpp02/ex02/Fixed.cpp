@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:21:13 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/21 16:28:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/03 14:02:45 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ Fixed	Fixed::operator/( Fixed const &rhs) const
 		std::cout << "\033[1;31mDivision by 0 is not allowed\033[1;32m" << std::endl;
 		return (res);
 	}
-	res._fixedPointNumberValue = roundf((this->toFloat() * rhs.toFloat()) * power);
+	res._fixedPointNumberValue = roundf((this->toFloat() / rhs.toFloat()) * power);
 	return (res);
 }
 
