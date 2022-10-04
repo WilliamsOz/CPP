@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:20:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/03 23:58:24 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/04 11:28:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CONVERT_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include "Exception.hpp"
 #define REDCOLOR "\033[1;31m"
 #define GRNCOLOR "\033[1;32m"
@@ -33,13 +34,19 @@ class Convert
 	
 	~Convert();
 
-	
-	void	isThereAnError(int ac, char *src);
-	bool	Error( int ac, char **av );
+	void	print( void );
+	void	convert( const char *src );
+	long	ft_stoi( const char *src ) const;
+	void	isThereAnError(int ac, const char *src) const;
+	bool	Error( int ac, const char **av ) const;
 
-	/*------------------ATTRIBUTES------------------*/
 	Exception excp;
 
 
+	private :
+	char	_charNbr;
+	int		_intNbr;
+	float	_floatNbr;
+	double	_doubleNbr;
 };
 #endif
