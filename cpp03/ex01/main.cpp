@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 17:44:00 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/05 13:50:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	gateKeeperMode( void )
 int main ( void )
 {
 	checkChaining();
-	// attacksUntillExhaustion();
-	// gateKeeperMode();
+	attacksUntillExhaustion();
+	gateKeeperMode();
 	return (0);
 }
