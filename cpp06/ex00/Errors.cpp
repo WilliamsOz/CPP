@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:56:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/04 11:28:07 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/07 10:02:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ bool	isThereForbiddenCharacter( const char *src, int index )
 {
 	while (src[index])
 	{
-		if ((src[index] < 'a' || src[index] > 'z')
+		if ((isalpha(src[index]) == false)
 		&& (src[index] < '0' || src[index] > '9')
-		&& (src[index] != '.') && (src[index] != '-'))
+		&& (src[index] != '.')
+		&& (src[index] != '-')
+		&& (src[index] != '+'))
 			return true;
 		else
 			index++;
@@ -28,7 +30,7 @@ bool	isThereForbiddenCharacter( const char *src, int index )
 	return false;
 }
 
-bool	infNoSense(const std::string src, int index)
+bool	infFound(const std::string src, int index)
 {
 	std::string	floatCheck[3] = {"-inff", "+inff", "nanf"};
 	std::string doubleCheck[3] = {"-inf", "+inf", "nan"};
@@ -36,44 +38,65 @@ bool	infNoSense(const std::string src, int index)
 	while (index < 3)
 	{
 		if (src.length() == floatCheck[index].length() && src.compare(floatCheck[index]) == 0)
-			return false;
+			return true;
 		else if (src.length() == doubleCheck[index].length() && src.compare(doubleCheck[index]) == 0)
-			return false;
+			return true;
 		index++;
 	}
 	return false;
 }
 
-bool	charNoSense(const std::string src, int index, int indicator)
+static bool	isInf( std::string const src )
 {
+	std::string const checkFloat[3] = {"-inff", "+inff", "nanf"};
+	std::string const checkDouble[3] = {"-inf", "+inf", "nan"};
+
+	for (int i = 0 ; i < 3 ; i++)
+	{
+		if (src == checkFloat[i])
+			return true;
+		else if (src == checkDouble[i])
+			return true;
+	}
+	return false;
+}
+
+bool	charNoSense(std::string const src, int index, int indicator)
+{
+	bool	signIndicator = false;
+
 	while (src[index])
 	{
-		if (src[index] >= 'a' && src[index] <= 'z')
+		if (src[index] == '-' || src[index] == '+')
+			signIndicator = true;
+		if (isalpha(src[index]))
 			indicator += 1;
 		index++;
 	}
-	if (indicator > 1)
+	if (indicator > 1 && infFound(src, 0) == false)
+		return true;
+	else if (signIndicator == true && indicator >= 1 && isInf(src) == false)
+		return true;
+	else if (src.length() == 1 && signIndicator >= 1)
 		return true;
 	return false;
 }
 
-bool	noSense(const char *src, int index, int dotIndicator, int minusIndicator)
+bool	noSense(const char *src, int index, int dotIndicator, int signIndicator)
 {
 	while (src[index])
 	{
 		if (src[index] == '.')
 			dotIndicator++;
-		if (src[index] == '-')
-			minusIndicator++;
+		if (src[index] == '-' || src[index] == '+')
+			signIndicator++;
 		if (index > 0 && src[index] == '-')
 			return true;
 		index++;
 	}
-	if (dotIndicator > 1 || minusIndicator > 1)
+	if (dotIndicator > 1 || signIndicator > 1)
 		return true;
 	else if (charNoSense(static_cast<std::string>(src), 0, 0) == true)
-		return true;
-	else if (infNoSense(static_cast<std::string>(src), 0) == true)
 		return true;
 	return false;
 }
@@ -96,14 +119,48 @@ bool	isOverflow(const char *src, int index, int count)
 void	Convert::isThereAnError(int ac, const char *src) const
 {
 	if (ac != 2)
-		throw	excp.invalidNumberOfArguments;
+		throw	invalidNumberOfArguments;
 	else if (src == NULL || src[0] == '\0')
-		throw	excp.emptyString;
+		throw	emptyString;
 	else if (isThereForbiddenCharacter(src, 0) == true)
-		throw	excp.invalidCharacter;
+		throw	invalidCharacter;
 	else if (noSense(src, 0, 0, 0) == true)
-		throw	excp.noSense;
+		throw	invalidSense;
 	else if (isOverflow(src, 0, 0) == true)
-		throw	excp.overflow;
+		throw	overflow;
 	return ;
+}
+
+bool	Convert::Error(int ac, const char **av) const
+{
+	try
+	{
+		isThereAnError( ac, av[1] );
+	}
+	catch(const InvalidNumberOfArguments e)
+	{
+		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
+		return true;
+	}
+	catch(const EmptyString	e)
+	{
+		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
+		return true;
+	}
+	catch (const InvalidCharacter e)
+	{
+		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
+		return true;
+	}
+	catch (const InvalidSense e)
+	{
+		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
+		return true;
+	}
+	catch (const Overflow e)
+	{
+		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
+		return true;
+	}
+	return false;
 }
