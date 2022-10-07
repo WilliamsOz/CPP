@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:20:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/07 09:54:29 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/07 10:07:51 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,13 @@ class Convert
 
 	long	ft_stoi( const char *src ) const;
 
-	void	printChar( void );
-	void	print( void );
+	void	printInt( void ) const;
+	void	printChar( void ) const;
+	void	print( void ) const;
 
 	void	convert( const char *src );
 
-	bool	isImpossibleConversion(std::string const src);
+	bool	isImpossibleConversion( std::string const src );
 	bool	isDouble(const char *src, int index);
 	bool	isFloat(const char *src, int index);
 	bool	isInt(const char *src, int index);
