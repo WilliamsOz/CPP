@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:40:38 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/07 10:07:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/09 17:07:56 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	Convert::printChar( void ) const
 {
-	if (_impossibleConversion == true)
+	if (_isInfinityConv == true || _isCharOverflow == true)
 		std::cout << "char: impossible" << std::endl;
 	else if (_char < 32 || _char > 126)
 		std::cout << "char: Non displayable" << std::endl;
@@ -25,7 +25,7 @@ void	Convert::printChar( void ) const
 
 void	Convert::printInt( void ) const
 {
-	if (_impossibleConversion == true)
+	if (_isInfinityConv == true || _isIntOverflow == true)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << _int << std::endl;

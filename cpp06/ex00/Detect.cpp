@@ -6,17 +6,25 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:16:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/07 09:58:04 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/09 17:10:42 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 
+static bool	ft_isdigit(char c)
+{
+	if (c >= '0' && c <= '9')
+		return true;
+	else
+		return false;
+}
+
 bool	Convert::isInt(const char *src, int index)
 {
 	while (src[index])
 	{
-		if (isdigit(src[index]) == true || src[index] == '+' || src[index] == '-')
+		if (ft_isdigit(src[index]) == true || src[index] == '+' || src[index] == '-')
 			index++;
 		else
 			return false;
@@ -60,7 +68,7 @@ bool	Convert::isDouble(const char *src, int index)
 	return false;
 }
 
-bool	Convert::isImpossibleConversion( std::string const src )
+bool	Convert::isInfinityToConv( std::string const src )
 {
 	std::string const checkFloat[3] = {"-inff", "+inff", "nanf"};
 	std::string const checkDouble[3] = {"-inf", "+inf", "nan"};
@@ -70,13 +78,13 @@ bool	Convert::isImpossibleConversion( std::string const src )
 		if (src == checkFloat[i])
 		{
 			_isFloat = true;
-			_impossibleConversion = true;
+			_isInfinityConv = true;
 			return true;
 		}
 		else if (src == checkDouble[i])
 		{
 			_isDouble = true;
-			_impossibleConversion = true;
+			_isInfinityConv = true;
 			return true;
 		}
 	}
@@ -87,7 +95,7 @@ void	Convert::detectCase(const char *src)
 {
 	std::string	stringSrc = static_cast<std::string>(src);
 
-	if (isImpossibleConversion(stringSrc) == true)
+	if (isInfinityToConv(stringSrc) == true)
 		return ;
 	else if (stringSrc.length() == 1 && isalpha(*src))
 		_isChar = true;

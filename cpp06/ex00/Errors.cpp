@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:56:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/07 10:04:28 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/09 14:58:56 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,8 +126,6 @@ void	Convert::isThereAnError(int ac, const char *src) const
 		throw	invalidCharacter;
 	else if (noSense(src, 0, 0, 0) == true)
 		throw	invalidSense;
-	else if (isOverflow(src, 0, 0) == true)
-		throw	overflow;
 	return ;
 }
 
@@ -153,11 +151,6 @@ bool	Convert::Error(int ac, const char **av) const
 		return true;
 	}
 	catch (const InvalidSense e)
-	{
-		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
-		return true;
-	}
-	catch (const Overflow e)
 	{
 		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
 		return true;
