@@ -6,11 +6,11 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 14:08:27 by wiozsert          #+#    #+#              #
-#    Updated: 2022/06/02 12:05:04 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/10/10 13:13:06 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie
+NAME = zombiehorde
 
 SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:10:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 12:34:31 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:13:34 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	Zombie::setHordeName( std::string horde_name )
 
 void	Zombie::announce( void ) const
 {
-	std::cout << "\033[1;32m" << _name << ": BraiiiiiiinnnzzzZ..." << "\033[1;32m" << std::endl;
+	std::cout << "\033[1;32m" << _name << ": BraiiiiiiinnnzzzZ..." << "\033[0m" << std::endl;
 	return ;
 }
 

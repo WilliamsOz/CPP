@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 14:10:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 12:34:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:13:24 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	introduceYourselves(Zombie *horde, int N)
 Zombie*	zombieHorde(int N, std::string name)
 {
 	Zombie	*horde = new Zombie[N];
+
 	horde = setNameToTheHorde(horde, N, name);
 	introduceYourselves(horde, N);
 	return (horde);
