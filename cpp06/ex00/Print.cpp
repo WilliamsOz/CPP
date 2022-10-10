@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:40:38 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/09 17:07:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:14:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,27 @@ void	Convert::printInt( void ) const
 	return ;
 }
 
+void	Convert::printFloat( void ) const
+{
+	
+
+	std::cout << "float: " << _float << "f" << std::endl;
+	return ;
+}
+
+void	Convert::printDouble( void ) const
+{
+	
+
+	std::cout << "double: " << _double << std::endl;
+	return ;
+}
+
 void	Convert::print( void ) const
 {
 	printChar();
 	printInt();
-	std::cout << "float: " << _float << "f" << std::endl;
-	std::cout << "double: " << _double << std::endl;
+	printFloat();
+	printDouble();
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:20:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/09 15:13:05 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:36:33 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <stdlib.h>
-#include <limits.h>
 #define REDCOLOR "\033[1;31m"
 #define GRNCOLOR "\033[1;32m"
 #define YELCOLOR "\033[1;33m"
@@ -26,6 +25,8 @@
 #define ENDCOLOR "\033[0m"
 
 //del
+#include <limits.h>
+#include <float.h>
 #include <stdio.h>
 #define DEBUG printf(MAGCOLOR"%s\n","CCCNS"ENDCOLOR);
 //del
@@ -54,10 +55,10 @@ class Convert
 	
 	~Convert();
 
-	long	ft_stoi( const char *src ) const;
-
-	void	printInt( void ) const;
 	void	printChar( void ) const;
+	void	printInt( void ) const;
+	void	printFloat( void ) const;
+	void	printDouble( void ) const;
 	void	print( void ) const;
 
 	void	convertToChar( const char *src );
@@ -66,10 +67,10 @@ class Convert
 	void	convertToDouble( const char *src );
 	void	convert( const char *src );
 
-	bool	isInfinityToConv( std::string const src );
 	bool	isDouble(const char *src, int index);
 	bool	isFloat(const char *src, int index);
 	bool	isInt(const char *src, int index);
+	bool	isInfinityToConv( std::string const src );
 	void	detectCase( const char *src );
 
 	void	isThereAnError(int ac, const char *src) const;
@@ -118,13 +119,24 @@ class	InvalidSense
 	}
 };
 
-	InvalidNumberOfArguments    invalidNumberOfArguments;
+	InvalidNumberOfArguments	invalidNumberOfArguments;
 	EmptyString					emptyString;
 	InvalidCharacter			invalidCharacter;
 	InvalidSense				invalidSense;
 
+
+
 };
 
 std::ostream &	operator<<( std::ostream &ios, Convert &rhs );
+
+typedef struct	error_s
+{
+	int	isThereDigit;
+	int	isThereChar;
+	int	isThereDot;
+	int	isThereF;
+	int	isThereSign;
+}				error_t;
 
 #endif

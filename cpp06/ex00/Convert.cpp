@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:21:17 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/09 18:21:39 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 10:12:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,48 +98,39 @@ std::ostream &	operator<<( std::ostream &o, Convert &rhs )
 	return o;
 }
 
-long	Convert::ft_stoi(const char *src) const
-{
-	long res = 0;
-	int index = 0;
-	int	sign = 0;
-
-	if (src[index] == '-')
-	{
-		sign += 1;
-		index++;
-	}
-	while (src[index] != '\0' && (src[index] >= '1' && src[index] <= '9'))
-	{
-		res = res * 10 + (src[index] - '0');
-		index++;
-	}
-	if (sign == 1)
-		return (res * -1);
-	return res;
-}
-
 void	Convert::convertToChar( const char *src )
 {
-	if (ft_stoi(src) > SCHAR_MAX || ft_stoi(src) < SCHAR_MIN)
+	if (_isCharOverflow == true)
+	{
 		_isCharOverflow = true;
-	_char = static_cast<const char>(*src);
-	_int = static_cast<int>(_char);
-	_float = static_cast<float>(_char);
-	_double = static_cast<double>(_char);
+		_int = static_cast<int>(atoi(src));
+		_float = static_cast<float>(atof(src));
+		_double = static_cast<double>(atof(src));
+	}
+	else
+	{
+		_char = static_cast<const char>(*src);
+		_int = static_cast<int>(_char);
+		_float = static_cast<float>(_char);
+		_double = static_cast<double>(_char);
+	}
 	return ;
 }
 
 void	Convert::convertToInt( const char *src )
 {
-	if (ft_stoi(src) > SCHAR_MAX || ft_stoi(src) < SCHAR_MIN)
-		_isCharOverflow = true;
-	if (ft_stoi(src) > INT_MAX || ft_stoi(src) < INT_MIN)
-		_isIntOverflow = true;
-	_int = static_cast<int>(ft_stoi(src));
-	_char = static_cast<const char>(_int);
-	_float = static_cast<float>(_int);
-	_double = static_cast<double>(_int);
+	if (_isIntOverflow == true)
+	{
+		_float = static_cast<float>(atof(src));
+		_double = static_cast<double>(atof(src));
+	}
+	else
+	{
+		_int = static_cast<int>(atoi(src));
+		_char = static_cast<const char>(_int);
+		_float = static_cast<float>(_int);
+		_double = static_cast<double>(_int);
+	}
 	return ;
 }
 
@@ -156,7 +147,7 @@ void	Convert::convertToFloat( const char *src )
 
 void	Convert::convertToDouble( const char *src )
 {
-	_double = static_cast<double>(strtod(src, NULL));
+	_double = static_cast<double>(atof(src));
 	_char = static_cast<const char>(_double);
 	_int = static_cast<int>(_double);
 	_float = static_cast<float>(_double);
@@ -165,6 +156,10 @@ void	Convert::convertToDouble( const char *src )
 
 void	Convert::convert( const char *src )
 {
+	if (atol(src) > CHAR_MAX || atol(src) < CHAR_MIN)
+		_isCharOverflow = true;
+	if (atol(src) > INT_MAX || atol(src) < INT_MIN)
+		_isIntOverflow = true;
 	if (_isChar == true)
 		convertToChar(src);
 	else if (_isInt == true)
