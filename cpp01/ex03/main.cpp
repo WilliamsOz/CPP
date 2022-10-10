@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:09:47 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/23 10:55:40 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:23:16 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
-
 	return 0;
 }

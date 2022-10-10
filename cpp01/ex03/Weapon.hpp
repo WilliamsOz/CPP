@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:10:15 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/23 12:04:19 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:18:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Weapon
 
 	Weapon( std::string type );
 	~Weapon( void );
-	const std::string	getType();
+	const std::string &	getType();
 	void				setType(std::string type);
 
 

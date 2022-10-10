@@ -6,15 +6,16 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:10:36 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 12:34:11 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 13:23:10 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-const std::string	Weapon::getType()
+const std::string &	Weapon::getType()
 {
 	std::string	&typeREF = this->_type;
+
 	return typeREF;
 }
 
