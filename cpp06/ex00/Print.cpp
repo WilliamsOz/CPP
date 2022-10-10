@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:40:38 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/10 11:50:47 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:04:01 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	Convert::printChar( void ) const
 	else if (_char < 32 || _char > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
-		std::cout << "char: " << _char << std::endl;
+		std::cout << "char: '" << _char << "'" << std::endl;
 	return ;
 }
 
