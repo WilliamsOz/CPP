@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:16:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/09 17:10:42 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 11:59:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,14 @@ bool	Convert::isInt(const char *src, int index)
 bool	Convert::isFloat(const char *src, int index)
 {
 	bool	fIndicator = false;
-	bool	dotIndicator = false;
 
 	while (src[index])
 	{
 		if (src[index] == 'f')
 			fIndicator = true;
-		else if (src[index] == '.')
-			dotIndicator = true;
 		index++;
 	}
-	if (fIndicator == true && dotIndicator == true)
+	if (fIndicator == true)
 		return true;
 	return false;
 }
@@ -91,13 +88,21 @@ bool	Convert::isInfinityToConv( std::string const src )
 	return false;
 }
 
+static bool	ft_isChar( char c )
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return true;
+	else
+		return false;
+}
+
 void	Convert::detectCase(const char *src)
 {
 	std::string	stringSrc = static_cast<std::string>(src);
 
 	if (isInfinityToConv(stringSrc) == true)
 		return ;
-	else if (stringSrc.length() == 1 && isalpha(*src))
+	else if (stringSrc.length() == 1 && ft_isChar(*src))
 		_isChar = true;
 	else if (isInt(src, 0) == true)
 		_isInt = true;

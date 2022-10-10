@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:40:38 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/10 10:14:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 11:50:47 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,39 @@ void	Convert::printInt( void ) const
 
 void	Convert::printFloat( void ) const
 {
-	
+	std::stringstream	o;
+	std::string	str_value;
 
-	std::cout << "float: " << _float << "f" << std::endl;
+	o << _float;
+	str_value = o.str();
+	std::cout << "float: " << _float;
+	if (str_value.find("inf") != std::string::npos)
+	{
+		std::cout << std::endl;
+		return ;
+	}
+	else if (str_value.find('.') == std::string::npos && str_value.find('e') == std::string::npos)
+		std::cout << ".0";
+	std::cout << "f" << std::endl;
 	return ;
 }
 
 void	Convert::printDouble( void ) const
 {
-	
+	std::stringstream	o;
+	std::string	str_value;
 
-	std::cout << "double: " << _double << std::endl;
+	o << _double;
+	str_value = o.str();
+	std::cout << "double: " << _double;
+	if (str_value.find("inf") != std::string::npos)
+	{
+		std::cout << std::endl;
+		return ;
+	}
+	else if (str_value.find('.') == std::string::npos && str_value.find('e') == std::string::npos)
+		std::cout << ".0";
+	std::cout << std::endl;
 	return ;
 }
 

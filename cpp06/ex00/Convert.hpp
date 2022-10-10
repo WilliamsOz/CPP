@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:20:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/10 10:36:33 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:00:40 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <stdlib.h>
+#include <sstream>
+#include <string>
+#include <limits.h>
 #define REDCOLOR "\033[1;31m"
 #define GRNCOLOR "\033[1;32m"
 #define YELCOLOR "\033[1;33m"
@@ -23,13 +26,6 @@
 #define MAGCOLOR "\033[1;35m"
 #define CYANCOLOR "\033[1;36m"
 #define ENDCOLOR "\033[0m"
-
-//del
-#include <limits.h>
-#include <float.h>
-#include <stdio.h>
-#define DEBUG printf(MAGCOLOR"%s\n","CCCNS"ENDCOLOR);
-//del
 
 class Convert
 {
@@ -75,7 +71,6 @@ class Convert
 
 	void	isThereAnError(int ac, const char *src) const;
 	bool	Error( int ac, const char **av ) const;
-
 
 	bool	getIsChar( void );
 	char	getChar( void );
@@ -123,9 +118,6 @@ class	InvalidSense
 	EmptyString					emptyString;
 	InvalidCharacter			invalidCharacter;
 	InvalidSense				invalidSense;
-
-
-
 };
 
 std::ostream &	operator<<( std::ostream &ios, Convert &rhs );

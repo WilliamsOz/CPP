@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:21:17 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/10 10:12:30 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/10 11:57:51 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,6 @@ void	Convert::convertToInt( const char *src )
 	return ;
 }
 
-//The maximum value of float = 3.4028234664e+38
-//The minimum value of float = 1.1754943508e-38
 void	Convert::convertToFloat( const char *src )
 {
 	_float = static_cast<float>(atof(src));
