@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:21:13 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/03 16:10:08 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:27:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-/////////////////////////CONSTRUCTOR AND DESTRUCTOR/////////////////////////
+/*------------------CONSTRUCTORS------------------*/
 
 Fixed::Fixed( void ) : _fixedPointNumberValue(0)
 {
@@ -40,13 +40,13 @@ Fixed::Fixed( float const f )
 	return ;
 }
 
+/*------------------DESTRUCTOR------------------*/
 Fixed::~Fixed ( void )
 {
 	return ;
 }
 
-/////////////////////////OVERLOAD FUNCTIONS/////////////////////////
-
+/*------------------OVERLOAD OPERATOR------------------*/
 Fixed & Fixed::operator=( Fixed const &rhs )
 {
 	if (this != &rhs)
@@ -166,19 +166,19 @@ std::ostream &	operator<<( std::ostream &o, Fixed const &rhs )
 	return (o);
 }
 
-/////////////////////////MEMBER FUNCTIONS/////////////////////////
-
-int     Fixed::getRawBits( void ) const
+/*------------------ACCESORS------------------*/
+int	Fixed::getRawBits( void ) const
 {
 	return (this->_fixedPointNumberValue);
 }
 
-void    Fixed::setRawBits( int const raw )
+void	Fixed::setRawBits( int const raw )
 {
 	this->_fixedPointNumberValue = raw;
 	return ;
 }
 
+/*------------------MEMBER FUNCTIONS------------------*/
 float	Fixed::toFloat( void ) const
 {
 	int		pow = 256;

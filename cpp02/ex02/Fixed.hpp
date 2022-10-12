@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 10:20:55 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/03 16:07:34 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:27:31 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,16 @@ class Fixed
 {
 	public:
 
-	/////////////////////////ONSTRUCTOR AND DESTRUCTOR/////////////////////////
+	/*------------------CONSTRUCTORS------------------*/
 	Fixed( void );
 	Fixed(Fixed const &f);
 	Fixed( int const n);
 	Fixed( float const f);
+
+	/*------------------DESTRUCTOR------------------*/
 	~Fixed();
 
-	/////////////////////////OVERLOAD FUNCTIONS/////////////////////////
+	/*------------------OVERLOAD OPERATOR------------------*/
 	Fixed &			operator=( Fixed const &rhs );
 	bool			operator>( Fixed const &rhs ) const;
 	bool			operator<( Fixed const &rhs ) const;
@@ -44,14 +46,16 @@ class Fixed
 	Fixed 			operator--( int ); // post i--
 	Fixed &			operator--( void ); // pre --i
 
-	/////////////////////////MEMBER FUNCTIONS/////////////////////////
+	/*------------------ACCESORS------------------*/
 	int				getRawBits( void ) const;
 	void			setRawBits( int const raw );
-	float   		toFloat( void ) const;
-	int     		toInt( void ) const;
-	static Fixed &	min( Fixed &lhs, Fixed &rhs );
+
+	/*------------------MEMBER FUNCTIONS------------------*/
+	float					toFloat( void ) const;
+	int						toInt( void ) const;
+	static Fixed &			min( Fixed &lhs, Fixed &rhs );
 	static const Fixed &	min( Fixed const &lhs, Fixed const &rhs );
-	static Fixed &	max( Fixed &lhs, Fixed &rhs );
+	static Fixed &			max( Fixed &lhs, Fixed &rhs );
 	static const Fixed &	max( Fixed const &lhs, Fixed const &rhs );
 
 
