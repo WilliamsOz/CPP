@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 13:58:54 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 14:55:41 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 15:08:05 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "C.hpp"
 
 Base *	generate( void );
-void	identify( Base* p );
-void	identify( Base& p );
+void	identify( Base *p );
+void	identify( Base &p );
 
 #endif

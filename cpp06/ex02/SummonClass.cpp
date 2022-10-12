@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 13:58:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 15:03:02 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 15:07:54 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Base *	generate( void )
 	return (new C());
 }
 
-void	identify(Base* p)
+void	identify(Base *p)
 {
 	A	*ptrA = dynamic_cast<A*>(p);
 	B	*ptrB = dynamic_cast<B*>(p);
@@ -43,7 +43,7 @@ void	identify(Base* p)
 	return ;
 }
 
-void	identify(Base& p)
+void	identify(Base &p)
 {
 	try
 	{
