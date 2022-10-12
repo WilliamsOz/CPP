@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   B.cpp                                              :+:      :+:    :+:   */
+/*   SummonClass.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/12 12:28:15 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 13:57:47 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/12 13:58:54 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/12 14:55:41 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SUMMONCLASS_HPP
+#define SUMMONCLASS_HPP
+
+#include "Base.hpp"
+#include "A.hpp"
 #include "B.hpp"
+#include "C.hpp"
 
-B::B( void )
-{
-	return ;
-}
+Base *	generate( void );
+void	identify( Base* p );
+void	identify( Base& p );
 
-B::~B( void )
-{
-	return ;
-}
+#endif

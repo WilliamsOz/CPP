@@ -6,15 +6,15 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 11:48:45 by wiozsert          #+#    #+#              #
-#    Updated: 2022/10/12 12:15:16 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/10/12 14:20:44 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = random
 
-SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp
+SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp SummonClass.cpp
 
-OBJ = main.o Base.o A.o B.o C.o
+OBJ = main.o Base.o A.o B.o C.o SummonClass.o
 
 all : $(NAME)
 

@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:38:33 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 12:37:18 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:56:12 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#include "A.hpp"
 
 A::A( void )
 {
