@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 10:42:36 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/03 14:03:22 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:22:00 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Fixed::Fixed( Fixed const & f)
 	return ;
 }
 
-Fixed::Fixed( int const n ) : _fixedPointNumberValue(n)
+Fixed::Fixed( const int n ) : _fixedPointNumberValue(n)
 {
 	std::cout << "Int constructor called" << std::endl;
 	this->_fixedPointNumberValue = n << this->_numberOfFractionalBits;
