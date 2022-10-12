@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.class.hpp                                 :+:      :+:    :+:   */
+/*   A.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 16:18:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 12:05:44 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/12 11:38:33 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/12 12:37:18 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_CLASS_HPP
-#define WRONGCAT_CLASS_HPP
+#include "Base.hpp"
 
-#include "Animal.hpp"
-
-class WrongCat : public WrongAnimal
+A::A( void )
 {
-	public :
+	return ;
+}
 
-	WrongCat( void );
-	virtual ~WrongCat( void );
-	WrongCat( const WrongCat &copy );
-	WrongCat &  operator=( const WrongCat &rhs );
-	void    makeSound( void ) const;
-
-};
-
-#endif
+A::~A( void )
+{
+	return ;
+}

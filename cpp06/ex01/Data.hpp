@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.class.hpp                                 :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 16:18:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 12:05:44 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/10 13:53:15 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/10 14:09:41 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_CLASS_HPP
-#define WRONGCAT_CLASS_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
-#include "Animal.hpp"
+#include <iostream>
+#include <stdint.h>
 
-class WrongCat : public WrongAnimal
+typedef struct	Data_s
 {
-	public :
+	int			data;
+	std::string	name;
+}				Data;
 
-	WrongCat( void );
-	virtual ~WrongCat( void );
-	WrongCat( const WrongCat &copy );
-	WrongCat &  operator=( const WrongCat &rhs );
-	void    makeSound( void ) const;
-
-};
+uintptr_t serialize(Data* ptr);
+Data* deserialize(uintptr_t raw);
 
 #endif

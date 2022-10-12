@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 16:52:49 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/14 12:34:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:41:37 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ PhoneBook::PhoneBook(std::string p_add, std::string p_search, std::string p_exit
 {
 	this->show_welcome_msg();
 	return ;
-}
-
-PhoneBook::~PhoneBook( void )
-{
+}getline
 	return ;
 }
 

@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.class.hpp                                 :+:      :+:    :+:   */
+/*   Data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 16:18:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 12:05:44 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/10 13:54:28 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/10 14:10:28 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_CLASS_HPP
-#define WRONGCAT_CLASS_HPP
+#include "Data.hpp"
 
-#include "Animal.hpp"
-
-class WrongCat : public WrongAnimal
+uintptr_t serialize(Data* ptr)
 {
-	public :
+	return reinterpret_cast<uintptr_t>(ptr);
+}
 
-	WrongCat( void );
-	virtual ~WrongCat( void );
-	WrongCat( const WrongCat &copy );
-	WrongCat &  operator=( const WrongCat &rhs );
-	void    makeSound( void ) const;
-
-};
-
-#endif
+Data* deserialize(uintptr_t raw)
+{
+	return reinterpret_cast<Data*>(raw);
+}

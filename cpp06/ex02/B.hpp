@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.class.hpp                                 :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 16:18:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 12:05:44 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/12 11:39:23 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/12 12:37:50 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_CLASS_HPP
-#define WRONGCAT_CLASS_HPP
+#ifndef B_HPP
+#define B_HPP
 
-#include "Animal.hpp"
+#include "Base.hpp"
 
-class WrongCat : public WrongAnimal
+class B : public Base
 {
 	public :
 
-	WrongCat( void );
-	virtual ~WrongCat( void );
-	WrongCat( const WrongCat &copy );
-	WrongCat &  operator=( const WrongCat &rhs );
-	void    makeSound( void ) const;
-
+	B();
+	virtual ~B();
 };
 
 #endif

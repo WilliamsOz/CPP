@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 13:29:01 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 16:27:43 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 12:05:46 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class WrongAnimal
 	virtual ~WrongAnimal( void );
 	WrongAnimal &    operator=( WrongAnimal &rhs );
 	const std::string &	getType( void ) const;
-	virtual void makeSound( void ) const;
+	void makeSound( void ) const;
 
 
 	protected :
