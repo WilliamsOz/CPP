@@ -6,45 +6,45 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:44:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 18:48:34 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:54:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-AAnimal::AAnimal( void ) : type( "Unknow" )
+Animal::Animal( void ) : type( "Unknow" )
 {
-	std::cout << "AAnimal default constructor called" << std::endl;
+	std::cout << "Animal default constructor called" << std::endl;
 	return ;
 }
 
-AAnimal::~AAnimal( void )
+Animal::~Animal( void )
 {
-	std::cout << "AAnimal default destructor called" << std::endl;
+	std::cout << "Animal default destructor called" << std::endl;
 	return ;
 }
 
-AAnimal::AAnimal( const AAnimal &copy )
+Animal::Animal( const Animal &copy )
 {
-	std::cout << "AAnimal copy constructor called" << std::endl;
+	std::cout << "Animal copy constructor called" << std::endl;
 	this->type = copy.type;	
 	return ;
 }
 
-AAnimal &    AAnimal::operator=( AAnimal &rhs )
+Animal &    Animal::operator=( Animal &rhs )
 {
-	std::cout << "AAnimal assignation constructor called" << std::endl;
+	std::cout << "Animal assignation constructor called" << std::endl;
 	if (this != &rhs)
 		this->type = rhs.type;
 	return *this;
 }
 
-const std::string &	AAnimal::getType( void ) const
+const std::string &	Animal::getType( void ) const
 {
 	return this->type;
 }
 
-void	AAnimal::makeSound( void ) const
+void	Animal::makeSound( void ) const
 {
 	std::cout << YELCOLOR << "... ... ... ... Inaudible sound ... ... ... ..." << ENDCOLOR << std::endl;
 	return ;

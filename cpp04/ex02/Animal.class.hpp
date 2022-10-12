@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 12:59:39 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 18:49:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:28:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 #include "Animal.hpp"
 
-class AAnimal
+class Animal
 {
 	public :
 
-	AAnimal( void );
-	AAnimal( const AAnimal &copy );
-	virtual ~AAnimal( void );
-	AAnimal &    operator=( AAnimal &rhs );
+	Animal( void );
+	Animal( const Animal &copy );
+	virtual ~Animal( void );
+	Animal &    operator=( Animal &rhs );
 	const std::string &	getType( void ) const;
 	virtual void makeSound( void ) const = 0;
 
@@ -33,6 +33,6 @@ class AAnimal
 
 };
 
-std::ostream &	operator<<( std::ostream &o, AAnimal const &rhs );
+std::ostream &	operator<<( std::ostream &o, Animal const &rhs );
 
 #endif

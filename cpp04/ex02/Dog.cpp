@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:57:38 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 18:50:15 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:54:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Dog::Dog( void ) : AAnimal()
+Dog::Dog( void ) : Animal()
 {
 	this->type = "Dog";
 	std::cout << "Dog default constructor called" << std::endl;
@@ -31,7 +31,7 @@ Dog::~Dog( void )
 	return ;
 }
 
-Dog::Dog ( const Dog &copy ) : AAnimal(copy)
+Dog::Dog ( const Dog &copy ) : Animal(copy)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	this->type = copy.type;

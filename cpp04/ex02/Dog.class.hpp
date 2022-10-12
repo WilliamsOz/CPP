@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:57:54 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 18:49:50 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:54:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "Animal.hpp"
 
-class Dog : public AAnimal
+class Dog : public Animal
 {
 
 	public :

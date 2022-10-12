@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:49:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 18:50:06 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:54:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Cat::Cat( void ) : AAnimal()
+Cat::Cat( void ) : Animal()
 {
 	this->type = "Cat";
 	std::cout << "Cat default constructor called" << std::endl;
@@ -31,7 +31,7 @@ Cat::~Cat( void )
 	return ;
 }
 
-Cat::Cat( const Cat &copy ) : AAnimal(copy)
+Cat::Cat( const Cat &copy ) : Animal(copy)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	this->type = copy.type;
