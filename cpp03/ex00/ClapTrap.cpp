@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:22 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:53:02 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/18 12:01:54 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ ClapTrap::ClapTrap( void )
 
 ClapTrap::~ClapTrap( void )
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Default destructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( std::string name )
 : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "String constructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap( ClapTrap const &copy )
 {
-	std::cout << "Copy constructor from " << this->_name << " to " << copy._name << " has been called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	this->_name = copy._name;
 	this->_hitPoints = copy._hitPoints;
 	this->_energyPoints = copy._energyPoints;
@@ -62,8 +62,6 @@ void	ClapTrap::attack( const std::string &target )
 		std::cout << YELCOLOR << "ClapTrap " << this->_name
 		<< " try to attacks " << target << " but his energy points are empty"
 		<< ENDCOLOR << std::endl;
-		if (this->_energyPoints < 0)
-			this->_energyPoints = 0;
 		return ;
 	}
 	else if (this->_hitPoints <= 0)

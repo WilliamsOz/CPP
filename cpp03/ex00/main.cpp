@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 09:59:33 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/18 12:02:47 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-void    getOneShoot( ClapTrap &weakWilly )
+void	getOneShoot( ClapTrap &weakWilly )
 {
 	weakWilly.takeDamage( 10 );
 	weakWilly.attack( "Enemy" );
@@ -21,7 +21,7 @@ void    getOneShoot( ClapTrap &weakWilly )
 	return ;
 }
 
-void    fightUntillEnd( ClapTrap &willy )
+void	fightUntillEnd( ClapTrap &willy )
 {
 	for (int i = 0 ; i < 10 ; i++)
 		willy.attack( "Enemy" );
@@ -45,15 +45,15 @@ void	fightUntillExhaustion( ClapTrap &strongWIlly )
 	strongWIlly.takeDamage( 1 );
 }
 
-int main ( void ) //pb assignation operator //pb copy contructor
+int		main ( void )
 {
-	ClapTrap    unknow;
+	// ClapTrap    unknow;
 	ClapTrap    willy("Willy");
 	ClapTrap	strongWilly;
 	
 	strongWilly = willy;
-	getOneShoot( unknow );
+	// getOneShoot( unknow );
 	// fightUntillEnd( willy );
-	// fightUntillExhaustion( strongWilly );
+	fightUntillExhaustion( strongWilly );
 	return (0);
 }
