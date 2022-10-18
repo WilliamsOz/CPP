@@ -6,23 +6,27 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/18 12:02:47 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:43:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-void	getOneShoot( ClapTrap &weakWilly )
+void	getOneShoot( void )
 {
-	weakWilly.takeDamage( 10 );
-	weakWilly.attack( "Enemy" );
-	weakWilly.beRepaired( 10 );
-	weakWilly.takeDamage( 10 );
+	ClapTrap	unknow;
+
+	unknow.takeDamage( 10 );
+	unknow.attack( "Enemy" );
+	unknow.beRepaired( 10 );
+	unknow.takeDamage( 10 );
 	return ;
 }
 
-void	fightUntillEnd( ClapTrap &willy )
+void	fightUntillEnd( void )
 {
+	ClapTrap	willy("Willy");
+
 	for (int i = 0 ; i < 10 ; i++)
 		willy.attack( "Enemy" );
 	willy.attack( "Enemy" );
@@ -32,28 +36,40 @@ void	fightUntillEnd( ClapTrap &willy )
 	return ;
 }
 
-void	fightUntillExhaustion( ClapTrap &strongWIlly )
+void	fightUntillExhaustion( void )
 {
+	ClapTrap	willy("Willy");
+	ClapTrap	strongWilly;
+	
+	strongWilly = willy;
 	for (int i = 0 ; i < 5 ; i++)
-		strongWIlly.attack( "MvP" );
-	strongWIlly.takeDamage( 9 );
+		strongWilly.attack( "MvP" );
+	strongWilly.takeDamage( 9 );
 	for (int i = 0 ; i < 6 ; i++)
-		strongWIlly.beRepaired( 1 );
-	strongWIlly.attack( "MvP" );
+		strongWilly.beRepaired( 1 );
+	strongWilly.attack( "MvP" );
 	for (int i = 0 ; i < 6 ; i++)
-		strongWIlly.takeDamage( 1 );
-	strongWIlly.takeDamage( 1 );
+		strongWilly.takeDamage( 1 );
+	strongWilly.takeDamage( 1 );
+}
+
+void	checkClass( void )
+{
+	ClapTrap	unknow;
+	ClapTrap	copy(unknow);
+	ClapTrap	Willy("Willy");
+	ClapTrap	assignement;
+
+	assignement = unknow;
+	std::cout << std::endl;
+	return ;
 }
 
 int		main ( void )
 {
-	// ClapTrap    unknow;
-	ClapTrap    willy("Willy");
-	ClapTrap	strongWilly;
-	
-	strongWilly = willy;
-	// getOneShoot( unknow );
-	// fightUntillEnd( willy );
-	fightUntillExhaustion( strongWilly );
+	checkClass();
+	// getOneShoot();
+	// fightUntillEnd();
+	// fightUntillExhaustion();
 	return (0);
 }
