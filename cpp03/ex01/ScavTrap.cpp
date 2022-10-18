@@ -6,14 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 08:50:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/05 13:50:36 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/18 12:27:15 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-: ScavTrap::ClapTrap()
+: ClapTrap::ClapTrap()
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 	this->_name = "Unknow";
@@ -25,13 +25,13 @@ ScavTrap::ScavTrap()
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << this->_name << " destructor called" << std::endl;
+	std::cout << "ScavTrap default destructor called" << std::endl;
 	return ;
 }
 
 ScavTrap::ScavTrap( std::string name )
 {
-	std::cout << "ScavTrap default constructor called from " << this->_name << " to " << name << std::endl;
+	std::cout << "ScavTrap string constructor called" << std::endl;
 	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
@@ -41,7 +41,7 @@ ScavTrap::ScavTrap( std::string name )
 
 ScavTrap::ScavTrap( ScavTrap const &copy )
 {
-	std::cout << "Copy constructor from " << this->_name << " to " << copy._name << " has been called" << std::endl;
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 	this->_name = copy._name;
 	this->_hitPoints = copy._hitPoints;
 	this->_energyPoints = copy._energyPoints;
@@ -51,8 +51,7 @@ ScavTrap::ScavTrap( ScavTrap const &copy )
 
 ScavTrap &	ScavTrap::operator=( ScavTrap &rhs )
 {
-	std::cout << "ScavTrap assignation operator called from "
-	<< this->_name << " to " << rhs._name << std::endl;
+	std::cout << "ScavTrap assignation operator called" << std::endl;
 	if (this != &rhs)
 	{
 		this->_name = rhs._name;
@@ -80,7 +79,7 @@ void	ScavTrap::guardGate( void )
 	return ;
 }
 
-void    ScavTrap::attack( const std::string &target )
+void	ScavTrap::attack( const std::string &target )
 {
 	if (this->_hitPoints == 0)
 	{
@@ -103,4 +102,4 @@ void    ScavTrap::attack( const std::string &target )
 	<< ", energy point left " << this->_energyPoints << ENDCOLOR << std::endl;
 }
 
-int ScavTrap::_status = GATEKEEPER_MODE_OFF;
+int		ScavTrap::_status = GATEKEEPER_MODE_OFF;

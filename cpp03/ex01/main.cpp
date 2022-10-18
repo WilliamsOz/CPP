@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/05 13:50:38 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/18 12:32:04 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	checkChaining( void )
 {
-	ClapTrap    unknow;
+	ClapTrap	unknow;
 	ScavTrap	unknowGuard;
 	ScavTrap	Guard( "Willy guard" );
 	ScavTrap	StrongGuard;
@@ -41,14 +41,17 @@ void	gateKeeperMode( void )
 	ScavTrap	gateKeeperGuard;
 
 	gateKeeperGuard.guardGate();
+	gateKeeperGuard.attack( "Mvp" ); // shouldnt work cause gatekeeper mode on
+	gateKeeperGuard.takeDamage(10); // shouldnt work cause gatekeeper mode on
+	gateKeeperGuard.beRepaired(5); // shouldnt work cause gatekeeper mode on
 	gateKeeperGuard.guardGate();
 	return ;
 }
 
-int main ( void )
+int main ( void ) // modify scavtrap, when enter in gatekeeper mode, it can not attack and take damage or be repaired
 {
-	checkChaining();
-	attacksUntillExhaustion();
+	// checkChaining();
+	// attacksUntillExhaustion();
 	gateKeeperMode();
 	return (0);
 }
