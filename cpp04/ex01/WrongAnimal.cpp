@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:25:59 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 16:33:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:52:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-WrongAnimal::WrongAnimal( void ) : type( "WrongAnimal" )
+WrongAnimal::WrongAnimal( void ) : type( "Wrong Animal" )
 {
 	std::cout << "WrongAnimal default constructor called" << std::endl;
 	return ;
@@ -46,6 +46,8 @@ const std::string &	WrongAnimal::getType( void ) const
 
 void	WrongAnimal::makeSound( void ) const
 {
-	std::cout << REDCOLOR << "Hee-haw, Hee-haw" << ENDCOLOR << std::endl;
+	SC(REDCOLOR)
+	std::cout << "Hee-haw, Hee-haw" << std::endl;
+	EC
 	return ;
 }

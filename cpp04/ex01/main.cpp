@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:41:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 18:45:59 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 14:39:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,83 +16,67 @@ void	basicTest( void )
 {
 	const Animal* meta = new Cat();
 	const Animal* j = new Dog();
+
 	std::cout << std::endl;
 	delete meta;
 	delete j;
 	return ;
 }
 
-void	arrayTest( void )
+void	animalBrainTest( void )
 {
-	const Animal	*PetShop[10];
+	const Animal *animalTab[10];
 
+	std::cout << std::endl << std::endl;
+	std::cout << std::endl;
 	for (int i = 0 ; i < 10 ; i++)
 	{
 		if (i % 2 == 0)
-			PetShop[i] = new Dog();
+			animalTab[i] = new Cat();
 		else
-			PetShop[i] = new Cat();
+			animalTab[i] = new Dog();
 	}
+	std::cout << std::endl;
 	for (int i = 0 ; i < 10 ; i++)
-		delete PetShop[i];
+		std::cout << "Animal number " << i << " is a " << animalTab[i]->getType() << std::endl;
+	std::cout << std::endl;
+	for (int i = 0 ; i < 10 ; i++)
+		delete animalTab[i];
 	return ;
 }
 
-void	animalBrainTest( void )
+void	subjectTest( void )
 {
-	Cat *Kitty = new Cat;
-	Dog *Doggy = new Dog;
-	std::string	temp;
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
-	std::cout << std::endl;
+	delete j;//should not create a leak
+	delete i;
+	return ;
+}
 
-	for (int i = 0 ; i < 3 ; i++)
+void	ideasTest( void )
+{
+	Brain	*brain = new Brain();
+
+	for (int i = 0 ; i < 100 ; i++)
 	{
-		Kitty->setIdeas( "I have many ideas !!\n", i);
-		std::cout << MAGCOLOR << "I am a " << Kitty->getType() << " and, ";
-		std::cout << Kitty->getIdeas(i) << ENDCOLOR;
+		if (i % 2 == 0)
+			brain->_ideas[i] = "Hello";
+		else
+			brain->_ideas[i] = "GoodBye";
 	}
-
-	for (int i = 0 ; i < 3 ; i++)
-	{
-		Doggy->setIdeas( "I have no ideas ...\n", i);
-		std::cout << CYANCOLOR << "I am a " << Doggy->getType() << " and, ";
-		std::cout << Doggy->getIdeas(i) << ENDCOLOR;
-	}
-	
-	std::cout << std::endl;
-	
-	temp = Kitty->getIdeas(0);
-
-	for (int i = 0 ; i < 3 ; i++)
-		Kitty->setIdeas(Doggy->getIdeas(i), i);
-
-	for (int i = 0; i < 3 ; i++)
-		Doggy->setIdeas(temp, i);
-
-	for (int i = 0 ; i < 3 ; i++)
-	{
-		std::cout << MAGCOLOR << "I am a " << Kitty->getType() << " and, ";
-		std::cout << Kitty->getIdeas(i) << ENDCOLOR;
-	}
-
-	for (int i = 0 ; i < 3 ; i++)
-	{
-		std::cout << CYANCOLOR << "I am a " << Doggy->getType() << " and, ";
-		std::cout << Doggy->getIdeas(i) << ENDCOLOR;
-	}
-
-	std::cout << std::endl;
-
-	delete Kitty;
-	delete Doggy;
+	for (int i = 0 ; i < 100 ; i++)
+		std::cout << brain->_ideas[i] << std::endl;
+	delete brain;
 	return ;
 }
 
 int main (void)
 {
+	subjectTest();
 	// basicTest();
-	// arrayTest();
-	animalBrainTest();
+	// animalBrainTest();
+	// ideasTest();
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:44:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 17:41:50 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:52:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal( void ) : type( "Unknow" )
+Animal::Animal( void ) : type( "Unknow Animal" )
 {
 	std::cout << "Animal default constructor called" << std::endl;
 	return ;
@@ -46,6 +46,8 @@ const std::string &	Animal::getType( void ) const
 
 void	Animal::makeSound( void ) const
 {
-	std::cout << YELCOLOR << "... ... ... ... Inaudible sound ... ... ... ..." << ENDCOLOR << std::endl;
+	SC(YELCOLOR)
+	std::cout << "... ... ... ... Inaudible sound ... ... ... ..." << std::endl;
+	EC
 	return ;
 }
