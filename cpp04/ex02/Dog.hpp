@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 10:41:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 14:51:24 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/23 10:57:54 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/19 13:33:26 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DOG_HPP
+#define DOG_HPP
+
 #include "Animal.hpp"
 
-int main (void)
+class Dog : public Animal
 {
-	// const Animal* meta = new Animal();
-	const	Animal*	cat = new Cat();
-	const	Animal*	dog = new Cat();
 
-	std::cout << std::endl;
+	public:
+	Dog( void );
+	virtual ~Dog();
+	Dog( const Dog &copy );
+	Dog &   operator=( Dog &rhs );
+	virtual void makeSound( void ) const;
 
-	delete cat;
-	delete dog;
-	return (0);
-}
+
+	private	:
+	Brain	*_brain;
+};
+
+
+#endif

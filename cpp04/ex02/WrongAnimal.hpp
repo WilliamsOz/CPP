@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 10:41:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 14:51:24 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/23 13:29:01 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/19 12:42:05 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
+
 #include "Animal.hpp"
 
-int main (void)
+class WrongAnimal
 {
-	// const Animal* meta = new Animal();
-	const	Animal*	cat = new Cat();
-	const	Animal*	dog = new Cat();
+	public :
 
-	std::cout << std::endl;
+	WrongAnimal( void );
+	WrongAnimal( const WrongAnimal &copy );
+	virtual ~WrongAnimal( void );
+	WrongAnimal &		operator=( WrongAnimal &rhs );
+	const std::string &	getType( void ) const;
+	void				makeSound( void ) const;
 
-	delete cat;
-	delete dog;
-	return (0);
-}
+
+	protected :
+
+	std::string type;
+
+};
+
+
+
+#endif

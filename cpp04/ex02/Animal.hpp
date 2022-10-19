@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:43:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 18:47:46 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 14:41:49 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #define ANIMAL_HPP
 
 #include <iostream>
-#include "Animal.class.hpp"
-#include "Brain.class.hpp"
-#include "Dog.class.hpp"
-#include "Cat.class.hpp"
-#include "WrongAnimal.class.hpp"
-#include "WrongCat.class.hpp"
 #define REDCOLOR "\033[1;31m"
 #define GRNCOLOR "\033[1;32m"
 #define YELCOLOR "\033[1;33m"
@@ -27,5 +21,33 @@
 #define MAGCOLOR "\033[1;35m"
 #define CYANCOLOR "\033[1;36m"
 #define ENDCOLOR "\033[0m"
+#define SC(x) std::cout<<x;
+#define EC std::cout<<ENDCOLOR;
+
+class Animal
+{
+	public :
+
+	Animal( void );
+	Animal( const Animal &copy );
+	virtual ~Animal( void );
+	Animal &			operator=( Animal &rhs );
+	const std::string &	getType( void ) const;
+	virtual void 		makeSound( void ) const = 0;
+
+
+	protected :
+
+	std::string type;
+
+};
+
+std::ostream &	operator<<( std::ostream &o, Animal const &rhs );
+
+#include "Brain.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 #endif

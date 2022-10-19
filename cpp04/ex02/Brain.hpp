@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 10:41:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 14:51:24 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/26 16:38:41 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/19 13:48:47 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
+
 #include "Animal.hpp"
 
-int main (void)
+class Brain
 {
-	// const Animal* meta = new Animal();
-	const	Animal*	cat = new Cat();
-	const	Animal*	dog = new Cat();
+	public :
 
-	std::cout << std::endl;
+	Brain( void );
+	virtual ~Brain( void );
+	Brain( const Brain &copy );
+	Brain &		operator=( const Brain &rhs );
 
-	delete cat;
-	delete dog;
-	return (0);
-}
+	std::string	_ideas[100];
+
+};
+
+#endif

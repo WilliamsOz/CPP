@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:39:41 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 17:15:30 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 13:48:48 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Brain::Brain( void )
 {
 	std::cout << "Brain default constructor called" << std::endl;
 	for (int i = 0 ; i < 100 ; i++)
-		this->_ideas[i] = "Empty";
+		this->_ideas[i] = "";
 	return ;
 }
 

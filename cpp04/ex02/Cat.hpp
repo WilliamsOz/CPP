@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 10:41:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 14:51:24 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/19 12:35:30 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/19 13:38:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CAT_HPP
+#define CAT_HPP
+
 #include "Animal.hpp"
 
-int main (void)
+class Cat : public Animal
 {
-	// const Animal* meta = new Animal();
-	const	Animal*	cat = new Cat();
-	const	Animal*	dog = new Cat();
+	public	:
 
-	std::cout << std::endl;
+	Cat( void );
+	virtual ~Cat();
+	Cat( const Cat &copy );
+	Cat &   operator=( const Cat &rhs );
+	virtual void makeSound( void ) const;
 
-	delete cat;
-	delete dog;
-	return (0);
-}
+
+	private	:
+	Brain	*_brain;
+};
+
+#endif

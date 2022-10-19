@@ -6,36 +6,46 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:49:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 13:54:27 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 14:28:35 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 
-Cat::Cat( void ) : Animal()
+Cat::Cat( void )
 {
 	this->type = "Cat";
 	std::cout << "Cat default constructor called" << std::endl;
-	std::cout << YELCOLOR << "Cat is creating his brain... ..." << ENDCOLOR << std::endl;
+	SC(YELCOLOR)
+	std::cout << "Cat is creating his brain... ..." << std::endl;
+	EC
 	_brain = new Brain();
-	std::cout << GRNCOLOR << "Brain of the cat is now ready !" << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)
+	std::cout << "Brain of the cat is now ready !" << std::endl;
+	EC
 	return ;
 }
 
 Cat::~Cat( void )
 {
 	std::cout << "Cat default destructor called" << std::endl;
-	std::cout << YELCOLOR << "Trying to destroy cat brain ... ..." << ENDCOLOR << std::endl;
+	SC(YELCOLOR)
+	std::cout << "Trying to destroy cat brain ... ..." << std::endl;
+	EC
 	delete _brain;
-	std::cout << GRNCOLOR << "Brain of the cat successfully destroy !" << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)
+	std::cout << "Brain of the cat successfully destroy !" << std::endl;
+	EC
 	return ;
 }
 
-Cat::Cat( const Cat &copy ) : Animal(copy)
+Cat::Cat( const Cat &copy )
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	this->type = copy.type;
 	this->_brain = copy._brain;
+	for (int i = 0 ; i < 100 ; i++)
+		this->_brain->_ideas[i] = copy._brain->_ideas[i];
 	return ;
 }
 
@@ -46,23 +56,16 @@ Cat &   Cat::operator=( const Cat &rhs )
 	{
 		this->type = rhs.type;
 		this->_brain = rhs._brain;
+		for (int i = 0 ; i < 100 ; i++)
+			this->_brain->_ideas[i] = rhs._brain->_ideas[i];
 	}
 	return *this;
 }
 
 void	Cat::makeSound( void ) const
 {
-	std::cout << GRNCOLOR << "Meow, Meow" << ENDCOLOR << std::endl;
-	return ;
-}
-
-const std::string &	Cat::getIdeas( int index ) const
-{
-	return this->_brain->_ideas[index];
-}
-
-void	Cat::setIdeas( std::string newIdea, const int index )
-{
-	this->_brain->_ideas[index].assign(newIdea);
+	SC(GRNCOLOR)
+	std::cout << "Meow, Meow" << std::endl;
+	EC
 	return ;
 }
