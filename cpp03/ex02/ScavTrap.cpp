@@ -6,101 +6,112 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 08:50:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:49:00 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:47:18 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-: ClapTrap::ClapTrap()
 {
+	SC(MAGCOLOR)
 	std::cout << "ScavTrap default constructor called" << std::endl;
-	this->_name = "Unknow";
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	EC
+	_name = "Unknow";
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	return ;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << this->_name << " destructor called" << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "ScavTrap default destructor called" << std::endl;
+	EC
 	return ;
 }
 
 ScavTrap::ScavTrap( std::string name )
 {
-	std::cout << "ScavTrap default constructor called from " << this->_name << " to " << name << std::endl;
-	this->_name = name;
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
-	return ;	
+	SC(MAGCOLOR)
+	std::cout << "ScavTrap string constructor called" << std::endl;
+	EC
+	_name = name;
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
+	return ;
 }
 
 ScavTrap::ScavTrap( ScavTrap const &copy )
 {
-	std::cout << "Copy constructor from " << this->_name << " to " << copy._name << " has been called" << std::endl;
-	this->_name = copy._name;
-	this->_hitPoints = copy._hitPoints;
-	this->_energyPoints = copy._energyPoints;
-	this->_attackDamage = copy._attackDamage;
+	SC(MAGCOLOR)
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+	EC
+	_name = copy._name;
+	_hitPoints = copy._hitPoints;
+	_energyPoints = copy._energyPoints;
+	_attackDamage = copy._attackDamage;
 	return ;
 }
 
 ScavTrap &	ScavTrap::operator=( ScavTrap &rhs )
 {
-	std::cout << "ScavTrap assignation operator called from "
-	<< this->_name << " to " << rhs._name << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "ScavTrap assignation operator called" << std::endl;
+	EC
 	if (this != &rhs)
 	{
-		this->_name = rhs._name;
-		this->_hitPoints = rhs._hitPoints;
-		this->_energyPoints = rhs._energyPoints;
-		this->_attackDamage = rhs._attackDamage;
+		_name = rhs._name;
+		_hitPoints = rhs._hitPoints;
+		_energyPoints = rhs._energyPoints;
+		_attackDamage = rhs._attackDamage;
 	}
 	return *this;
 }
 
 void	ScavTrap::guardGate( void )
 {
-	if (this->_status == GATEKEEPER_MODE_OFF)
+	if (_status == GATEKEEPER_MODE_OFF)
 	{
-		this->_status = GATEKEEPER_MODE_ON;
-		std::cout << GRNCOLOR << "Gatekeeper mode now on"
-		<< ENDCOLOR << std::endl;;
+		_status = GATEKEEPER_MODE_ON;
+		SC(GRNCOLOR)
+		std::cout << "Gatekeeper mode now on" << std::endl;;
+		EC
 	}
 	else
 	{
-		this->_status = GATEKEEPER_MODE_OFF;
-		std::cout << REDCOLOR << "Gatekeeper mode now off"
-		<< ENDCOLOR << std::endl;
+		_status = GATEKEEPER_MODE_OFF;
+		SC(REDCOLOR)
+		std::cout << "Gatekeeper mode now off" << std::endl;
+		EC
 	}
 	return ;
 }
 
-void    ScavTrap::attack( const std::string &target )
+void	ScavTrap::attack( const std::string &target )
 {
-	if (this->_hitPoints == 0)
+	if (_hitPoints == 0)
 	{
-		std::cerr << REDCOLOR << "ScavTrap " << this->_name
-		<< " try to attack, but he is already dead"
-		<< ENDCOLOR << std::endl;
+		SC(REDCOLOR)
+		std::cout << "ScavTrap " << _name << " try to attack, but he is already dead" << std::endl;
+		EC
 		return ;
 	}
-	else if (this->_energyPoints == 0)
+	else if (_energyPoints == 0)
 	{
-		std::cerr << REDCOLOR << "ScavTrap " << this->_name
-		<< " try to attack, but his energy point are empty"
-		<< ENDCOLOR << std::endl;
+		SC(REDCOLOR)
+		std::cout << "ScavTrap " << _name << " try to attack, but his energy point are empty" << std::endl;
+		EC
 		return ;
 	}
-	this->_energyPoints -= 1;
-	std::cout << GRNCOLOR << "ScavTrap " << this->_name
+	_energyPoints -= 1;
+	SC(GRNCOLOR)
+	std::cout << "ScavTrap " << _name
 	<< " attacks " << target << ", causing "
-	<< this->_attackDamage << " points of damage" 
-	<< ", energy point left " << this->_energyPoints << ENDCOLOR << std::endl;
+	<< _attackDamage << " points of damage" << std::endl;
+	EC
 }
 
-int ScavTrap::_status = GATEKEEPER_MODE_OFF;
+int		ScavTrap::_status = GATEKEEPER_MODE_OFF;

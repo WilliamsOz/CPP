@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 17:45:26 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 18:09:45 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:48:36 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class FragTrap : public ClapTrap
 	~FragTrap();
 	FragTrap( std::string name );
 	FragTrap( FragTrap const &copy );
-	FragTrap &	operator=( FragTrap &rhs );	
+	FragTrap &	operator=( FragTrap &rhs );
 	void		highFivesGuys(void);
 	
 	private:

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/18 16:43:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:57:28 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	fightUntillExhaustion( void )
 	strongWilly.takeDamage( 1 );
 }
 
-void	checkClass( void )
+void	checkChaining( void )
 {
 	ClapTrap	unknow;
 	ClapTrap	copy(unknow);
@@ -67,7 +67,7 @@ void	checkClass( void )
 
 int		main ( void )
 {
-	checkClass();
+	checkChaining();
 	// getOneShoot();
 	// fightUntillEnd();
 	// fightUntillExhaustion();

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:19:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/22 17:37:29 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:44:29 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,23 @@
 #define MAGCOLOR "\033[1;35m"
 #define CYANCOLOR "\033[1;36m"
 #define ENDCOLOR "\033[0m"
+#define SC(x) std::cout<<x;
+#define EC std::cout<<ENDCOLOR;
 
 class ClapTrap
 {
-	public:
+	public	:
 
 	ClapTrap( void );
-	~ClapTrap();
+	virtual ~ClapTrap();
 	ClapTrap( std::string name );
 	ClapTrap( ClapTrap const &copy );
-	ClapTrap &	operator=( ClapTrap &rhs );
-	void		attack(const std::string& target);
-	void		takeDamage(unsigned int amount);
-	void		beRepaired(unsigned int amount);
+	ClapTrap &		operator=( ClapTrap &rhs );
+	void	attack(const std::string& target);
+	void			takeDamage(unsigned int amount);
+	void			beRepaired(unsigned int amount);
 
-	protected:
+	protected	:
 	
 	std::string _name;
 	int			_hitPoints;

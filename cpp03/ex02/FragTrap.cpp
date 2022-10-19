@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 17:45:17 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:50:13 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:50:41 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 FragTrap::FragTrap( void )
 {
+	SC(MAGCOLOR)
 	std::cout << "FragTrap default constructor called" << std::endl;
+	EC
 	this->_name = "Unknow";
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
@@ -24,13 +26,17 @@ FragTrap::FragTrap( void )
 
 FragTrap::~FragTrap( void )
 {
+	SC(MAGCOLOR)
 	std::cout << "FragTrap default destructor called" << std::endl;
+	EC
 	return ;
 }
 
 FragTrap::FragTrap( std::string name )
 {
-	std::cout << "FragTrap default constructor called from " << this->_name << " to " << name << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "FragTrap default constructor called" << std::endl;
+	EC
 	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
@@ -40,7 +46,9 @@ FragTrap::FragTrap( std::string name )
 
 FragTrap::FragTrap( FragTrap const &copy )
 {
-	std::cout << "Copy constructor from " << this->_name << " to " << copy._name << " has been called" << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "FragTrap copy constructor called" << std::endl;
+	EC
 	this->_name = copy._name;
 	this->_hitPoints = copy._hitPoints;
 	this->_energyPoints = copy._energyPoints;
@@ -50,8 +58,9 @@ FragTrap::FragTrap( FragTrap const &copy )
 
 FragTrap &	FragTrap::operator=( FragTrap &rhs )
 {
-	std::cout << "FragTrap assignation operator called from "
-	<< this->_name << " to " << rhs._name << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "FragTrap assignation operator called" << std::endl;
+	EC
 	if (this != &rhs)
 	{
 		this->_name = rhs._name;
@@ -64,6 +73,8 @@ FragTrap &	FragTrap::operator=( FragTrap &rhs )
 
 void	FragTrap::highFivesGuys( void )
 {
-	std::cout << GRNCOLOR << this->_name << " ask for a positive high fives :,) !" << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)
+	std::cout << this->_name << " ask for a positive high fives :,) !" << std::endl;
+	EC
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:29 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/29 16:50:15 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:57:45 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 void	checkChaining( void )
 {
-	ClapTrap    unknow;
 	FragTrap	unknowGuard;
 	FragTrap	Guard( "Willy guard" );
 	FragTrap	StrongGuard;
@@ -24,13 +23,32 @@ void	checkChaining( void )
 	StrongGuard = Guard;
 
 	FragTrap	twinsGuard(StrongGuard);
+	std::cout << std::endl;
+	return ;
+}
+
+void	attacksUntillExhaustion( void )
+{
+	FragTrap	unknowGuard("AmbitiousFragTrap");
+
+	for (int i = 0; i < 100 ; i++)
+		unknowGuard.attack( "Moob" );
+	unknowGuard.attack( "Moob" );
+	return ;
+}
+
+void	highFive( void )
+{
+	FragTrap	highFiveTrap("Willy");
+
+	highFiveTrap.highFivesGuys();
 	return ;
 }
 
 int main ( void )
 {
-	checkChaining();
-	
-
+	// checkChaining();
+	// attacksUntillExhaustion();
+	highFive();
 	return (0);
 }
