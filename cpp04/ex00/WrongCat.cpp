@@ -6,16 +6,16 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 13:20:23 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 16:38:24 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:52:31 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-WrongCat::WrongCat( void ) : WrongAnimal()
+WrongCat::WrongCat( void )
 {
-	this->type = "WrongCat";
-	std::cout << "WrongCat default constructo called" << std::endl;
+	this->type = "Wrong Cat";
+	std::cout << "WrongCat default constructor called" << std::endl;
 	return ;
 }
 
@@ -25,7 +25,7 @@ WrongCat::~WrongCat( void )
 	return ;
 }
 
-WrongCat::WrongCat( const WrongCat &copy ) : WrongAnimal( copy )
+WrongCat::WrongCat( const WrongCat &copy )
 {
 	std::cout << "WrongCat copy constructor called" << std::endl;
 	this->type = copy.type;
@@ -42,6 +42,8 @@ WrongCat &    WrongCat::operator=( const WrongCat &rhs )
 
 void WrongCat::makeSound( void ) const
 {
-	std::cout << REDCOLOR << "Hee-haw, Hee-haw" << ENDCOLOR << std::endl;
+	SC(REDCOLOR)
+	std::cout << "Wrong animal cat try to make sounds..." << std::endl;
+	EC
 	return ;
 }

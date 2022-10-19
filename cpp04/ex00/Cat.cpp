@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:49:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/26 16:37:15 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:51:09 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.class.hpp"
+#include "Cat.hpp"
 
-Cat::Cat( void ) : Animal()
+Cat::Cat( void )
 {
 	this->type = "Cat";
 	std::cout << "Cat default constructor called" << std::endl;
@@ -25,7 +25,7 @@ Cat::~Cat( void )
 	return ;
 }
 
-Cat::Cat( const Cat &copy ) : Animal(copy)
+Cat::Cat( const Cat &copy )
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	this->type = copy.type;
@@ -42,6 +42,8 @@ Cat &   Cat::operator=( const Cat &rhs )
 
 void	Cat::makeSound( void ) const
 {
-	std::cout << GRNCOLOR << "Meow, Meow" << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)
+	std::cout << "Meow, Meow" << std::endl;
+	EC
 	return ;
 }
