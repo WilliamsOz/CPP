@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.class.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 12:35:30 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 12:39:24 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/23 13:29:01 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/19 22:50:46 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGANIMAL_CLASS_HPP
+#define WRONGANIMAL_CLASS_HPP
 
-#include "Animal.hpp"
+#include "Polymorphism.hpp"
 
-class Cat : public Animal
+class WrongAnimal
 {
-	public:
+	public :
 
-	Cat( void );
-	virtual ~Cat();
-	Cat( const Cat &copy );
-	Cat &   operator=( const Cat &rhs );
-	virtual void makeSound( void ) const;
+	WrongAnimal( void );
+	WrongAnimal( const WrongAnimal &copy );
+	virtual ~WrongAnimal( void );
+	WrongAnimal &		operator=( WrongAnimal &rhs );
+	const std::string &	getType( void ) const;
+	void				makeSound( void ) const;
+
+
+	protected :
+
+	std::string type;
 
 };
 

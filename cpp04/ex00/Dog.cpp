@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:57:38 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 12:51:22 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:55:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Polymorphism.hpp"
 
 Dog::Dog( void )
 {

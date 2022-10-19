@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:44:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 12:52:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:55:34 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Polymorphism.hpp"
 
 Animal::Animal( void ) : type( "Unknow Animal" )
 {

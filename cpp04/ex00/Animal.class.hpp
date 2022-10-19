@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.class.hpp                                      :+:      :+:    :+:   */
+/*   Animal.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 10:57:54 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 13:54:27 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/19 22:42:54 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/19 22:55:40 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_CLASS_HPP
-#define DOG_CLASS_HPP
+#ifndef ANIMAL_CLASS_HPP
+#define ANIMAL_CLASS_HPP
 
-#include "Animal.hpp"
+#include "Polymorphism.hpp"
 
-class Dog : public Animal
+class Animal
 {
-
 	public :
-	Dog( void );
-	virtual ~Dog();
-	Dog( const Dog &copy );
-	Dog &   operator=( Dog &rhs );
-	virtual void makeSound( void ) const;
-	const std::string &	getIdeas( int index ) const;
-	void	setIdeas( std::string newIdea, const int index );
 
-	private :
-	Brain	*_brain;
+	Animal( void );
+	Animal( const Animal &copy );
+	virtual ~Animal( void );
+	Animal &			operator=( Animal &rhs );
+	const std::string &	getType( void ) const;
+	virtual void 		makeSound( void ) const;
+
+
+	protected :
+
+	std::string type;
 
 };
 
+std::ostream &	operator<<( std::ostream &o, Animal const &rhs );
 
 #endif
