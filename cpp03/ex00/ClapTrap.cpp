@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 16:22:22 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 10:33:19 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 10:59:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,34 @@
 ClapTrap::ClapTrap( void )
 : _name("Unknow"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << MAGCOLOR << "ClapTrap default contructor called" << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "ClapTrap default contructor called" << std::endl;
+	EC
 	return ;
 }
 
 ClapTrap::~ClapTrap( void )
 {
-	std::cout << MAGCOLOR << "ClapTrap default destructor called" << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "ClapTrap default destructor called" << std::endl;
+	EC
 	return ;
 }
 
 ClapTrap::ClapTrap( std::string name )
 : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << MAGCOLOR << "Claptrap string constructor called" << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "Claptrap string constructor called" << std::endl;
+	EC
 	return ;
 }
 
 ClapTrap::ClapTrap( ClapTrap const &copy )
 {
-	std::cout << MAGCOLOR << "ClapTrap copy constructor called" << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "ClapTrap copy constructor called" << std::endl;
+	EC
 	this->_name = copy._name;
 	this->_hitPoints = copy._hitPoints;
 	this->_energyPoints = copy._energyPoints;
@@ -44,7 +52,9 @@ ClapTrap::ClapTrap( ClapTrap const &copy )
 
 ClapTrap &	ClapTrap::operator=( ClapTrap &rhs )
 {
-	std::cout << MAGCOLOR << "ClapTrap assignation operator called" << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)
+	std::cout << "ClapTrap assignation operator called" << std::endl;
+	EC
 	if (this != &rhs)
 	{
 		this->_name = rhs._name;
