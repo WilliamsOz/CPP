@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:59:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/30 08:51:44 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:11:43 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ class Form
 	bool				getIsSigned( void ) const;
 	int					getGradeRequiredToBeSigned( void ) const;
 	int					getGradeRequiredToBeExecuted( void ) const;
-	void				setSigned( void );
 
 
 	/*------------------MEMBER FUNCTIONS------------------*/
@@ -54,7 +53,7 @@ class GradeTooHighException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("grade is too high !");
+		return ("Exception : grade too high !");
 	}
 };
 	
@@ -64,43 +63,13 @@ class GradeTooLowException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("grade is too low !");
-	}
-};
-
-class AlreadySigned : public std::exception
-{
-
-	public :
-	virtual  const char *	what() const throw()
-	{
-		return ("form is already signed !");
-	}
-};
-
-class NotSignedException : public std::exception
-{
-	public :	
-	virtual  const char *	what() const throw()
-	{
-		return ("form is not signed !");
-	}
-};
-
-class CantBeRobotomized : public std::exception
-{
-	public :	
-	virtual  const char *	what() const throw()
-	{
-		return ("robotomy failed");
+		return ("Exception : grade too low !");
 	}
 };
 
 	GradeTooHighException   gradeTooHigh;
 	GradeTooLowException    gradeTooLow;
-	NotSignedException		notSigned;
-	AlreadySigned			alreadySigned;
-	CantBeRobotomized		cantBeRobotomized;
+
 
 	private :
 
@@ -111,5 +80,7 @@ class CantBeRobotomized : public std::exception
 };
 
 std::ostream &	operator<<(std::ostream &o, Form &rhs );
+
+#include "Bureaucrat.hpp"
 
 #endif

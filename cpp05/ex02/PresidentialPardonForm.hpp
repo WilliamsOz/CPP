@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:22:51 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/30 08:52:29 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:17:14 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+class Form;
 
 class PresidentialPardonForm : public Form
 {

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:26:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 17:23:31 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:10:32 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 #define MAGCOLOR "\033[1;35m"
 #define CYANCOLOR "\033[1;36m"
 #define ENDCOLOR "\033[0m"
+#define SC(x) std::cout<<x;
+#define EC std::cout<<ENDCOLOR;
 
 class Form;
 
@@ -44,17 +46,16 @@ class Bureaucrat
 	/*------------------DESTRUCTOR------------------*/
 	~Bureaucrat();
 
-	
+
 	/*------------------ACCESORS------------------*/
 	const std::string	getName( void ) const;
 	int					getGrade( void ) const;
 	void				levelUp( void );
 	void				levelDown( void );
 
-	
+
 	/*------------------MEMBER FUNCTIONS------------------*/
-	void				tryToSign( Form &form ) const;
-	void				signForm( Form &form ) const;
+	void				signForm( Form &form );
 	void				tryExecuteForm( Form const &form ) const;
 	void				executeForm( Form const &form ) const;
 
@@ -66,7 +67,7 @@ class GradeTooHighException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("grade is too high !");
+		return ("Exception : grade too high !");
 	}
 };
 	
@@ -76,7 +77,7 @@ class GradeTooLowException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("grade is too low !");
+		return ("Exception : grade too low !");
 	}
 };
 
@@ -99,10 +100,12 @@ class NotSignedException : public std::exception
 	}
 };
 
-	GradeTooHighException   gradeTooHigh;
-	GradeTooLowException    gradeTooLow;
+
+	GradeTooHighException	gradeTooHigh;
+	GradeTooLowException	gradeTooLow;
 	AlreadySigned			alreadySigned;
 	NotSignedException		notSigned;
+
 
 	private :
 

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:07:14 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/30 08:52:51 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:17:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 class Bureaucrat;
+class Form;
 
 class ShrubberyCreationForm : public Form
 {
@@ -40,7 +42,6 @@ class ShrubberyCreationForm : public Form
 	std::string	_target;
 	int			_gradeRequiredToBeSigned;
 	int			_gradeRequiredToBeExecuted;
-
 };
 
 #endif

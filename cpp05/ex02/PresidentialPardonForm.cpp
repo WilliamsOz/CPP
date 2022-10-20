@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 17:23:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/30 10:43:39 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:14:07 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 PresidentialPardonForm::PresidentialPardonForm( const std::string target )
 : Form(target, 25, 5), _target(target), _gradeRequiredToBeSigned(25), _gradeRequiredToBeExecuted(5)
 {
-    return ;
+	return ;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm( void )
 {
-    return ;
+	return ;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm & copy )

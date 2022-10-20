@@ -6,11 +6,12 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/30 08:53:25 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:06:46 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 void	cantDoNothing( void )
 {
