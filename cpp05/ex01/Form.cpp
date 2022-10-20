@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:05:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/30 10:44:38 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:17:49 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,21 @@ Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const in
 	}
 	catch(const GradeTooHighException e)
 	{
-		std::cerr << REDCOLOR << gradeTooHigh.what() << ENDCOLOR << std::endl;
-		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
+		SC(REDCOLOR)
+		std::cerr << gradeTooHigh.what() << std::endl;
+		EC
+		SC(YELCOLOR)
+		std::cout << "By default the grade will be 150" << std::endl;
+		EC
 	}
 	catch (const GradeTooLowException e)
 	{
-		std::cerr << REDCOLOR << gradeTooLow.what() << ENDCOLOR << std::endl;
-		std::cout << YELCOLOR << "By default the grade will be 150" << ENDCOLOR << std::endl;
+		SC(REDCOLOR)
+		std::cerr << gradeTooLow.what() << std::endl;
+		EC
+		SC(YELCOLOR)
+		std::cout << "By default the grade will be 150" << std::endl;
+		EC
 	}
 	return ;
 }
@@ -85,10 +93,11 @@ int	Form::getGradeRequiredToBeExecuted( void )
 
 std::ostream &	operator<<(std::ostream &o, Form &rhs )
 {
-	o << CYANCOLOR << rhs.getName() << " :" << std::endl
-	<< "Is signed ? " << rhs.getIsSigned() << std::endl
+	SC(CYANCOLOR)
+	o << rhs.getName() << " :" << std::endl << "Is signed ? " << rhs.getIsSigned() << std::endl
 	<< "Grade required to be signed : " << rhs.getGradeRequiredToBeSigned() << std::endl
-	<< "Grade required to be executed : " << rhs.getGradeRequiredToBeExecuted() << ENDCOLOR << std::endl;
+	<< "Grade required to be executed : " << rhs.getGradeRequiredToBeExecuted() << std::endl;
+	EC
 	return o;
 }
 
@@ -97,9 +106,7 @@ void		Form::tryToSign( Bureaucrat &name )
 	if (name.getGrade() > _gradeRequiredToBeSigned)
 		throw gradeTooLow;
 	else
-	{
 		this->_isSigned = true;
-	}
 	name.signForm(*this);
 }
 
@@ -113,6 +120,7 @@ void		Form::beSigned( Bureaucrat &name)
 	{
 		name.signForm(*this);
 		std::cout << gradeTooLow.what() << ENDCOLOR << std::endl;
+		EC
 	}
 	return ;
 }
