@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/28 18:27:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:01:45 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void    gradeInstantiacionTooLow( void )
+void	gradeInstantiacionTooLow( void )
 {
 	Bureaucrat  Willy("Willy", 155);
 
@@ -20,9 +20,9 @@ void    gradeInstantiacionTooLow( void )
 	return ;
 }
 
-void    gradeInstantiacionTooHigh( void )
+void	gradeInstantiacionTooHigh( void )
 {
-	Bureaucrat  Willy("Willy", 0);
+	Bureaucrat	Willy("Willy", 0);
 
 	std::cout << MAGCOLOR << Willy << ENDCOLOR;
 	return ;
@@ -30,38 +30,51 @@ void    gradeInstantiacionTooHigh( void )
 
 void    reachHighRank( void )
 {
-	Bureaucrat  Willy("Willy", 5);
-	
-	std::cout << MAGCOLOR << Willy << ENDCOLOR;
+	Bureaucrat	Willy("Willy", 5);
+
+	SC(MAGCOLOR)
+	std::cout << Willy;
+	EC
 	Willy.levelUp();
 	Willy.levelUp();
 	Willy.levelUp();
 	Willy.levelUp();
+	SC(MAGCOLOR)
+	std::cout << Willy;
+	EC
 	Willy.levelUp();
 	return ;
 }
 
 void	reachLowRank( void )
 {
-	Bureaucrat  Willy("Willy", 146);
+	Bureaucrat	Willy("Willy", 146);
 
-	std::cout << MAGCOLOR << Willy << ENDCOLOR;
+	SC(MAGCOLOR)
+	std::cout << Willy;
+	EC
 	Willy.levelDown();
 	Willy.levelDown();
 	Willy.levelDown();
 	Willy.levelDown();
+	SC(MAGCOLOR)
+	std::cout << Willy;
+	EC
 	Willy.levelDown();
+	return ;
+}
+
+void	badInstantiacionTest( void )
+{
+	gradeInstantiacionTooLow();
+	gradeInstantiacionTooHigh();
 	return ;
 }
 
 int main(void)
 {
-	gradeInstantiacionTooLow();
-	std::cout << std::endl;
-	gradeInstantiacionTooHigh();
-	std::cout << std::endl;
-	// reachHighRank();
-	// std::cout << std::endl;
-	// reachLowRank();
+	// badInstantiacionTest();
+	reachHighRank();
+	reachLowRank();
 	return (0);
 }
