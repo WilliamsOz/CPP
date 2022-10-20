@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:57:38 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 13:49:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 08:58:12 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Polymorphism.hpp"
 
 Dog::Dog( void )
 {
@@ -43,6 +43,9 @@ Dog::Dog ( const Dog &copy )
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	this->type = copy.type;
+	this->_brain = copy._brain;
+	for (int i = 0 ; i < 100 ; i++)
+		this->_brain->_ideas[i] = copy._brain->_ideas[i];
 	return ;
 }
 
@@ -50,7 +53,12 @@ Dog &   Dog::operator=( Dog &rhs )
 {
 	std::cout << "Cat assignation constructor called" << std::endl;
 	if (this != &rhs)
+	{
 		this->type = rhs.type;
+		this->_brain = rhs._brain;
+		for (int i = 0 ; i < 100 ; i++)
+			this->_brain->_ideas[i] = rhs._brain->_ideas[i];
+	}
 	return *this;
 }
 

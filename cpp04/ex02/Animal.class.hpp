@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Animal.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 16:18:27 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 12:42:57 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/19 22:42:54 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/20 09:05:33 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-#define WRONGCAT_HPP
+#ifndef ANIMAL_CLASS_HPP
+#define ANIMAL_CLASS_HPP
 
-#include "Animal.hpp"
+#include "Polymorphism.hpp"
 
-class WrongCat : public WrongAnimal
+class Animal
 {
 	public :
 
-	WrongCat( void );
-	virtual ~WrongCat( void );
-	WrongCat( const WrongCat &copy );
-	WrongCat &	operator=( const WrongCat &rhs );
-	void		makeSound( void ) const;
+	Animal( void );
+	Animal( const Animal &copy );
+	virtual ~Animal( void );
+	Animal &			operator=( Animal &rhs );
+	const std::string &	getType( void ) const;
+	virtual void 		makeSound( void ) const = 0;
+
+
+	protected :
+
+	std::string type;
 
 };
+
+std::ostream &	operator<<( std::ostream &o, Animal const &rhs );
 
 #endif

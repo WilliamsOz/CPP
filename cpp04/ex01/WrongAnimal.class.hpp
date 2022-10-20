@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   WrongAnimal.class.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 13:29:01 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 12:42:05 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:50:46 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
+#ifndef WRONGANIMAL_CLASS_HPP
+#define WRONGANIMAL_CLASS_HPP
 
-#include "Animal.hpp"
+#include "Polymorphism.hpp"
 
 class WrongAnimal
 {
@@ -32,7 +32,5 @@ class WrongAnimal
 	std::string type;
 
 };
-
-
 
 #endif

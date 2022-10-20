@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 13:20:23 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 12:52:31 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:55:12 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Polymorphism.hpp"
 
 WrongCat::WrongCat( void )
 {

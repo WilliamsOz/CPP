@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/26 16:38:41 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 13:48:47 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/26 16:18:27 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/19 22:57:02 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
+#ifndef WRONGCAT_CLASS_HPP
+#define WRONGCAT_CLASS_HPP
 
-#include "Animal.hpp"
+#include "Polymorphism.hpp"
 
-class Brain
+class WrongCat : public WrongAnimal
 {
 	public :
 
-	Brain( void );
-	virtual ~Brain( void );
-	Brain( const Brain &copy );
-	Brain &		operator=( const Brain &rhs );
-
-	std::string	_ideas[100];
+	WrongCat( void );
+	virtual ~WrongCat( void );
+	WrongCat( const WrongCat &copy );
+	WrongCat &	operator=( const WrongCat &rhs );
+	void		makeSound( void ) const;
 
 };
 

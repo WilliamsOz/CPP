@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/19 12:35:30 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 13:38:20 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/09/26 16:38:41 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/20 08:54:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef BRAIN_CLASS_HPP
+#define BRAIN_CLASS_HPP
 
-#include "Animal.hpp"
+#include "Polymorphism.hpp"
 
-class Cat : public Animal
+class Brain
 {
-	public	:
+	public :
 
-	Cat( void );
-	virtual ~Cat();
-	Cat( const Cat &copy );
-	Cat &   operator=( const Cat &rhs );
-	virtual void makeSound( void ) const;
+	Brain( void );
+	virtual ~Brain( void );
+	Brain( const Brain &copy );
+	Brain &		operator=( const Brain &rhs );
 
+	std::string	_ideas[100];
 
-	private	:
-	Brain	*_brain;
 };
 
 #endif

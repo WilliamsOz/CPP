@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:49:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 14:28:35 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 08:58:14 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Polymorphism.hpp"
 
 Cat::Cat( void )
 {

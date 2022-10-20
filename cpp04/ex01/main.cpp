@@ -6,22 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:41:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 14:39:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 09:02:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-
-void	basicTest( void )
-{
-	const Animal* meta = new Cat();
-	const Animal* j = new Dog();
-
-	std::cout << std::endl;
-	delete meta;
-	delete j;
-	return ;
-}
+#include "Polymorphism.hpp"
 
 void	animalBrainTest( void )
 {
@@ -50,6 +39,7 @@ void	subjectTest( void )
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
+	std::cout << std::endl;
 	delete j;//should not create a leak
 	delete i;
 	return ;
@@ -74,9 +64,8 @@ void	ideasTest( void )
 
 int main (void)
 {
-	subjectTest();
-	// basicTest();
-	// animalBrainTest();
+	// subjectTest();
+	animalBrainTest();
 	// ideasTest();
 	return (0);
 }

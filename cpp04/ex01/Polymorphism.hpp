@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Polymorphism.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:43:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/19 13:40:15 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 08:59:26 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef POLYMORPHISM_HPP
+#define POLYMORPHISM_HPP
 
 #include <iostream>
 #define REDCOLOR "\033[1;31m"
@@ -23,31 +23,11 @@
 #define ENDCOLOR "\033[0m"
 #define SC(x) std::cout<<x;
 #define EC std::cout<<ENDCOLOR;
-
-class Animal
-{
-	public :
-
-	Animal( void );
-	Animal( const Animal &copy );
-	virtual ~Animal( void );
-	Animal &			operator=( Animal &rhs );
-	const std::string &	getType( void ) const;
-	virtual void 		makeSound( void ) const;
-
-
-	protected :
-
-	std::string type;
-
-};
-
-std::ostream &	operator<<( std::ostream &o, Animal const &rhs );
-
-#include "Brain.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Animal.class.hpp"
+#include "Brain.class.hpp"
+#include "Dog.class.hpp"
+#include "Cat.class.hpp"
+#include "WrongAnimal.class.hpp"
+#include "WrongCat.class.hpp"
 
 #endif

@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/23 10:41:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 09:06:00 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/19 12:35:30 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/20 08:55:12 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CAT_CLASS_HPP
+#define CAT_CLASS_HPP
+
 #include "Polymorphism.hpp"
 
-int main (void)
+class Cat : public Animal
 {
-	// const	Animal* meta = new Animal();
-	const	Animal*	cat = new Cat();
-	const	Animal*	dog = new Cat();
+	public:
 
-	std::cout << std::endl;
+	Cat( void );
+	virtual ~Cat();
+	Cat( const Cat &copy );
+	Cat &   operator=( const Cat &rhs );
+	virtual void makeSound( void ) const;
 
-	delete cat;
-	delete dog;
-	return (0);
-}
+	private	:
+	Brain	*_brain;
+};
+
+#endif
