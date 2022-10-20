@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 10:41:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 09:02:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/20 11:43:53 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	animalBrainTest( void )
 {
 	const Animal *animalTab[10];
 
-	std::cout << std::endl << std::endl;
-	std::cout << std::endl;
 	for (int i = 0 ; i < 10 ; i++)
 	{
 		if (i % 2 == 0)
