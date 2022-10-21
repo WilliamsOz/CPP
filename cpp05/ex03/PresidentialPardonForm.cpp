@@ -5,57 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 17:23:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/09/30 10:38:29 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/21 13:31:03 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/21 15:20:12 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm( const std::string target )
-: Form(target, 25, 5), _target(target), _gradeRequiredToBeSigned(25), _gradeRequiredToBeExecuted(5)
+: Form(target, 25, 5)
 {
-    return ;
+	return ;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm( void )
 {
-    return ;
+	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm & copy )
-: Form(copy._target, 25, 5), _target(copy._target), _gradeRequiredToBeSigned(25), _gradeRequiredToBeExecuted(5)
+PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm &copy )
+: Form(copy.getName(), 25, 5)
 {
 	return ;
 }
 
 PresidentialPardonForm &	PresidentialPardonForm::operator=( PresidentialPardonForm &rhs )
 {
-	if (this != &rhs)
-	{
-		this->_target = rhs._target;
-		this->_gradeRequiredToBeSigned = rhs._gradeRequiredToBeSigned;
-		this->_gradeRequiredToBeExecuted = rhs._gradeRequiredToBeExecuted;
-	}
+	PresidentialPardonForm	tmp(rhs);
+
+	*this = tmp;
 	return *this;
 }
 
-void	PresidentialPardonForm::execute( Bureaucrat const &executor ) const
+void		PresidentialPardonForm::executeForm( void ) const
 {
-	try
-	{
-		canBeExecuted( executor );
-	}
-	catch(const NotSignedException e)
-	{
-		std::cerr << REDCOLOR << this->_target << " can't be executed because " << notSigned.what() << ENDCOLOR << std::endl;
-		return ;
-	}
-	catch(const GradeTooLowException e)
-	{
-		std::cerr << REDCOLOR << this->_target << " can't be executed because " << gradeTooLow.what() << ENDCOLOR << std::endl;
-		return ;
-	}
-	std::cout << GRNCOLOR << this->_target << " has been pardoned by Zaphod Beeblebrox" << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)
+	std::cout << this->getName() << " has been forgiven by Zaphod Beeblebrox" << std::endl;
+	EC
 	return ;
 }
