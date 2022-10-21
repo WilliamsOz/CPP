@@ -6,17 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 14:29:46 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:35:17 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-Bureaucrat::Bureaucrat( void )
-: _name("Unknow"), _grade(150)
-{
-	return ;
-}
 
 Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grade(150)
 {
