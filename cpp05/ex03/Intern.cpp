@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:07:00 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 16:20:16 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:58:45 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ Intern::Intern( Intern const &copy )
 
 Intern&	Intern::operator=( Intern const &rhs )
 {
-	(void)rhs;
+	if (this != &rhs)
+		*this = rhs;
 	return *this;
 }
 

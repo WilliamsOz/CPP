@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 14:29:25 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:52:35 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 	{
 		if (grade < 1)
 			throw gradeTooHigh;
-	else if (grade > 150)
-		throw gradeTooLow;
+		else if (grade > 150)
+			throw gradeTooLow;
 	}
 	catch(const GradeTooHighException &e)
 	{
@@ -48,7 +48,6 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 Bureaucrat::Bureaucrat( Bureaucrat const &copy )
 : _name(copy._name), _grade(copy._grade)
 {
-	*this = copy;
 	return ;
 }
 

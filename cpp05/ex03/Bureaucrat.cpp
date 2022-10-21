@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 14:54:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:53:05 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 Bureaucrat::Bureaucrat( Bureaucrat const &copy )
 : _name(copy._name), _grade(copy._grade)
 {
-	*this = copy;
 	return ;
 }
 

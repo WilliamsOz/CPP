@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:05:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 16:16:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 16:57:00 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,9 @@ int	Form::getGradeRequiredToBeExecuted( void ) const
 
 std::ostream &	operator<<(std::ostream &o, Form &rhs )
 {
-	SC(CYANCOLOR)
 	o << rhs.getName() << " :" << std::endl << "Is signed ? " << rhs.getIsSigned() << std::endl
 	<< "Grade required to be signed : " << rhs.getGradeRequiredToBeSigned() << std::endl
 	<< "Grade required to be executed : " << rhs.getGradeRequiredToBeExecuted() << std::endl;
-	EC
 	return o;
 }
 
