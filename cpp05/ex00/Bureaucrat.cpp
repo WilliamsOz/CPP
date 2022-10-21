@@ -6,31 +6,26 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 12:03:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:38:24 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void Bureaucrat::tryInitBureaucrat( int grade)
+Bureaucrat::Bureaucrat( void )
+: _name("Unknow"), _grade(150)
 {
-	if (grade < 1)
-	{
-		throw gradeTooHigh;
-	}
-	else if (grade > 150)
-	{
-		throw gradeTooLow;
-	}
-	else
-		this->_grade = grade;
+	return ;
 }
 
 Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grade(150)
 {
 	try
 	{
-		tryInitBureaucrat(grade);
+		if (grade < 1)
+			throw gradeTooHigh;
+	else if (grade > 150)
+		throw gradeTooLow;
 	}
 	catch(const GradeTooHighException e)
 	{
@@ -40,6 +35,7 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 		SC(YELCOLOR)
 		std::cout << "By default the grade will be 150" << std::endl;
 		EC
+		return ;
 	}
 	catch(const GradeTooLowException e)
 	{
@@ -49,17 +45,16 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 		SC(YELCOLOR)
 		std::cout << "By default the grade will be 150" << std::endl;
 		EC
+		return ;
 	}
+	this->_grade = grade;
 	return ;
 }
 
-Bureaucrat::~Bureaucrat( void )
+Bureaucrat::Bureaucrat( Bureaucrat const &copy )
+: _name(copy._name), _grade(copy._grade)
 {
-	return ;
-}
-
-Bureaucrat::Bureaucrat( Bureaucrat const &copy ) : _name(copy._name), _grade(copy._grade)
-{
+	*this = copy;
 	return ;
 }
 
@@ -68,6 +63,17 @@ Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
 	if (this != &rhs)
 		this->_grade = rhs._grade;
 	return *this;
+}
+
+Bureaucrat::~Bureaucrat( void )
+{
+	return ;
+}
+
+std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
+{
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
+	return o;
 }
 
 const std::string  Bureaucrat::getName( void )
@@ -127,10 +133,4 @@ void  Bureaucrat::levelDown( void )
 		EC
 	}
 	return ;
-}
-
-std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
-{
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
-	return o;
 }

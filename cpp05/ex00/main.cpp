@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 12:03:31 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:39:55 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	gradeInstantiacionTooHigh( void )
 	return ;
 }
 
-void    reachHighRank( void )
+void	reachHighRank( void )
 {
 	Bureaucrat	Willy("Willy", 5);
 
@@ -73,8 +73,8 @@ void	badInstantiacionTest( void )
 
 int main(void)
 {
-	// badInstantiacionTest();
-	reachHighRank();
-	reachLowRank();
+	badInstantiacionTest();
+	// reachHighRank();
+	// reachLowRank();
 	return (0);
 }
