@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 15:06:46 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:35:26 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,23 @@
 void	cantDoNothing( void )
 {
 	Bureaucrat				Willy("Willy", 150);
-	ShrubberyCreationForm	scf("home");
+	ShrubberyCreationForm	scf("Garden");
+	RobotomyRequestForm		rb("Bender");
+	PresidentialPardonForm	pr("Macron");
 
 	Willy.signForm(scf);
 	Willy.executeForm(scf);
+	Willy.signForm(rb);
+	Willy.executeForm(rb);
+	Willy.signForm(pr);
+	Willy.executeForm(pr);
 	return ;
 }
 
 void	execShruberry( void )
 {
 	Bureaucrat				Willy("Willy", 145);
-	ShrubberyCreationForm	scf("home");
+	ShrubberyCreationForm	scf("Garden");
 
 	Willy.signForm(scf);
 	Willy.executeForm(scf);
@@ -43,7 +49,10 @@ void	execRobotomy( void )
 	
 	Willy.signForm(rb);
 	for (size_t i = 0; i < 5; i++)
+	{
 		Willy.executeForm(rb);
+		std::cout << std::endl;
+	}
 	return ;
 }
 
@@ -60,43 +69,40 @@ void	execPresidential( void )
 void	execAllForm( void )
 {
 	Bureaucrat				Willy("Willy", 1);
-	ShrubberyCreationForm	scf("home");
+	ShrubberyCreationForm	scf("Garden");
 	RobotomyRequestForm		rb("Bender");
 	PresidentialPardonForm	pr("Macron");
 	
-	scf.beSigned(Willy);
-	rb.beSigned(Willy);
-	pr.beSigned(Willy);
+	Willy.signForm(scf);
+	Willy.signForm(rb);
+	Willy.signForm(pr);
 	std::cout << std::endl;
-	scf.execute(Willy);
-	rb.execute(Willy);
-	pr.execute(Willy);
+	Willy.executeForm(scf);
+	Willy.executeForm(rb);
+	Willy.executeForm(pr);
 	return ;
 }
 
-void	tooMuchSign( void )
+void	tryExecuteNotSignedForm( void )
 {
-	Bureaucrat				Willy("Willy", 1);
-	ShrubberyCreationForm	scf("home");
+	Bureaucrat				Willy("Willy", 145);
+	ShrubberyCreationForm	scf("Garden");
 	RobotomyRequestForm		rb("Bender");
 	PresidentialPardonForm	pr("Macron");
 
-	scf.beSigned(Willy);
-	rb.beSigned(Willy);
-	pr.beSigned(Willy);
-	scf.beSigned(Willy);
-	rb.beSigned(Willy);
-	pr.beSigned(Willy);
+	Willy.executeForm(scf);
+	Willy.executeForm(rb);
+	Willy.executeForm(pr);
 	return ;
 }
 
 int main(void)
 {
 	cantDoNothing();
-	execShruberry();
-	execRobotomy();
-	execPresidential();
-	execAllForm();
-	tooMuchSign();
+	// execShruberry();
+	// execRobotomy();
+	// execPresidential();
+	// execAllForm();
+	// tryExecuteNotSignedForm();
 	return 0;
 }

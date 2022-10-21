@@ -5,15 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 17:21:17 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 15:14:10 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/21 13:25:32 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/21 15:20:02 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm( const std::string target )
-: Form(target, 72, 45), _target(target), _gradeRequiredToBeSigned(72), _gradeRequiredToBeExecuted(42)
+: Form(target, 72, 45)
 {
 	return ;
 }
@@ -23,63 +23,40 @@ RobotomyRequestForm::~RobotomyRequestForm( void )
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm & copy )
-: Form(copy._target, 72, 45), _target(copy._target), _gradeRequiredToBeSigned(72), _gradeRequiredToBeExecuted(45)
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm &copy )
+: Form(copy.getName(), 72, 45)
 {
 	return ;
 }
 
 RobotomyRequestForm &	RobotomyRequestForm::operator=( RobotomyRequestForm &rhs )
 {
-	if (this != &rhs)
-	{
-		this->_target = rhs._target;
-		this->_gradeRequiredToBeSigned = rhs._gradeRequiredToBeSigned;
-		this->_gradeRequiredToBeExecuted = rhs._gradeRequiredToBeExecuted;
-	}
+	RobotomyRequestForm	tmp(rhs);
+
+	*this = tmp;
 	return *this;
 }
 
-void	RobotomyRequestForm::tryToRobotomize( int *ptr_success ) const
-{
-	std::cout << YELCOLOR << "... ... ...Drilling noise... ... ..." << ENDCOLOR << std::endl;
-	if (*ptr_success % 2 == 1)
-	{
-		*ptr_success = 2;
-		throw cantBeRobotomized;
-		return ;
-	}
-	std::cout << GRNCOLOR << this->_target << " has been successfully robotomized, it has a 50% chance of working" << ENDCOLOR << std::endl;
-	*ptr_success = 1;
-	return ;
-}
-
-void	RobotomyRequestForm::execute( Bureaucrat const &executor ) const
+void		RobotomyRequestForm::executeForm( void ) const
 {
 	static int success = 2;
-	
-	try
+
+	SC(YELCOLOR)
+	std::cout << "... ... ...Drilling noise... ... ..." << std::endl;
+	EC
+	if (success % 2 == 1)
 	{
-		canBeExecuted( executor );
+		SC(REDCOLOR)
+		std::cerr << this->getName() << " can't be robotomized because it fail.." << std::endl;
+		EC
+		success = 2;
 	}
-	catch(const NotSignedException e)
+	else
 	{
-		std::cerr << REDCOLOR << this->_target << " can't be executed because " << notSigned.what() << ENDCOLOR << std::endl;
-		return ;
-	}
-	catch(const GradeTooLowException e)
-	{
-		std::cerr << REDCOLOR << this->_target << " can't be executed because " << gradeTooLow.what() << ENDCOLOR << std::endl;
-		return ;
-	}
-	try
-	{
-		tryToRobotomize(&success);
-	}
-	catch(const CantBeRobotomized e)
-	{
-		std::cerr << REDCOLOR << this->_target << " can't be executed because " << cantBeRobotomized.what() << ENDCOLOR << std::endl;
-		return ;
+		SC(GRNCOLOR)
+		std::cout << this->getName() << " has been successfully robotomized, it has a 50% chance of working !" << std::endl;
+		EC
+		success = 1;
 	}
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:59:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 15:11:43 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:17:00 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,31 @@
 #define FORM_HPP
 
 #include "Bureaucrat.hpp"
+#include <fstream>
 
 class Bureaucrat;
 
 class Form
 {
+	private :
+
+	const std::string	_name;
+	bool				_isSigned;
+	const int			_gradeRequiredToBeSigned;
+	const int			_gradeRequiredToBeExecuted;
+	virtual void		executeForm( void ) const = 0;
+
+
 	public :
 
 	/*------------------CONSTRUCTORS------------------*/
-	void	tryInitForm( const int gradeRequiredToBeSigned, const int gradeRequiredToBeExecuted );
 	Form( const std::string name, const int gradeRequiredToBeSigned,  const int gradeRequiredToBeExecuted);
 	Form( Form const &copy );
 	Form &	operator=( Form const &rhs );
 
 
 	/*------------------DESTRUCTOR------------------*/
-	~Form();
+	virtual ~Form();
 
 
 	/*------------------ACCESORS------------------*/
@@ -37,13 +46,11 @@ class Form
 	bool				getIsSigned( void ) const;
 	int					getGradeRequiredToBeSigned( void ) const;
 	int					getGradeRequiredToBeExecuted( void ) const;
+	void				beSigned( Bureaucrat &name );
 
 
 	/*------------------MEMBER FUNCTIONS------------------*/
-	void				tryToSign( Bureaucrat &name );
-	void				beSigned( Bureaucrat &name );
-	virtual void		execute(Bureaucrat const &executor) const = 0;
-	void				canBeExecuted( Bureaucrat const &executor ) const;
+	void				execute( Bureaucrat const &executor ) const;
 
 
 	/*------------------NESTED CLASS------------------*/
@@ -53,34 +60,33 @@ class GradeTooHighException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("Exception : grade too high !");
+		return ("grade too high !");
 	}
 };
-	
 class GradeTooLowException : public std::exception
 {
 
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("Exception : grade too low !");
+		return ("grade too low !");
+	}
+};
+class NotSignedException : public std::exception
+{
+
+	public :
+	virtual  const char *	what() const throw()
+	{
+		return ("form is not signed !");
 	}
 };
 
-	GradeTooHighException   gradeTooHigh;
-	GradeTooLowException    gradeTooLow;
-
-
-	private :
-
-	const std::string	_name;
-	bool				_isSigned;
-	const int			_gradeRequiredToBeSigned;
-	const int			_gradeRequiredToBeExecuted;
+	GradeTooHighException	gradeTooHigh;
+	GradeTooLowException	gradeTooLow;
+	NotSignedException		notSigned;
 };
 
 std::ostream &	operator<<(std::ostream &o, Form &rhs );
-
-#include "Bureaucrat.hpp"
 
 #endif

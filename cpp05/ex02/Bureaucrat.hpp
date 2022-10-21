@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:26:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 15:10:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:40:32 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include <fstream>
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -33,11 +32,15 @@ class Form;
 
 class Bureaucrat
 {
+	private :
+
+	const std::string	_name;
+	int					_grade;
+
 
 	public :
 
 	/*------------------CONSTRUCTORS------------------*/
-	void				tryInitBureaucrat( int grade);
 	Bureaucrat( const std::string name, int grade );
 	Bureaucrat( Bureaucrat const &copy );
 	Bureaucrat &	operator=( const Bureaucrat &rhs );
@@ -55,9 +58,8 @@ class Bureaucrat
 
 
 	/*------------------MEMBER FUNCTIONS------------------*/
-	void				signForm( Form &form );
-	void				tryExecuteForm( Form const &form ) const;
 	void				executeForm( Form const &form ) const;
+	void				signForm( Form &form );
 
 
 	/*------------------NESTED CLASS------------------*/
@@ -67,7 +69,7 @@ class GradeTooHighException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("Exception : grade too high !");
+		return ("grade too high !");
 	}
 };
 	
@@ -77,41 +79,22 @@ class GradeTooLowException : public std::exception
 	public :
 	virtual  const char *	what() const throw()
 	{
-		return ("Exception : grade too low !");
+		return ("grade too low !");
 	}
 };
-
-class AlreadySigned : public std::exception
+class NotSignedException : public std::exception
 {
 
 	public :
-	virtual  const char *	what() const throw()
-	{
-		return ("form is already signed !");
-	}
-};
-
-class NotSignedException : public std::exception
-{
-	public :	
 	virtual  const char *	what() const throw()
 	{
 		return ("form is not signed !");
 	}
 };
 
-
 	GradeTooHighException	gradeTooHigh;
 	GradeTooLowException	gradeTooLow;
-	AlreadySigned			alreadySigned;
 	NotSignedException		notSigned;
-
-
-	private :
-
-	const std::string	_name;
-	int					_grade;
-
 };
 
 std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs );

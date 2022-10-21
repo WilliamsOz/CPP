@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 11:53:54 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:29:46 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 	else if (grade > 150)
 		throw gradeTooLow;
 	}
-	catch(const GradeTooHighException e)
+	catch(const GradeTooHighException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooHigh.what() << std::endl;
@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 		EC
 		return ;
 	}
-	catch(const GradeTooLowException e)
+	catch(const GradeTooLowException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooLow.what() << std::endl;
@@ -76,12 +76,12 @@ std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
 	return o;
 }
 
-const std::string  Bureaucrat::getName( void )
+const std::string  Bureaucrat::getName( void ) const
 {
 	return this->_name;
 }
 
-int   Bureaucrat::getGrade( void )
+int   Bureaucrat::getGrade( void ) const
 {
 	return this->_grade;
 }
@@ -98,13 +98,13 @@ void  Bureaucrat::levelUp( void )
 		<<  this->_grade + 1 << " to " << this->_grade << std::endl;
 		EC
 	}
-	catch (const GradeTooHighException e)
+	catch (const GradeTooHighException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooHigh.what() << std::endl;
 		EC
 	}
-	catch (const GradeTooLowException e)
+	catch (const GradeTooLowException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooLow.what() << std::endl;
@@ -126,7 +126,7 @@ void  Bureaucrat::levelDown( void )
 		<<  this->_grade - 1 << " to " << this->_grade << std::endl;
 		EC
 	}
-	catch (GradeTooLowException e)
+	catch (GradeTooLowException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooLow.what() << std::endl;

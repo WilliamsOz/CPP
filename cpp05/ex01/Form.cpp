@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:05:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 12:10:39 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:35:39 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const in
 		else if (gradeRequiredToBeExecuted < 1)
 			throw gradeTooHigh;
 	}
-	catch(const GradeTooHighException e)
+	catch(const GradeTooHighException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooHigh.what() << std::endl;
@@ -35,7 +35,7 @@ Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const in
 		std::cout << "By default the grade will be 150" << std::endl;
 		EC
 	}
-	catch (const GradeTooLowException e)
+	catch (const GradeTooLowException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooLow.what() << std::endl;
@@ -65,22 +65,22 @@ Form &	Form::operator=( Form const &rhs )
 	return *this;
 }
 
-const std::string	Form::getName( void )
+const std::string	Form::getName( void ) const
 {
 	return this->_name;
 }
 
-bool		Form::getIsSigned( void )
+bool		Form::getIsSigned( void ) const
 {
 	return this->_isSigned;
 }
 
-int	Form::getGradeRequiredToBeSigned( void )
+int	Form::getGradeRequiredToBeSigned( void ) const
 {
 	return this->_gradeRequiredToBeSigned;
 }
 
-int	Form::getGradeRequiredToBeExecuted( void )
+int	Form::getGradeRequiredToBeExecuted( void ) const
 {
 	return this->_gradeRequiredToBeExecuted;
 }

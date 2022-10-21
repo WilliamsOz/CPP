@@ -6,33 +6,22 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 15:10:40 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:54:23 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void Bureaucrat::tryInitBureaucrat( int grade)
-{
-	if (grade < 1)
-	{
-		throw gradeTooHigh;
-	}
-	else if (grade > 150)
-	{
-		throw gradeTooLow;
-	}
-	else
-		this->_grade = grade;
-}
-
 Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grade(150)
 {
 	try
 	{
-		tryInitBureaucrat(grade);
+		if (grade < 1)
+			throw gradeTooHigh;
+	else if (grade > 150)
+		throw gradeTooLow;
 	}
-	catch(const GradeTooHighException e)
+	catch(const GradeTooHighException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooHigh.what() << std::endl;
@@ -40,8 +29,9 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 		SC(YELCOLOR)
 		std::cout << "By default the grade will be 150" << std::endl;
 		EC
+		return ;
 	}
-	catch(const GradeTooLowException e)
+	catch(const GradeTooLowException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooLow.what() << std::endl;
@@ -49,8 +39,24 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 		SC(YELCOLOR)
 		std::cout << "By default the grade will be 150" << std::endl;
 		EC
+		return ;
 	}
+	this->_grade = grade;
 	return ;
+}
+
+Bureaucrat::Bureaucrat( Bureaucrat const &copy )
+: _name(copy._name), _grade(copy._grade)
+{
+	*this = copy;
+	return ;
+}
+
+Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
+{
+	if (this != &rhs)
+		*this = rhs;
+	return *this;
 }
 
 Bureaucrat::~Bureaucrat( void )
@@ -58,16 +64,10 @@ Bureaucrat::~Bureaucrat( void )
 	return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const &copy ) : _name(copy._name), _grade(copy._grade)
+std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
 {
-	return ;
-}
-
-Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
-{
-	if (this != &rhs)
-		this->_grade = rhs._grade;
-	return *this;
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
+	return o;
 }
 
 const std::string  Bureaucrat::getName( void ) const
@@ -92,13 +92,13 @@ void  Bureaucrat::levelUp( void )
 		<<  this->_grade + 1 << " to " << this->_grade << std::endl;
 		EC
 	}
-	catch (const GradeTooHighException e)
+	catch (const GradeTooHighException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooHigh.what() << std::endl;
 		EC
 	}
-	catch (const GradeTooLowException e)
+	catch (const GradeTooLowException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooLow.what() << std::endl;
@@ -120,7 +120,7 @@ void  Bureaucrat::levelDown( void )
 		<<  this->_grade - 1 << " to " << this->_grade << std::endl;
 		EC
 	}
-	catch (GradeTooLowException e)
+	catch (GradeTooLowException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooLow.what() << std::endl;
@@ -131,26 +131,18 @@ void  Bureaucrat::levelDown( void )
 
 void	Bureaucrat::signForm( Form &form )
 {
-	if (form.getIsSigned() == true)
-	{
-		SC(GRNCOLOR)
-		std::cout << this->getName() << " signed " << form.getName() << std::endl;
-		EC
-	}
-	else
+	form.beSigned(*this);
+	if(form.getIsSigned() == false)
 	{
 		SC(REDCOLOR)
-		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because ";
+		std::cerr << this->getName() << " couldn’t sign " <<
+		form.getName() << " because grade is too low !" << std::endl;
+		EC
+		return ;
 	}
-	return ;
-}
-
-void		Bureaucrat::tryExecuteForm( Form const &form ) const
-{
-	if (form.getIsSigned() == false)
-		throw notSigned;
-	else if (this->getGrade() > form.getGradeRequiredToBeExecuted())
-		throw gradeTooLow;
+	SC(GRNCOLOR)
+	std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	EC
 	return ;
 }
 
@@ -158,25 +150,24 @@ void		Bureaucrat::executeForm( Form const &form ) const
 {
 	try
 	{
-		tryExecuteForm(form);
+		if (form.getIsSigned() == false)
+			throw notSigned;
+		else if (this->getGrade() > form.getGradeRequiredToBeExecuted())
+			throw gradeTooLow;
 	}
-	catch(NotSignedException e)
+	catch(const NotSignedException &e)
 	{
 		std::cerr << REDCOLOR << this->_name << " couldn't execute " << form.getName() << " because " << notSigned.what() << ENDCOLOR << std::endl;
 		return ;
 	}
-	catch(GradeTooLowException e)
+	catch(GradeTooLowException &e)
 	{
 		std::cerr << REDCOLOR << this->_name << " couldn't execute " << form.getName() << " because " << gradeTooLow.what() << ENDCOLOR << std::endl;
 		return ;		
 	}
-	std::cout << GRNCOLOR << this->_name << " executed " << form.getName() << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)
+	std::cout << this->_name << " executed " << form.getName() << std::endl;
+	EC
 	form.execute(*this);
 	return ;
-}
-
-std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
-{
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
-	return o;
 }

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:26:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 12:03:29 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:29:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ class Bureaucrat
 
 	
 	/*------------------ACCESORS------------------*/
-	const std::string	getName( void );
-	int					getGrade( void );
+	const std::string	getName( void ) const;
+	int					getGrade( void ) const;
 	void				levelUp( void );
 	void				levelDown( void );
 	void				signForm( Form &form );

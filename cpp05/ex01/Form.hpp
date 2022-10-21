@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:59:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 12:07:57 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 14:35:29 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ class Form
 
 
 	/*------------------ACCESORS------------------*/
-	const std::string	getName( void );
-	bool				getIsSigned( void );
-	int					getGradeRequiredToBeSigned( void );
-	int					getGradeRequiredToBeExecuted( void );
+	const std::string	getName( void ) const;
+	bool				getIsSigned( void ) const;
+	int					getGradeRequiredToBeSigned( void ) const;
+	int					getGradeRequiredToBeExecuted( void ) const;
 	void				beSigned( Bureaucrat &name );
+
+
+	/*------------------MEMBER FUNCTIONS------------------*/
 
 
 	/*------------------NESTED CLASS------------------*/

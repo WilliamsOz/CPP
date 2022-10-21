@@ -6,33 +6,27 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:05:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 15:12:53 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 15:13:23 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
-
-void	Form::tryInitForm( const int gradeRequiredToBeSigned, const int gradeRequiredToBeExecuted )
-{
-	if (gradeRequiredToBeSigned > 150)
-		throw gradeTooLow;
-	else if (gradeRequiredToBeSigned < 1)
-		throw gradeTooHigh;
-	if (gradeRequiredToBeExecuted > 150)
-		throw gradeTooLow;
-	else if (gradeRequiredToBeExecuted < 1)
-		throw gradeTooHigh;
-	return ;
-}
+#include "Bureaucrat.hpp"
 
 Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const int gradeRequiredToBeExecuted)
 : _name(name), _isSigned(false), _gradeRequiredToBeSigned(gradeRequiredToBeSigned), _gradeRequiredToBeExecuted(gradeRequiredToBeExecuted)
 {
 	try
 	{
-		tryInitForm(gradeRequiredToBeSigned, gradeRequiredToBeExecuted);
+		if (gradeRequiredToBeSigned > 150)
+			throw gradeTooLow;
+		else if (gradeRequiredToBeSigned < 1)
+			throw gradeTooHigh;
+		if (gradeRequiredToBeExecuted > 150)
+			throw gradeTooLow;
+		else if (gradeRequiredToBeExecuted < 1)
+			throw gradeTooHigh;
 	}
-	catch(const GradeTooHighException e)
+	catch(const GradeTooHighException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooHigh.what() << std::endl;
@@ -41,7 +35,7 @@ Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const in
 		std::cout << "By default the grade will be 150" << std::endl;
 		EC
 	}
-	catch (const GradeTooLowException e)
+	catch (const GradeTooLowException &e)
 	{
 		SC(REDCOLOR)
 		std::cerr << gradeTooLow.what() << std::endl;
@@ -53,13 +47,13 @@ Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const in
 	return ;
 }
 
-Form::~Form( void )
+Form::Form( Form const &copy )
+: _name(copy._name), _isSigned(false), _gradeRequiredToBeSigned(copy._gradeRequiredToBeSigned), _gradeRequiredToBeExecuted(copy._gradeRequiredToBeExecuted)
 {
 	return ;
 }
 
-Form::Form( Form const &copy )
-: _name(copy._name), _isSigned(false), _gradeRequiredToBeSigned(copy._gradeRequiredToBeSigned), _gradeRequiredToBeExecuted(copy._gradeRequiredToBeExecuted)
+Form::~Form( void )
 {
 	return ;
 }
@@ -67,7 +61,7 @@ Form::Form( Form const &copy )
 Form &	Form::operator=( Form const &rhs )
 {
 	if (this != &rhs)
-		this->_isSigned = rhs._isSigned;
+		*this = rhs;
 	return *this;
 }
 
@@ -101,38 +95,37 @@ std::ostream &	operator<<(std::ostream &o, Form &rhs )
 	return o;
 }
 
-void		Form::tryToSign( Bureaucrat &name )
+void		Form::beSigned( Bureaucrat &name)
 {
 	if (name.getGrade() > _gradeRequiredToBeSigned)
-		throw gradeTooLow;
+		this->_isSigned = false;
 	else
 		this->_isSigned = true;
-	name.signForm(*this);
 }
 
-void		Form::beSigned( Bureaucrat &name)
+void	Form::execute( Bureaucrat const &executor ) const
 {
 	try
 	{
-		tryToSign(name);
+		if (this->getIsSigned() == false)
+			throw	notSigned;
+		if (executor.getGrade() > this->_gradeRequiredToBeExecuted)
+			throw	gradeTooLow;
 	}
-	catch (const GradeTooLowException e)
+	catch(const NotSignedException &e)
 	{
-		name.signForm(*this);
-		std::cout << gradeTooLow.what() << ENDCOLOR << std::endl;
+		SC(REDCOLOR)
+		std::cerr << executor.getName() << " couldn’t sign " << this->getName() << " because" << e.what() << std::endl;
 		EC
+		return ;
 	}
+	catch(const GradeTooLowException &e)
+	{
+		SC(REDCOLOR)
+		std::cerr << executor.getName() << " couldn’t sign " << this->getName() << " because" << e.what() << std::endl;
+		EC
+		return ;
+	}
+	this->executeForm();
 	return ;
-}
-
-void			Form::canBeExecuted( Bureaucrat const &executor ) const
-{
-	if (this->_isSigned == false)
-	{
-		throw notSigned;
-	}
-	else if (executor.getGrade() > _gradeRequiredToBeExecuted)
-	{
-		throw gradeTooLow;
-	}
 }

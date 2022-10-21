@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 17:22:51 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 15:17:14 by wiozsert         ###   ########.fr       */
+/*   Created: 2022/10/21 13:30:32 by wiozsert          #+#    #+#             */
+/*   Updated: 2022/10/21 15:10:14 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
+class Bureaucrat;
 class Form;
 
 class PresidentialPardonForm : public Form
 {
+
 	public :
 
 	/*------------------CONSTRUCTORS------------------*/
@@ -27,21 +29,12 @@ class PresidentialPardonForm : public Form
 	PresidentialPardonForm( PresidentialPardonForm &copy );
 	PresidentialPardonForm & operator=( PresidentialPardonForm &rhs );
 
-
 	/*------------------DESTRUCTOR------------------*/
-	virtual ~PresidentialPardonForm( void );
+	virtual ~PresidentialPardonForm();
 
 
 	/*------------------MEMBER FUNCTIONS------------------*/
-	virtual void		execute(Bureaucrat const & executor) const;
-
-
-	private :
-
-	std::string			_target;
-	int			_gradeRequiredToBeSigned;
-	int			_gradeRequiredToBeExecuted;
-
+	void		executeForm( void ) const;
 };
 
 #endif
