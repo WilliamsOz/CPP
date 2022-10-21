@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:26:48 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 12:19:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:03:29 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ class Form;
 
 class Bureaucrat
 {
+	private :
+
+	const std::string	_name;
+	int					_grade;
+
 
 	public :
 
 	/*------------------CONSTRUCTORS------------------*/
-	void				tryInitBureaucrat( int grade);
 	Bureaucrat( const std::string name, int grade );
 	Bureaucrat( Bureaucrat const &copy );
 	Bureaucrat &	operator=( const Bureaucrat &rhs );
@@ -49,6 +53,7 @@ class Bureaucrat
 	void				levelUp( void );
 	void				levelDown( void );
 	void				signForm( Form &form );
+
 
 	/*------------------NESTED CLASS------------------*/
 class GradeTooHighException : public std::exception
@@ -71,15 +76,8 @@ class GradeTooLowException : public std::exception
 	}
 };
 
-	GradeTooHighException   gradeTooHigh;
-	GradeTooLowException    gradeTooLow;
-
-
-	private :
-
-	const std::string	_name;
-	int					_grade;
-
+	GradeTooHighException	gradeTooHigh;
+	GradeTooLowException	gradeTooLow;
 };
 
 std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs );

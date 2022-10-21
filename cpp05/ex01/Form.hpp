@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:59:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 12:24:17 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:07:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Form
 	public :
 
 	/*------------------CONSTRUCTORS------------------*/
-	void	tryInitForm( const int gradeRequiredToBeSigned, const int gradeRequiredToBeExecuted );
 	Form( const std::string name, const int gradeRequiredToBeSigned,  const int gradeRequiredToBeExecuted);
 	Form( Form const &copy );
 	Form &	operator=( Form const &rhs );
@@ -37,7 +36,6 @@ class Form
 	bool				getIsSigned( void );
 	int					getGradeRequiredToBeSigned( void );
 	int					getGradeRequiredToBeExecuted( void );
-	void				tryToSign( Bureaucrat &name );
 	void				beSigned( Bureaucrat &name );
 
 
@@ -62,8 +60,8 @@ class GradeTooLowException : public std::exception
 	}
 };
 
-	GradeTooHighException   gradeTooHigh;
-	GradeTooLowException    gradeTooLow;
+	GradeTooHighException	gradeTooHigh;
+	GradeTooLowException	gradeTooLow;
 
 
 	private :

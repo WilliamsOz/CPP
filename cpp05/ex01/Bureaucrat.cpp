@@ -6,31 +6,20 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 13:22:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:10:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-void Bureaucrat::tryInitBureaucrat( int grade)
-{
-	if (grade < 1)
-	{
-		throw gradeTooHigh;
-	}
-	else if (grade > 150)
-	{
-		throw gradeTooLow;
-	}
-	else
-		this->_grade = grade;
-}
-
 Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grade(150)
 {
 	try
 	{
-		tryInitBureaucrat(grade);
+		if (grade < 1)
+			throw gradeTooHigh;
+	else if (grade > 150)
+		throw gradeTooLow;
 	}
 	catch(const GradeTooHighException e)
 	{
@@ -40,6 +29,7 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 		SC(YELCOLOR)
 		std::cout << "By default the grade will be 150" << std::endl;
 		EC
+		return ;
 	}
 	catch(const GradeTooLowException e)
 	{
@@ -49,8 +39,24 @@ Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name(name), _grad
 		SC(YELCOLOR)
 		std::cout << "By default the grade will be 150" << std::endl;
 		EC
+		return ;
 	}
+	this->_grade = grade;
 	return ;
+}
+
+Bureaucrat::Bureaucrat( Bureaucrat const &copy )
+: _name(copy._name), _grade(copy._grade)
+{
+	*this = copy;
+	return ;
+}
+
+Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
+{
+	if (this != &rhs)
+		*this = rhs;
+	return *this;
 }
 
 Bureaucrat::~Bureaucrat( void )
@@ -58,16 +64,10 @@ Bureaucrat::~Bureaucrat( void )
 	return ;
 }
 
-Bureaucrat::Bureaucrat( Bureaucrat const &copy ) : _name(copy._name), _grade(copy._grade)
+std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
 {
-	return ;
-}
-
-Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
-{
-	if (this != &rhs)
-		this->_grade = rhs._grade;
-	return *this;
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
+	return o;
 }
 
 const std::string  Bureaucrat::getName( void )
@@ -131,22 +131,17 @@ void  Bureaucrat::levelDown( void )
 
 void	Bureaucrat::signForm( Form &form )
 {
-	if (form.getIsSigned() == true)
-	{
-		SC(GRNCOLOR)
-		std::cout << this->getName() << " signed " << form.getName() << std::endl;
-		EC
-	}
-	else
+	form.beSigned(*this);
+	if(form.getIsSigned() == false)
 	{
 		SC(REDCOLOR)
-		std::cerr << this->getName() << " couldn’t sign " << form.getName() << " because ";
+		std::cerr << this->getName() << " couldn’t sign " <<
+		form.getName() << " because grade is too low !" << std::endl;
+		EC
+		return ;
 	}
+	SC(GRNCOLOR)
+	std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	EC
 	return ;
-}
-
-std::ostream &	operator<<(std::ostream &o, Bureaucrat &rhs )
-{
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << "." << std::endl;
-	return o;
 }

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 15:04:00 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:13:41 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	levelTooLowToSign( void )
 	Form	form("Form #1", 1, 1);
 
 	std::cout << form;
-	form.beSigned( Willy );
+	Willy.signForm(form);
 	std::cout << form;
 	return ;
 }
@@ -32,10 +32,10 @@ void	levelUpToSign( void )
 	SC(MAGCOLOR)
 	std::cout << Willy;
 	EC
-	form.beSigned( Willy );
+	Willy.signForm(form);
 	while (Willy.getGrade() > form.getGradeRequiredToBeSigned())
 		Willy.levelUp();
-	form.beSigned( Willy );
+	Willy.signForm(form);
 	std::cout << form;
 
 	return ;
@@ -48,14 +48,15 @@ void	canSign( void )
 	
 	std::cout << form;
 	form.beSigned( Willy );
+	Willy.signForm(form);
 	std::cout << form;
 	return ;
 }
 
 int main(void)
 {
-	// levelTooLowToSign();
-	levelUpToSign();
+	levelTooLowToSign();
+	// levelUpToSign();
 	// canSign();
 	return (0);
 }

@@ -6,31 +6,25 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 11:05:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 13:17:49 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:10:39 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-void	Form::tryInitForm( const int gradeRequiredToBeSigned, const int gradeRequiredToBeExecuted )
-{
-	if (gradeRequiredToBeSigned > 150)
-		throw gradeTooLow;
-	else if (gradeRequiredToBeSigned < 1)
-		throw gradeTooHigh;
-	if (gradeRequiredToBeExecuted > 150)
-		throw gradeTooLow;
-	else if (gradeRequiredToBeExecuted < 1)
-		throw gradeTooHigh;
-	return ;
-}
 
 Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const int gradeRequiredToBeExecuted)
 : _name(name), _isSigned(false), _gradeRequiredToBeSigned(gradeRequiredToBeSigned), _gradeRequiredToBeExecuted(gradeRequiredToBeExecuted)
 {
 	try
 	{
-		tryInitForm(gradeRequiredToBeSigned, gradeRequiredToBeExecuted);
+		if (gradeRequiredToBeSigned > 150)
+			throw gradeTooLow;
+		else if (gradeRequiredToBeSigned < 1)
+			throw gradeTooHigh;
+		if (gradeRequiredToBeExecuted > 150)
+			throw gradeTooLow;
+		else if (gradeRequiredToBeExecuted < 1)
+			throw gradeTooHigh;
 	}
 	catch(const GradeTooHighException e)
 	{
@@ -53,13 +47,13 @@ Form::Form( const std::string name, const int gradeRequiredToBeSigned,  const in
 	return ;
 }
 
-Form::~Form( void )
+Form::Form( Form const &copy )
+: _name(copy._name), _isSigned(false), _gradeRequiredToBeSigned(copy._gradeRequiredToBeSigned), _gradeRequiredToBeExecuted(copy._gradeRequiredToBeExecuted)
 {
 	return ;
 }
 
-Form::Form( Form const &copy )
-: _name(copy._name), _isSigned(false), _gradeRequiredToBeSigned(copy._gradeRequiredToBeSigned), _gradeRequiredToBeExecuted(copy._gradeRequiredToBeExecuted)
+Form::~Form( void )
 {
 	return ;
 }
@@ -67,7 +61,7 @@ Form::Form( Form const &copy )
 Form &	Form::operator=( Form const &rhs )
 {
 	if (this != &rhs)
-		this->_isSigned = rhs._isSigned;
+		*this = rhs;
 	return *this;
 }
 
@@ -101,27 +95,10 @@ std::ostream &	operator<<(std::ostream &o, Form &rhs )
 	return o;
 }
 
-void		Form::tryToSign( Bureaucrat &name )
-{
-	if (name.getGrade() > _gradeRequiredToBeSigned)
-		throw gradeTooLow;
-	else
-		this->_isSigned = true;
-	name.signForm(*this);
-}
-
 void		Form::beSigned( Bureaucrat &name)
 {
-	try
-	{
-		tryToSign(name);
-	}
-	catch (const GradeTooLowException e)
-	{
-		name.signForm(*this);
-		std::cout << gradeTooLow.what() << ENDCOLOR << std::endl;
-		EC
-	}
-	return ;
+	if (name.getGrade() > _gradeRequiredToBeSigned)
+		this->_isSigned = false;
+	else
+		this->_isSigned = true;
 }
-

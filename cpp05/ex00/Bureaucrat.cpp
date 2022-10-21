@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 19:25:46 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/21 11:38:24 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/21 11:53:54 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ Bureaucrat::Bureaucrat( Bureaucrat const &copy )
 Bureaucrat & Bureaucrat::operator=( const Bureaucrat &rhs )
 {
 	if (this != &rhs)
-		this->_grade = rhs._grade;
+		*this = rhs;
 	return *this;
 }
 
