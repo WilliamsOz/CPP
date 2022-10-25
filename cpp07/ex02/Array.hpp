@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:57:06 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/24 23:04:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:46:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ template<typename T>
 class Array
 {
 	private:
-	T const	*_tab;
-	size_t	_lenOfTab;
+	T		*_tab;
+	int		_lenOfTab;
 
 	public:
 	Array( void );
@@ -38,9 +38,9 @@ class Array
 	Array(T const &copy);
 	Array<T>&	operator=( const Array<T> &rhs );
 
-	size_t		size( void );
+	int		size( void );
 
-	T const &	operator[]( size_t index );
+	T &	operator[]( int index );
 
 class IndexTooHigh : public std::exception
 {
@@ -58,8 +58,17 @@ class IndexNegative : public std::exception
 		return ("index can't be negative !");
 	}
 };
+class OutRange : public std::exception
+{
+	public :
+	virtual const char *	what() const throw()
+	{
+		return ("Can't create an array with the value given as parameter !");
+	}
+};
 	IndexTooHigh	indexTooHigh;
 	IndexNegative	indexNegative;
+	OutRange		outRange;
 };
 
 #include "Array.tpp"
