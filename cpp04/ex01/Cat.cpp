@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 11:49:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/20 08:58:14 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/25 11:01:39 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Cat::Cat( const Cat &copy )
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	this->type = copy.type;
-	this->_brain = copy._brain;
+	// this->_brain = copy._brain;
 	for (int i = 0 ; i < 100 ; i++)
 		this->_brain->_ideas[i] = copy._brain->_ideas[i];
 	return ;
@@ -55,7 +55,7 @@ Cat &   Cat::operator=( const Cat &rhs )
 	if (this != &rhs)
 	{
 		this->type = rhs.type;
-		this->_brain = rhs._brain;
+		// this->_brain = rhs._brain;
 		for (int i = 0 ; i < 100 ; i++)
 			this->_brain->_ideas[i] = rhs._brain->_ideas[i];
 	}
