@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:22:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/25 14:25:00 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:59:53 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ int main( void )
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
-
 	// iter(&tab, sizeof(tab)/sizeof(tab[0]), &print);
 	// for (size_t i = 0 ; i < tab.size() ; i++)
 		// std::cout << tab[i] << std::endl;
