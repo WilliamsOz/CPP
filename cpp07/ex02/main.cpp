@@ -6,13 +6,21 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 11:22:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/25 14:59:53 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:40:25 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 #include <cstdlib>
-#define MAX_VAL 750
+#define MAX_VAL 10
+
+template<typename T>
+void	print( Array<T> &tab )
+{
+	for (int i = 0 ; i < tab.size() ; i ++)
+		std::cout << tab[i] << std::endl;
+	return ;
+}
 
 int	subjectTest( void )
 {
@@ -45,7 +53,7 @@ int	subjectTest( void )
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		SC(REDCOLOR)std::cerr << e.what() << std::endl;EC
 	}
 	try
 	{
@@ -53,7 +61,7 @@ int	subjectTest( void )
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		SC(REDCOLOR)std::cerr << e.what() << std::endl;EC
 	}
 
 	for (int i = 0; i < MAX_VAL; i++)
@@ -64,32 +72,91 @@ int	subjectTest( void )
 	return 0;
 }
 
-template<typename U>
-void	print(U *tab)
+void	integerArrayTest( void )
 {
-	std::cout << tab << std::endl;
+	try
+	{
+		Array<int>	tab(10);
+		tab[0] = 42;
+		tab[9] = 42;
+		SC(GRNCOLOR)std::cout << "Value of tab are :" << std::endl;EC
+		SC(MAGCOLOR)print<int>(tab);EC
+
+		Array<int>	copy = tab;
+		SC(GRNCOLOR)std::cout << "Value of copyTab are :" << std::endl;EC
+		SC(MAGCOLOR)print<int>(copy);EC
+
+		Array<int>	assCopy(tab);
+		SC(GRNCOLOR)std::cout << "Value of assignementTab are :" << std::endl;EC
+		SC(MAGCOLOR)print<int>(assCopy);EC
+
+		SC(GRNCOLOR)std::cout << "Value of tab are :" << std::endl;EC
+		SC(MAGCOLOR)print<int>(tab);EC
+	}
+	catch(const std::exception& e)
+	{
+		SC(REDCOLOR)std::cerr << e.what() << std::endl;EC
+	}
+	return ;
 }
 
-template<typename T>
-void	iter(T const &tab, unsigned long lenTab, void (*ptrFct)(const T))
+void	negativeNumberToUnsignedIntContructor( void )
 {
-	for (unsigned long i = 0 ; i < lenTab ; i++)
-		ptrFct(&tab[i]);
+	try
+	{
+		Array<int> arr(-1);
+	}
+	catch(const std::exception& e)
+	{
+		SC(REDCOLOR)std::cerr << e.what() << std::endl;EC
+	}
+	return ;
+}
+
+void	emptyTab( void )
+{
+	Array<int>	tab;
+
+	print(tab);
+	return ;
+}
+
+void	negativeIndex( void )
+{
+	try
+	{
+		Array<int>	tab(10);
+		std::cout << tab[-1] << std::endl;
+		std::cout << tab[10] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		SC(REDCOLOR)std::cerr << e.what() << std::endl;EC
+	}
+	return ;
+}
+
+void	indexTooHigh( void )
+{
+	try
+	{
+		Array<int>	tab(10);
+		std::cout << tab[42] << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		SC(REDCOLOR)std::cerr << e.what() << std::endl;EC
+	}
+	return ;
 }
 
 int main( void )
 {
-	// subjectTest();
-	try
-	{
-		Array<int>	tab(0);
-	}
-	catch(const std::exception &e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	// iter(&tab, sizeof(tab)/sizeof(tab[0]), &print);
-	// for (size_t i = 0 ; i < tab.size() ; i++)
-		// std::cout << tab[i] << std::endl;
+	subjectTest();
+	// emptyTab();
+	// integerArrayTest();
+	// negativeNumberToUnsignedIntContructor();
+	// negativeIndex();
+	// indexTooHigh();
 	return 0;
 }

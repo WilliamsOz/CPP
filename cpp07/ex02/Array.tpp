@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 22:25:07 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/25 15:06:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:39:47 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,35 +23,38 @@ Array<T>::Array( void )
 template<typename T>
 Array<T>::~Array( void )
 {
-	if (this->_tab != NULL)
+	if (this->_lenOfTab > 0)
 		delete [] this->_tab;
 }
 
 template<typename T>
 Array<T>::Array( unsigned int n )
-{
-	std::cout << n << std::endl;
-	if (n <= 0)
-		throw std::out_of_range("Out of range !");
-	this->_lenOfTab = n;	
+{ 
+	if (n >= INT_MAX)
+		throw std::overflow_error("overflow error !");
+	this->_lenOfTab = n;
 	this->_tab = new T[_lenOfTab];
-}
-
-template<typename T>
-Array<T>::Array( T const &copy )
-{
-	*this = copy;
 	return ;
 }
 
 template<typename T>
-int	Array<T>::size( void )
+Array<T>::Array( const Array<T> &copy )
+{
+	this->_lenOfTab = copy.size();
+	this->_tab = new T[this->_lenOfTab];
+	for (int i = 0 ; i < copy.size() ; i++)
+		_tab[i] = copy._tab[i];
+	return ;
+}
+
+template<typename T>
+int	Array<T>::size( void ) const
 {
 	return this->_lenOfTab;
 }
 
 template<typename T>
-Array<T>& Array<T>::operator=( const Array<T> &rhs )
+Array<T> const& Array<T>::operator=( const Array<T> &rhs )
 {
 	if (this != &rhs)
 	{
@@ -68,9 +71,9 @@ Array<T>& Array<T>::operator=( const Array<T> &rhs )
 template<typename T>
 T &	Array<T>::operator[]( int index )
 {
-	if (index + 1 > this->_lenOfTab)
-		throw indexTooHigh;
+	if (index >= this->_lenOfTab)
+		throw Array<T>::IndexTooHigh();
 	else if (index < 0)
-		throw indexNegative;
+		throw Array<T>::IndexNegative();
 	return this->_tab[index];
 }

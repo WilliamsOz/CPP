@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 14:57:06 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/25 15:07:25 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:39:46 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <climits>
 #define REDCOLOR "\033[1;31m"
 #define GRNCOLOR "\033[1;32m"
 #define YELCOLOR "\033[1;33m"
@@ -35,10 +36,10 @@ class Array
 	Array( void );
 	~Array();
 	Array( unsigned int n );
-	Array(T const &copy);
-	Array<T>&	operator=( const Array<T> &rhs );
+	Array( const Array<T> &copy );
+	Array<T> const&	operator=( const Array<T> &rhs );
 
-	int		size( void );
+	int		size( void ) const;
 
 	T &	operator[]( int index );
 
@@ -58,17 +59,6 @@ class IndexNegative : public std::exception
 		return ("index can't be negative !");
 	}
 };
-class OutRange : public std::exception
-{
-	public :
-	virtual const char *	what() const throw()
-	{
-		return ("Can't create an array with the value given as parameter !");
-	}
-};
-	IndexTooHigh	indexTooHigh;
-	IndexNegative	indexNegative;
-	OutRange		outRange;
 };
 
 #include "Array.tpp"
