@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:56:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/10 11:59:14 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:12:07 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static int	ft_strlen(const char *src)
 	return index;
 }
 
+
 static bool	missingSense(const char *src, error_t list, int index)
 {
 	if (list.isThereSign > 1 || list.isThereDot > 1 || list.isThereF > 1)
@@ -91,53 +92,28 @@ static bool	missingSense(const char *src, error_t list, int index)
 	return false;
 }
 
-void	Convert::isThereAnError(int ac, const char *src) const
+static void	initList( error_t *ptr_list )
+{
+	ptr_list->isThereChar = 0;
+	ptr_list->isThereDigit = 0;
+	ptr_list->isThereDot = 0;
+	ptr_list->isThereF = 0;
+	ptr_list->isThereSign = 0;
+	return ;
+}
+
+void	Convert::Error(int ac, const char *src) const
 {
 	error_t	list;
 
 	if (ac != 2)
-		throw	invalidNumberOfArguments;
-	else if (src == NULL || src[0] == '\0')
-		throw	emptyString;
-	list.isThereChar = 0;
-	list.isThereDigit = 0;
-	list.isThereDot = 0;
-	list.isThereF = 0;
-	list.isThereSign = 0;
+		throw	Convert::InvalidNumberOfArguments();
+	else if (!src || !src[0])
+		throw	Convert::EmptyString();
+	initList( &list );
 	if (isThereForbiddenCharacter(src, 0, &list) == true)
-		throw	invalidCharacter;
+		throw	Convert::InvalidCharacter();
 	else if (missingSense(src, list, 0) == true)
-		throw	invalidSense;
+		throw	Convert::InvalidSense();
 	return ;
-}
-
-//checkSignPosition
-//fIsntAtLastPosition
-bool	Convert::Error(int ac, const char **av) const
-{
-	try
-	{
-		isThereAnError( ac, av[1] );
-	}
-	catch(const InvalidNumberOfArguments e)
-	{
-		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
-		return true;
-	}
-	catch(const EmptyString	e)
-	{
-		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
-		return true;
-	}
-	catch (const InvalidCharacter e)
-	{
-		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
-		return true;
-	}
-	catch (const InvalidSense e)
-	{
-		std::cerr << REDCOLOR << e.what() << ENDCOLOR << std::endl;
-		return true;
-	}
-	return false;
 }

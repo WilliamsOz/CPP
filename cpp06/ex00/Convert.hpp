@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:20:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/10 12:00:40 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:10:11 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 #define MAGCOLOR "\033[1;35m"
 #define CYANCOLOR "\033[1;36m"
 #define ENDCOLOR "\033[0m"
+#define SC(x) std::cout<<x;
+#define EC std::cout<<ENDCOLOR;
 
 class Convert
 {
@@ -69,8 +71,7 @@ class Convert
 	bool	isInfinityToConv( std::string const src );
 	void	detectCase( const char *src );
 
-	void	isThereAnError(int ac, const char *src) const;
-	bool	Error( int ac, const char **av ) const;
+	void	Error( int ac, const char *av ) const;
 
 	bool	getIsChar( void );
 	char	getChar( void );
@@ -81,7 +82,7 @@ class Convert
 	bool	getIsDouble( void );
 	double	getDouble( void );
 
-class	InvalidNumberOfArguments
+class	InvalidNumberOfArguments : public std::exception
 {
 	public :
 	virtual  const char *	what() const throw()
@@ -89,7 +90,7 @@ class	InvalidNumberOfArguments
 		return ("Invalid numbers of arguments");
 	}
 };
-class	EmptyString
+class	EmptyString : public std::exception
 {
 	public :
 	virtual  const char *	what() const throw()
@@ -97,7 +98,7 @@ class	EmptyString
 		return ("Empty argument");
 	}
 };
-class	InvalidCharacter
+class	InvalidCharacter : public std::exception
 {
 	public :
 	virtual  const char *	what() const throw()
@@ -105,7 +106,7 @@ class	InvalidCharacter
 		return ("Invalid character found");
 	}
 };
-class	InvalidSense
+class	InvalidSense : public std::exception
 {
 	public :
 	virtual  const char *	what() const throw()
@@ -113,11 +114,6 @@ class	InvalidSense
 		return ("Conversion doesn't make sense");
 	}
 };
-
-	InvalidNumberOfArguments	invalidNumberOfArguments;
-	EmptyString					emptyString;
-	InvalidCharacter			invalidCharacter;
-	InvalidSense				invalidSense;
 };
 
 std::ostream &	operator<<( std::ostream &ios, Convert &rhs );
