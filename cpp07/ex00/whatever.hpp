@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 11:08:14 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/15 11:36:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:18:16 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #define MAGCOLOR "\033[1;35m"
 #define CYANCOLOR "\033[1;36m"
 #define ENDCOLOR "\033[0m"
+#define SC(x) std::cout<<x;
+#define EC std::cout<<ENDCOLOR;
 
 template<typename T>
 void	swap(T &x, T &y)
