@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:56:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/26 23:30:30 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:13:08 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 
-static void	isThereForbiddenCharacter( const char *src, int index, error_t *ptr_list )
+static void	isThereForbiddenCharacter( const char *src, error_t *ptr_list, int index )
 {
 	while (src[index])
 	{
@@ -33,21 +33,21 @@ static void	isThereForbiddenCharacter( const char *src, int index, error_t *ptr_
 	return ;
 }
 
-static bool	missingSense(const char *src, error_t list, int index)
+static void	missingSense(const char *src, error_t list, int index)
 {
 	if (list.isThereSign > 1 || list.isThereDot > 1 || list.isThereF > 1)
-		return true;
+		throw	Convert::InvalidSense();
 	else if (list.isThereChar == 1
 		&& (list.isThereDigit != 0 || list.isThereDot != 0
 		|| list.isThereF != 0 || list.isThereSign != 0))
-		return true;
+		throw	Convert::InvalidSense();
 	else if (list.isThereChar > 1 && isInfinityConversion(static_cast<std::string>(src)) == false)
-		return true;
+		throw	Convert::InvalidSense();
 	else if (list.isThereSign == 1 && src[index] != '-' && src[index] != '+')
-		return true;
+		throw	Convert::InvalidSense();
 	else if (list.isThereF == 1 && src[ft_strlen(src) - 1] != 'f')
-		return true;
-	return false;
+		throw	Convert::InvalidSense();
+	return ;
 }
 
 static void	badArguments( int ac, const char *src )
@@ -58,16 +58,15 @@ static void	badArguments( int ac, const char *src )
 		throw	Convert::EmptyString();
 }
 
-void	Convert::Error(int ac, const char *src) const
+void	Convert::error(int ac, const char *src) const
 {
 	error_t	list;
 
+	badArguments(ac, src);
 	if (isInfinityConversion( static_cast<std::string>(src) ) == true)
 		return ;
-	badArguments(ac, src);
 	initList( &list );
-	isThereForbiddenCharacter(src, 0, &list);
-	if (missingSense(src, list, 0) == true)
-		throw	Convert::InvalidSense();
+	isThereForbiddenCharacter(src, &list, 0);
+	missingSense(src, list, 0);
 	return ;
 }

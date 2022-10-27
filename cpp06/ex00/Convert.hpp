@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:20:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/27 09:04:45 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 10:57:24 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 #define ENDCOLOR "\033[0m"
 #define SC(x) std::cout<<x;
 #define EC std::cout<<ENDCOLOR;
+//del
+#include <stdio.h>
+#define DEBUG printf("%s\n", "ICI");
 
 typedef struct	error_s
 {
@@ -77,10 +80,9 @@ class Convert
 	bool	isDouble(const char *src, int index);
 	bool	isFloat(const char *src, int index);
 	bool	isInt(const char *src, int index);
-	bool	isInfinityToConv( std::string const src );
 	void	detectCase( const char *src );
 
-	void	Error( int ac, const char *av ) const;
+	void	error( int ac, const char *av ) const;
 
 	bool	getIsChar( void );
 	char	getChar( void );

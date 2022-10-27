@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.cpp                                          :+:      :+:    :+:   */
+/*   Utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:46:12 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/26 19:03:25 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:11:42 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	ft_isChar( char c )
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if (c >= 32 && c <= 47 && c >= 58 && c <= 126)
 		return true;
 	else
 		return false;
@@ -27,7 +27,7 @@ bool	ft_isDigit( char c )
 	return false;
 }
 
-bool	isInfinityConversion( std::string const src )
+bool	isInfinityConversion( const std::string &src )
 {
 	std::string const checkFloat[3] = {"-inff", "+inff", "nanf"};
 	std::string const checkDouble[3] = {"-inf", "+inf", "nan"};
@@ -36,8 +36,6 @@ bool	isInfinityConversion( std::string const src )
 	{
 		if (src == checkFloat[i] || src == checkDouble[i])
 			return true;
-		else
-			i++;
 	}
 	return false;
 }

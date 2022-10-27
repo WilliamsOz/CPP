@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:16:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/26 18:57:14 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:01:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,34 +57,11 @@ bool	Convert::isDouble(const char *src, int index)
 	return false;
 }
 
-bool	Convert::isInfinityToConv( std::string const src )
-{
-	std::string const checkFloat[3] = {"-inff", "+inff", "nanf"};
-	std::string const checkDouble[3] = {"-inf", "+inf", "nan"};
-
-	for (int i = 0 ; i < 3 ; i++)
-	{
-		if (src == checkFloat[i])
-		{
-			_isFloat = true;
-			_isInfinityConv = true;
-			return true;
-		}
-		else if (src == checkDouble[i])
-		{
-			_isDouble = true;
-			_isInfinityConv = true;
-			return true;
-		}
-	}
-	return false;
-}
-
 void	Convert::detectCase(const char *src)
 {
 	std::string	stringSrc = static_cast<std::string>(src);
 
-	if (isInfinityToConv(stringSrc) == true)
+	if (isInfinityConversion(stringSrc) == true)
 		return ;
 	else if (stringSrc.length() == 1 && ft_isChar(*src))
 		_isChar = true;

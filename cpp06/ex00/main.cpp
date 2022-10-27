@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:19:22 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/26 18:45:14 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:13:12 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ nan
 +inf
 -inf
 
-char :
-seulement a-z && A-Z ==> tout les char existant sauf ceux non affichable
 */
 int main(int ac, const char **av)
 {
@@ -32,7 +30,7 @@ int main(int ac, const char **av)
 
 	try
 	{
-		Convert.Error(ac, av[1]);
+		Convert.error(ac, av[1]);
 		Convert.detectCase(av[1]);
 		Convert.convert(av[1]);
 		Convert.print();
