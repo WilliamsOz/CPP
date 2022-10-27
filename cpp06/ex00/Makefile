@@ -6,13 +6,13 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 19:49:48 by wiozsert          #+#    #+#              #
-#    Updated: 2022/10/25 14:50:34 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/10/26 18:58:03 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = convert
 
-SRCS = main.cpp Convert.cpp Errors.cpp Print.cpp Detect.cpp
+SRCS = main.cpp Convert.cpp Errors.cpp Print.cpp Detect.cpp Utils.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 

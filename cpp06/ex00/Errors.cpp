@@ -6,28 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:56:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/26 16:23:40 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:30:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 
-static bool	ft_isChar( char c )
-{
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return true;
-	else
-		return false;
-}
-
-static bool	ft_isdigit( char c )
-{
-	if (c >= '0' && c <= '9')
-		return true;
-	return false;
-}
-
-static bool	isThereForbiddenCharacter( const char *src, int index, error_t *ptr_list )
+static void	isThereForbiddenCharacter( const char *src, int index, error_t *ptr_list )
 {
 	while (src[index])
 	{
@@ -35,45 +20,18 @@ static bool	isThereForbiddenCharacter( const char *src, int index, error_t *ptr_
 			ptr_list->isThereF++;
 		else if (ft_isChar(src[index]) == true)
 			ptr_list->isThereChar++;
-		else if (ft_isdigit(src[index]) == true)
+		else if (ft_isDigit(src[index]) == true)
 			ptr_list->isThereDigit++;
 		else if (src[index] == '.')
 			ptr_list->isThereDot++;
 		else if (src[index] == '+' || src[index] == '-')
 			ptr_list->isThereSign++;
 		else
-			return true;
+			throw	Convert::InvalidCharacter();
 		index++;
 	}
-	return false;
+	return ;
 }
-
-static bool	isInf( std::string const src )
-{
-	std::string const checkFloat[3] = {"-inff", "+inff", "nanf"};
-	std::string const checkDouble[3] = {"-inf", "+inf", "nan"};
-
-	for (int i = 0 ; i < 3 ; i++)
-	{
-		if (src == checkFloat[i] || src == checkDouble[i])
-			return true;
-		else
-			i++;
-	}
-	return false;
-}
-
-static int	ft_strlen(const char *src)
-{
-	int index = 0;
-
-	if (src == NULL)
-		return index;
-	while (src[index])
-		index++;
-	return index;
-}
-
 
 static bool	missingSense(const char *src, error_t list, int index)
 {
@@ -83,7 +41,7 @@ static bool	missingSense(const char *src, error_t list, int index)
 		&& (list.isThereDigit != 0 || list.isThereDot != 0
 		|| list.isThereF != 0 || list.isThereSign != 0))
 		return true;
-	else if (list.isThereChar > 1 && isInf(static_cast<std::string>(src)) == false)
+	else if (list.isThereChar > 1 && isInfinityConversion(static_cast<std::string>(src)) == false)
 		return true;
 	else if (list.isThereSign == 1 && src[index] != '-' && src[index] != '+')
 		return true;
@@ -92,28 +50,24 @@ static bool	missingSense(const char *src, error_t list, int index)
 	return false;
 }
 
-static void	initList( error_t *ptr_list )
+static void	badArguments( int ac, const char *src )
 {
-	ptr_list->isThereChar = 0;
-	ptr_list->isThereDigit = 0;
-	ptr_list->isThereDot = 0;
-	ptr_list->isThereF = 0;
-	ptr_list->isThereSign = 0;
-	return ;
+	if (ac != 2)
+		throw	Convert::InvalidNumberOfArguments();
+	else if (!src || !src[0])
+		throw	Convert::EmptyString();
 }
 
 void	Convert::Error(int ac, const char *src) const
 {
 	error_t	list;
 
-	if (ac != 2)
-		throw	Convert::InvalidNumberOfArguments();
-	else if (!src || !src[0])
-		throw	Convert::EmptyString();
+	if (isInfinityConversion( static_cast<std::string>(src) ) == true)
+		return ;
+	badArguments(ac, src);
 	initList( &list );
-	if (isThereForbiddenCharacter(src, 0, &list) == true)
-		throw	Convert::InvalidCharacter();
-	else if (missingSense(src, list, 0) == true)
+	isThereForbiddenCharacter(src, 0, &list);
+	if (missingSense(src, list, 0) == true)
 		throw	Convert::InvalidSense();
 	return ;
 }

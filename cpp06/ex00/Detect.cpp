@@ -6,25 +6,17 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:16:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/26 15:54:00 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/26 18:57:14 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 
-static bool	ft_isdigit(char c)
-{
-	if (c >= '0' && c <= '9')
-		return true;
-	else
-		return false;
-}
-
 bool	Convert::isInt(const char *src, int index)
 {
 	while (src[index])
 	{
-		if (ft_isdigit(src[index]) == true || src[index] == '+' || src[index] == '-')
+		if (ft_isDigit(src[index]) == true || src[index] == '+' || src[index] == '-')
 			index++;
 		else
 			return false;
@@ -86,14 +78,6 @@ bool	Convert::isInfinityToConv( std::string const src )
 		}
 	}
 	return false;
-}
-
-static bool	ft_isChar( char c )
-{
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return true;
-	else
-		return false;
 }
 
 void	Convert::detectCase(const char *src)

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:20:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/26 16:10:11 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 09:04:45 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@
 #define ENDCOLOR "\033[0m"
 #define SC(x) std::cout<<x;
 #define EC std::cout<<ENDCOLOR;
+
+typedef struct	error_s
+{
+	int	isThereDigit;
+	int	isThereChar;
+	int	isThereDot;
+	int	isThereF;
+	int	isThereSign;
+}				error_t;
 
 class Convert
 {
@@ -118,13 +127,6 @@ class	InvalidSense : public std::exception
 
 std::ostream &	operator<<( std::ostream &ios, Convert &rhs );
 
-typedef struct	error_s
-{
-	int	isThereDigit;
-	int	isThereChar;
-	int	isThereDot;
-	int	isThereF;
-	int	isThereSign;
-}				error_t;
+#include "Utils.hpp"
 
 #endif
