@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 12:35:40 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/27 12:43:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 14:39:46 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,20 @@
 
 int main( void )
 {
+	std::vector<int>	v(42, 100);
+
+	std::vector<int>::const_iterator	it;
+
+	for(it = v.begin() ; it < v.end() ; ++it)
+		std::cout << *it << std::endl;
+	// try
+	// {
+		// easyfind(v, 42);
+	// }
+	// catch(const std::exception& e)
+	// {
+		// std::cerr << e.what() << std::endl;
+	// }
 	
 	return 0;
+}
