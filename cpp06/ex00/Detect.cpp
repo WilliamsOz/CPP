@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 09:16:34 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/27 11:01:59 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:19:00 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ void	Convert::detectCase(const char *src)
 	std::string	stringSrc = static_cast<std::string>(src);
 
 	if (isInfinityConversion(stringSrc) == true)
+	{
+		_isInfinityConv = true;
 		return ;
+	}
 	else if (stringSrc.length() == 1 && ft_isChar(*src))
 		_isChar = true;
 	else if (isInt(src, 0) == true)

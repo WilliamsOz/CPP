@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:46:12 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/27 11:11:42 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:26:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	ft_isChar( char c )
 {
-	if (c >= 32 && c <= 47 && c >= 58 && c <= 126)
+	if ((c >= 32 && c <= 47) || (c >= 58 && c <= 126))
 		return true;
 	else
 		return false;

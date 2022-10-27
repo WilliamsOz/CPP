@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:40:38 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/26 15:57:37 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:37:51 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	Convert::printFloat( void ) const
 	o << _float;
 	str_value = o.str();
 	std::cout << "float: " << _float;
-	if (str_value.find("inf") != std::string::npos)
+	if (this->_isInfinityConv == true || str_value == "inf" || str_value == "-inf")
 	{
-		std::cout << std::endl;
+		std::cout << "f" << std::endl;
 		return ;
 	}
 	else if (str_value.find('.') == std::string::npos && str_value.find('e') == std::string::npos)
@@ -59,7 +59,7 @@ void	Convert::printDouble( void ) const
 	o << _double;
 	str_value = o.str();
 	std::cout << "double: " << _double;
-	if (str_value.find("inf") != std::string::npos)
+	if (this->_isInfinityConv == true || str_value == "inf" || str_value == "-inf")
 	{
 		std::cout << std::endl;
 		return ;

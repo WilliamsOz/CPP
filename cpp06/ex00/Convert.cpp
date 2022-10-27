@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:21:17 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/27 10:59:47 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:37:52 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,20 +100,10 @@ std::ostream &	operator<<( std::ostream &o, Convert &rhs )
 
 void	Convert::convertToChar( const char *src )
 {
-	if (_isCharOverflow == true)
-	{
-		_isCharOverflow = true;
-		_int = static_cast<int>(atoi(src));
-		_float = static_cast<float>(atof(src));
-		_double = static_cast<double>(atof(src));
-	}
-	else
-	{
-		_char = static_cast<const char>(*src);
-		_int = static_cast<int>(_char);
-		_float = static_cast<float>(_char);
-		_double = static_cast<double>(_char);
-	}
+	_char = static_cast<const char>(*src);
+	_int = static_cast<int>(_char);
+	_float = static_cast<float>(_char);
+	_double = static_cast<double>(_char);
 	return ;
 }
 
@@ -154,13 +144,18 @@ void	Convert::convertToDouble( const char *src )
 
 void	Convert::convert( const char *src )
 {
+	if (_isInfinityConv == true)
+	{
+		_float = static_cast<float>(atof(src));
+		_double = static_cast<double>(atof(src));
+	}
 	if (atol(src) > CHAR_MAX || atol(src) < CHAR_MIN)
 		_isCharOverflow = true;
+	else if (_isChar == true)
+		convertToChar(src);
 	if (atol(src) > INT_MAX || atol(src) < INT_MIN)
 		_isIntOverflow = true;
-	if (_isChar == true)
-		convertToChar(src);
-	else if (_isInt == true)
+	if (_isInt == true)
 		convertToInt(src);
 	else if (_isFloat == true)
 		convertToFloat(src);

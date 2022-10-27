@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:56:42 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/27 11:13:08 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:38:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ static void	isThereForbiddenCharacter( const char *src, error_t *ptr_list, int i
 	{
 		if (index > 0 && src[index] == 'f')
 			ptr_list->isThereF++;
-		else if (ft_isChar(src[index]) == true)
-			ptr_list->isThereChar++;
-		else if (ft_isDigit(src[index]) == true)
-			ptr_list->isThereDigit++;
 		else if (src[index] == '.')
 			ptr_list->isThereDot++;
 		else if (src[index] == '+' || src[index] == '-')
 			ptr_list->isThereSign++;
+		else if (ft_isDigit(src[index]) == true)
+			ptr_list->isThereDigit++;
+		else if (ft_isChar(src[index]) == true)
+			ptr_list->isThereChar++;
 		else
 			throw	Convert::InvalidCharacter();
 		index++;
