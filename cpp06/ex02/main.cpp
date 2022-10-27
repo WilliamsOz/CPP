@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:50:14 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/12 15:08:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:01:49 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int main(void)
 {
 	int N = 10;
 
-	pointerTest(N);
+	srand (time(NULL));
+		pointerTest(N);
 	refTest(N);
 	return (0);
 }
