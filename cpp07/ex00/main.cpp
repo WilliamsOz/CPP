@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 11:09:59 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/27 12:26:27 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/28 10:57:29 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@ void	intTest( void )
 	int		y = 21;
 	int		res;
 
-	std::cout << GRNCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << MAGCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(GRNCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(MAGCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 
 	std::cout << "----------SWAP----------" << std::endl;
 	swap(x, y);
-	std::cout << MAGCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << GRNCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(MAGCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(GRNCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 	return ;
 }
 
@@ -46,25 +46,25 @@ void	charTest( void )
 	char		y = '*';
 	char		res;
 
-	std::cout << GRNCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << MAGCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(GRNCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(MAGCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 
 	std::cout << "----------SWAP----------" << std::endl;
 	swap(x, y);
-	std::cout << MAGCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << GRNCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(MAGCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(GRNCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 	return ;
 }
 
@@ -74,25 +74,25 @@ void	floatTest( void )
 	float		y = 0.0f;
 	float		res;
 
-	std::cout << GRNCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << MAGCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(GRNCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(MAGCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 
 	std::cout << "----------SWAP----------" << std::endl;
 	swap(x, y);
-	std::cout << MAGCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << GRNCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(MAGCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(GRNCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 	return ;
 }
 
@@ -102,25 +102,25 @@ void	boolTest( void )
 	bool		y = false;
 	bool		res;
 
-	std::cout << GRNCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << MAGCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(GRNCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(MAGCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 
 	std::cout << "----------SWAP----------" << std::endl;
 	swap(x, y);
-	std::cout << MAGCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << GRNCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(MAGCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(GRNCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 	return ;
 }
 
@@ -130,25 +130,25 @@ void	doubleTest( void )
 	double		y = 0.0;
 	double		res;
 
-	std::cout << GRNCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << MAGCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(GRNCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(MAGCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 
 	std::cout << "----------SWAP----------" << std::endl;
 	swap(x, y);
-	std::cout << MAGCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << GRNCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(MAGCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(GRNCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
 	res = min(x, y);
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << res << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << res << std::endl;EC
 
 	res = max(x, y);
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << res << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << res << std::endl;EC
 	return ;
 }
 
@@ -157,21 +157,21 @@ void	stringTest( void )
 	std::string x = "String2";
 	std::string y = "String1";
 
-	std::cout << GRNCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << MAGCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(GRNCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(MAGCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << ::min( x, y ) << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << ::min( x, y ) << std::endl;EC
 
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << ::max( x, y ) << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << ::max( x, y ) << std::endl;EC
 
 	std::cout << "----------SWAP----------" << std::endl;
 	swap(x, y);
-	std::cout << MAGCOLOR << "I am x and my value is " << x << ENDCOLOR << std::endl;
-	std::cout << GRNCOLOR << "I am y and my value is " << y << ENDCOLOR << std::endl << std::endl;
+	SC(MAGCOLOR)std::cout << "I am x and my value is " << x << std::endl;EC
+	SC(GRNCOLOR)std::cout << "I am y and my value is " << y << std::endl << std::endl;EC
 
-	std::cout << "Who is the min ? " << std::endl << MAGCOLOR << ::min( x, y ) << ENDCOLOR << std::endl;
+	SC(MAGCOLOR)std::cout << "Who is the min ? " << std::endl << ::min( x, y ) << std::endl;EC
 
-	std::cout << "Who is the max ? " << std::endl << GRNCOLOR << ::max( x, y ) << ENDCOLOR << std::endl;
+	SC(GRNCOLOR)std::cout << "Who is the max ? " << std::endl << ::max( x, y ) << std::endl;EC
 	return ;
 }
 
