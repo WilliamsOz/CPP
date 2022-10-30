@@ -6,13 +6,13 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 12:34:51 by wiozsert          #+#    #+#              #
-#    Updated: 2022/10/27 12:44:45 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/10/28 23:34:55 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = span
 
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:16:41 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/28 15:24:50 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/30 11:20:35 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,36 @@
 #define SPAN_HPP
 
 #include <iostream>
-#define REDCOLOR "\033[1;31m"
-#define GRNCOLOR "\033[1;32m"
-#define YELCOLOR "\033[1;33m"
-#define BLUECOLOR "\033[1;34m"
-#define MAGCOLOR "\033[1;35m"
-#define CYANCOLOR "\033[1;36m"
-#define ENDCOLOR "\033[0m"
-#define SC(x) std::cout<<x;
-#define EC std::cout<<ENDCOLOR;
+#include <vector>
+#include <algorithm>
+#include <climits>
+#define RED "\033[1;31m"
+#define GRN "\033[1;32m"
+#define YEL "\033[1;33m"
+#define BLU "\033[1;34m"
+#define MAG "\033[1;35m"
+#define CYA "\033[1;36m"
+#define COLOR(x) std::cout<<x;
+#define ENDCOLOR "\033[0m";
 
 class Span
 {
 	private:
-	
+	unsigned int		_N;
+	Span( void );
 
 	public:
-	Span( void );
-	~Span();
-	Span( const Span &copy );
-	Span &	operator=( const Span &rhs );
-	void	addNumber( void );
-	void	shortestSpan( void ); //trouver la plus petite distance entre les nombres stockés
-	void	longestSpan( void ); //trouver la plus grande distance entre les nombres stockés
+	std::vector<int>	_array;
+
+		Span( unsigned int );
+		~Span();
+		Span( const Span& );
+		Span&	operator=( const Span& );
+		void	addNumber( long );
+		unsigned long	shortestSpan( void ); //trouver la plus petite distance entre les nombres stockés
+		unsigned long	longestSpan( void ); //trouver la plus grande distance entre les nombres stockés
 };
 
+std::ostream&	operator<<( std::ostream &o, Span const &rhs );
 
 #endif
