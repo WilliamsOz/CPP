@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:17:50 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/11/01 21:10:48 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/11/01 21:12:54 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,13 @@ void	Span::addNumber( long new_number )
 
 unsigned long	Span::shortestSpan( void )
 {
-	Span	tmp(*this);
+	std::vector<unsigned int>	tmp = this->_array;
+	unsigned long long			diff = ULLONG_MAX;
 
-	unsigned long long	diff = ULLONG_MAX;
-
-	if (tmp._array.size() < 2)
+	if (tmp.size() < 2)
 		throw	std::length_error("Array is too short !");
-	std::sort(tmp._array.begin(), tmp._array.end());
-	for (std::vector<unsigned int>::iterator	it = tmp._array.begin(); it + 1 < tmp._array.end(); it++)
+	std::sort(tmp.begin(), tmp.end());
+	for (std::vector<unsigned int>::iterator	it = tmp.begin(); it + 1 < tmp.end(); it++)
 	{
 		if (*(it + 1) - *it < diff)
 			diff = *(it + 1) - *it;
