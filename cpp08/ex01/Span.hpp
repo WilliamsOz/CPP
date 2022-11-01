@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:16:41 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/31 16:48:17 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/11/01 21:02:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Span
 	Span( void );
 
 	public:
-	std::vector<int>	_array;
+	std::vector<unsigned int>	_array;
 
 		Span( unsigned int );
 		~Span();
