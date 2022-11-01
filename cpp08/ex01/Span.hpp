@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:16:41 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/30 11:20:35 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/10/31 16:48:17 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #define MAG "\033[1;35m"
 #define CYA "\033[1;36m"
 #define COLOR(x) std::cout<<x;
-#define ENDCOLOR "\033[0m";
+#define ENDCOLOR std::cout<<"\033[0m";
 
 class Span
 {
@@ -40,8 +40,8 @@ class Span
 		Span( const Span& );
 		Span&	operator=( const Span& );
 		void	addNumber( long );
-		unsigned long	shortestSpan( void ); //trouver la plus petite distance entre les nombres stockés
-		unsigned long	longestSpan( void ); //trouver la plus grande distance entre les nombres stockés
+		unsigned long	shortestSpan( void );
+		unsigned long	longestSpan( void );
 };
 
 std::ostream&	operator<<( std::ostream &o, Span const &rhs );
