@@ -6,20 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 12:35:40 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/11/02 15:31:41 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/11/02 23:20:33 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-
-void	printArray(std::vector<unsigned int>	array)
-{
-	for (std::vector<unsigned int>::iterator	it = array.begin() ; it < array.end() ; it++)
-	{
-		std::cout << *it << std::endl;
-	}
-	return ;
-}
 
 void	subjectTest( void )
 {
@@ -40,15 +31,13 @@ void	littleSizeTest( void )
 	int		randomNumber;
 
 	srand(time(NULL));
-	for (size_t i = 0; i < 42; i++)
+	for (size_t i = 0; i < 40; i++)
 	{
 		randomNumber = rand();
 		sp.addNumber(randomNumber);
 	}
-	std::vector<unsigned int>	copy = sp.getArray();
-	std::sort(copy.begin(), copy.end());
-	// printArray(copy);
-	std::cout << std::endl;
+	sp.addNumber(42);
+	sp.addNumber(42);
 	COLOR(MAG)std::cout << "Shortest Span is |" << sp.shortestSpan() << "|" << std::endl;ENDCOLOR
 	COLOR(GRN)std::cout << "Longest Span is |" << sp.longestSpan() << "|" << std::endl;ENDCOLOR
 	return ;
@@ -65,9 +54,6 @@ void	mediumSizeTest( void )
 		randomNumber = rand();
 		sp.addNumber(randomNumber);
 	}
-	std::vector<unsigned int>	copy = sp.getArray();
-	std::sort(copy.begin(), copy.end());
-	// printArray(copy);
 	COLOR(MAG)std::cout << "Shortest Span is |" << sp.shortestSpan() << "|" << std::endl;ENDCOLOR
 	COLOR(GRN)std::cout << "Longest Span is |" << sp.longestSpan() << "|" << std::endl;ENDCOLOR
 	return ;
@@ -83,8 +69,7 @@ void	bigSizeTest( void )
 	{
 		array.push_back(rand());
 	}
-	// printArray(array);
-	sp.addIteratorRange(sp.getPosition(0), array);
+	sp.addIteratorRange(array);
 	COLOR(MAG)std::cout << "Shortest Span is |" << sp.shortestSpan() << "|" << std::endl;ENDCOLOR
 	COLOR(GRN)std::cout << "Longest Span is |" << sp.longestSpan() << "|" << std::endl;ENDCOLOR
 	return ;
@@ -100,8 +85,7 @@ void	hugeSizeTest( void )
 	{
 		array.push_back(rand());
 	}
-	// printArray(array);
-	sp.addIteratorRange(sp.getPosition(0), array);
+	sp.addIteratorRange(array);
 	COLOR(MAG)std::cout << "Shortest Span is |" << sp.shortestSpan() << "|" << std::endl;ENDCOLOR
 	COLOR(GRN)std::cout << "Longest Span is |" << sp.longestSpan() << "|" << std::endl;ENDCOLOR
 	return ;
@@ -121,6 +105,7 @@ void	oneSizedArray( void )
 
 	sp.addNumber(42);
 	sp.shortestSpan();
+	// sp.longestSpan();
 	return ;
 }
 
@@ -147,7 +132,5 @@ int main( void )
 	{
 		COLOR(RED)std::cerr << e.what() << std::endl;ENDCOLOR
 	}
-	//test avec 10000 nbr
-	//test avec + de nbr possible
 	return 0;
 }
