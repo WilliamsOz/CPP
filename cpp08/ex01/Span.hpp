@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:16:41 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/11/01 21:02:13 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/11/02 14:45:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,21 @@
 class Span
 {
 	private:
-	unsigned int		_N;
 	Span( void );
+	std::vector<unsigned int>	_array;
+	unsigned int		_N;
 
 	public:
-	std::vector<unsigned int>	_array;
-
 		Span( unsigned int );
 		~Span();
 		Span( const Span& );
 		Span&	operator=( const Span& );
-		void	addNumber( long );
-		unsigned long	shortestSpan( void );
-		unsigned long	longestSpan( void );
+		std::vector<unsigned int>::iterator	getPosition( unsigned long	position );
+		void								addIteratorRange( std::vector<unsigned int>::iterator position, std::vector<unsigned int> newIteratorRange );
+		void								addNumber( long long int );
+		unsigned long long					shortestSpan( void );
+		unsigned long long					longestSpan( void );
+		std::vector<unsigned int> const&	getArray( void ) const;
 };
-
-std::ostream&	operator<<( std::ostream &o, Span const &rhs );
 
 #endif

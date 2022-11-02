@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:17:50 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/11/01 21:12:54 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:30:01 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Span::Span( unsigned int N )
 : _N(N)
 {
 	if(this-> _N == 0)
-		throw	std::invalid_argument("Invalid argument given to unsigned int constructor !");
+		throw	std::invalid_argument("Size of array cant be zero !");
 	return ;
 }
 
@@ -47,48 +47,59 @@ Span&	Span::operator=( const Span &rhs )
 	return *this;
 }
 
-void	Span::addNumber( long new_number )
+void	Span::addNumber( long long int newNumber )
 {
 	if (_array.size() == _N)
-		throw	std::out_of_range("Array is full !");
-	this->_array.push_back(new_number);
+		throw	std::runtime_error("Array is full !");
+	this->_array.push_back(newNumber);
 	return ;
 }
 
-unsigned long	Span::shortestSpan( void )
+std::vector<unsigned int>::iterator	Span::getPosition(unsigned long	position)
+{
+	std::vector<unsigned int>::iterator	Iterator;
+
+	if (position > this->_array.size())
+		throw std::out_of_range("Cant get position because index is out of range !");
+	Iterator = this->_array.begin() + position;
+	return Iterator;
+}
+
+void	Span::addIteratorRange(std::vector<unsigned int>::iterator position, std::vector<unsigned int>	newIteratorRange)
+{
+	if (newIteratorRange.size() > this->_N - this->_array.size())
+		throw std::out_of_range("New range of iterator size is too big for array !");
+	this->_array.insert(position, newIteratorRange.begin(), newIteratorRange.end());
+	return ;
+}
+
+unsigned long long	Span::shortestSpan( void )
 {
 	std::vector<unsigned int>	tmp = this->_array;
-	unsigned long long			diff = ULLONG_MAX;
+	unsigned long long 				diff = ULONG_MAX;
 
 	if (tmp.size() < 2)
-		throw	std::length_error("Array is too short !");
+		throw	std::length_error("Shortest span can not exist because array is too short !");
 	std::sort(tmp.begin(), tmp.end());
-	for (std::vector<unsigned int>::iterator	it = tmp.begin(); it + 1 < tmp.end(); it++)
+	for (std::vector<unsigned int>::iterator	it = tmp.begin() ; it + 1 < tmp.end() ; it++)
 	{
 		if (*(it + 1) - *it < diff)
 			diff = *(it + 1) - *it;
 	}
-	if (diff == ULLONG_MAX)
-		throw	std::logic_error("No shortest span in this array !");
 	return diff;
 }
 
-unsigned long	Span::longestSpan( void )
+unsigned long long	Span::longestSpan( void )
 {
-	unsigned long	res = 0;
-	bool			indicator;
+	std::vector<unsigned int>	tmp = this->_array;
 
 	if (this->_array.size() < 2)
-		throw	std::length_error("Array is too short !");
-	indicator = false;
-	if (indicator == false)
-		throw	std::logic_error("No shortest span in this array !");
-	return res;
+		throw	std::length_error("Longest span can not exist because array is too short !");
+	std::sort(tmp.begin(), tmp.end());
+	return (*(tmp.end() - 1 ) - *tmp.begin());
 }
 
-std::ostream&	operator<<( std::ostream &o, Span const &rhs )
+std::vector<unsigned int> const&	Span::getArray( void ) const
 {
-	for (std::vector<int>::size_type i = 0 ; i < rhs._array.size() ; i++)
-		o << rhs._array[i] << std::endl;
-	return o;
+	return this->_array;
 }
