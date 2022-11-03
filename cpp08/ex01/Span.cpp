@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:17:50 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/11/02 23:19:57 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:02:14 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	Span::addNumber( long long int newNumber )
 
 void	Span::addIteratorRange(std::vector<unsigned int>	newRangeOfIterator)
 {
-	
+	if (this->_array.size() == _N)
+		throw	std::runtime_error("Array is full !");
 	for (std::vector<unsigned int>::iterator it = newRangeOfIterator.begin() ;
 			this->_array.size() < this->_N && it != newRangeOfIterator.end() ;
 			it++)
@@ -89,9 +90,4 @@ unsigned long long	Span::longestSpan( void )
 		throw	std::length_error("Can't find longest span because array is too short !");
 	std::sort(tmp.begin(), tmp.end());
 	return (*(tmp.end() - 1 ) - *tmp.begin());
-}
-
-std::vector<unsigned int> const&	Span::getArray( void ) const
-{
-	return this->_array;
 }

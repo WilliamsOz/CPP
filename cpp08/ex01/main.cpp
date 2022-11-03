@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 12:35:40 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/11/02 23:20:33 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:02:22 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ void	bigSizeTest( void )
 
 	srand(time(NULL));
 	for (size_t i = 0 ; i < 100000 ; i++)
-	{
 		array.push_back(rand());
-	}
 	sp.addIteratorRange(array);
 	COLOR(MAG)std::cout << "Shortest Span is |" << sp.shortestSpan() << "|" << std::endl;ENDCOLOR
 	COLOR(GRN)std::cout << "Longest Span is |" << sp.longestSpan() << "|" << std::endl;ENDCOLOR
@@ -82,9 +80,7 @@ void	hugeSizeTest( void )
 
 	srand(time(NULL));
 	for (size_t i = 0 ; i < 1000000 ; i++)
-	{
 		array.push_back(rand());
-	}
 	sp.addIteratorRange(array);
 	COLOR(MAG)std::cout << "Shortest Span is |" << sp.shortestSpan() << "|" << std::endl;ENDCOLOR
 	COLOR(GRN)std::cout << "Longest Span is |" << sp.longestSpan() << "|" << std::endl;ENDCOLOR
@@ -104,8 +100,41 @@ void	oneSizedArray( void )
 	Span	sp(1);
 
 	sp.addNumber(42);
-	sp.shortestSpan();
-	// sp.longestSpan();
+	std::cout << sp.shortestSpan() << std::endl;
+	// std::cout << sp.longestSpan() << std::endl;
+	return ;
+}
+
+void	fullArrayAddNumber( void )
+{
+	Span						sp(42);
+	std::vector<unsigned int>	vector;
+
+	for (size_t i = 0 ; i < 42 ; i++)
+		vector.push_back(rand());
+	sp.addIteratorRange(vector);
+	sp.addNumber(42);
+	return ;
+}
+
+void	fullArrayAddIteratorRange( void )
+{
+	Span						sp(42);
+	std::vector<unsigned int>	vector;
+
+	for (size_t i = 0 ; i < 42 ; i++)
+		vector.push_back(rand());
+	sp.addIteratorRange(vector);
+	sp.addIteratorRange(vector);
+	return ;
+}
+
+void	getSpanInsideEmptyArray( void )
+{
+	Span	sp(42);
+
+	std::cout << sp.shortestSpan() << std::endl;
+	// std::cout << sp.longestSpan() << std::endl;
 	return ;
 }
 
@@ -113,7 +142,9 @@ void	invalidTest( void )
 {
 	// zeroSizedArray();
 	// oneSizedArray();
-	
+	// fullArrayAddNumber();
+	// fullArrayAddIteratorRange();
+	// getSpanInsideEmptyArray();
 	return ;
 }
 
@@ -121,12 +152,12 @@ int main( void )
 {
 	try
 	{
-		// subjectTest();
+		subjectTest();
 		// littleSizeTest();
 		// mediumSizeTest();
 		// bigSizeTest();
 		// hugeSizeTest();
-		invalidTest();
+		// invalidTest();
 	}
 	catch(const std::exception& e)
 	{
