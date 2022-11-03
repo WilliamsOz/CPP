@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 12:36:00 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/10/28 15:19:48 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:06:14 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <vector>
 #include <exception>
+#include <algorithm>
 #include "easyfind.tpp"
 #define REDCOLOR "\033[1;31m"
 #define GRNCOLOR "\033[1;32m"

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 12:35:40 by wiozsert          #+#    #+#             */
-/*   Updated: 2022/11/03 12:03:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:08:54 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,11 @@ void	littleSizeTest( void )
 	int		randomNumber;
 
 	srand(time(NULL));
-	for (size_t i = 0; i < 40; i++)
+	for (size_t i = 0; i < 42; i++)
 	{
 		randomNumber = rand();
 		sp.addNumber(randomNumber);
 	}
-	sp.addNumber(42);
-	sp.addNumber(42);
 	COLOR(MAG)std::cout << "Shortest Span is |" << sp.shortestSpan() << "|" << std::endl;ENDCOLOR
 	COLOR(GRN)std::cout << "Longest Span is |" << sp.longestSpan() << "|" << std::endl;ENDCOLOR
 	return ;
