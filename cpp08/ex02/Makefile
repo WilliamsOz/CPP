@@ -6,11 +6,11 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/27 12:34:51 by wiozsert          #+#    #+#              #
-#    Updated: 2022/10/27 12:45:33 by wiozsert         ###   ########.fr        #
+#    Updated: 2022/11/03 10:29:12 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = abominationmutante
+NAME = mutantstack
 
 SRCS = main.cpp
 
